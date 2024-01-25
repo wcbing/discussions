@@ -1,0 +1,421 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>炳的自留地 – markdown</title>
+    <link>/tags/markdown/</link>
+    <description>Recent content in markdown on 炳的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Markdwon 笔记（样式测试）</title>
+      <link>/blog/markdown/</link>
+      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/markdown/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;说明&lt;span class=&#34;absolute -mt-20&#34; id=&#34;说明&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%af%b4%e6%98%8e&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;边学边写，所以一边学着后面就顺便将前文格式改了改，把这当作学习笔记了。
+现在又变成博客样式测试文章了😁&lt;/p&gt;
+&lt;p&gt;因为Markdown没有明确规范，所以这里就只说一些基本用法。&lt;br&gt;
+本文在VS code上编写，一些效果默认情况下不能显示（不是基本语法），但在其他的在线编辑器上试过可以显示，已标明。
+建议学习时可以多看看英文资料，毕竟中文资料中可能有翻译错误或者加入了作者自己的想法。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;这里面是编辑器内的原形式
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这里面是演示效果&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;标题与正文&lt;span class=&#34;absolute -mt-20&#34; id=&#34;标题与正文&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%a0%87%e9%a2%98%e4%b8%8e%e6%ad%a3%e6%96%87&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;换行与换段&lt;span class=&#34;absolute -mt-20&#34; id=&#34;换行与换段&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%8d%a2%e8%a1%8c%e4%b8%8e%e6%8d%a2%e6%ae%b5&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;正文可以直接写。&lt;br&gt;
+两个及以上空格再回车表示换行，空一行及以上表示换段。&lt;/p&gt;
+&lt;h3&gt;换行&lt;span class=&#34;absolute -mt-20&#34; id=&#34;换行&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%8d%a2%e8%a1%8c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;使用&lt;code&gt;#&lt;/code&gt;，一级标题为一个&lt;code&gt;#&lt;/code&gt;，二级标题为两个&lt;code&gt;#&lt;/code&gt;，以此类推，可表示 1-6 级标题。&lt;br&gt;
+或使用&lt;code&gt;=&lt;/code&gt;和&lt;code&gt;-&lt;/code&gt;并换行标记一级和二级标题（备用方案）。&lt;br&gt;
+为了显示效果引用了一下。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## 一级标题
+### 二级标题
+#### 三级标题
+##### 四级标题
+......
+这是正文  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;h2&gt;一级标题&lt;span class=&#34;absolute -mt-20&#34; id=&#34;一级标题&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%b8%80%e7%ba%a7%e6%a0%87%e9%a2%98&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;二级标题&lt;span class=&#34;absolute -mt-20&#34; id=&#34;二级标题&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%ba%8c%e7%ba%a7%e6%a0%87%e9%a2%98&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;三级标题&lt;span class=&#34;absolute -mt-20&#34; id=&#34;三级标题&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%b8%89%e7%ba%a7%e6%a0%87%e9%a2%98&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;h5&gt;四级标题&lt;span class=&#34;absolute -mt-20&#34; id=&#34;四级标题&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%9b%9b%e7%ba%a7%e6%a0%87%e9%a2%98&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;&amp;hellip;&amp;hellip;&lt;br&gt;
+这是正文&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;另一种：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;一级标题
+==
+二级标题
+--
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h1&gt;一级标题&lt;/h1&gt;&lt;h2&gt;二级标题&lt;span class=&#34;absolute -mt-20&#34; id=&#34;二级标题-1&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%ba%8c%e7%ba%a7%e6%a0%87%e9%a2%98-1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;/blockquote&gt;
+&lt;h3&gt;分隔符&lt;span class=&#34;absolute -mt-20&#34; id=&#34;分隔符&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%88%86%e9%9a%94%e7%ac%a6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;由三个及以上&lt;code&gt;-&lt;/code&gt;/&lt;code&gt;*&lt;/code&gt;/&lt;code&gt;_&lt;/code&gt;构成的单行，其中可有空格&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;---
+- - -
+***
+* * *
+___
+_ _ _
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;字体效果&lt;span class=&#34;absolute -mt-20&#34; id=&#34;字体效果&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ad%97%e4%bd%93%e6%95%88%e6%9e%9c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;斜、黑体&lt;span class=&#34;absolute -mt-20&#34; id=&#34;斜黑体&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%96%9c%e9%bb%91%e4%bd%93&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;斜体：在其前后各加一个&lt;code&gt;*&lt;/code&gt;或&lt;code&gt;_&lt;/code&gt;&lt;br&gt;
+黑体：在其前后各加两个&lt;code&gt;*&lt;/code&gt;或&lt;code&gt;_&lt;/code&gt;&lt;br&gt;
+斜黑体：在其前后各加三个&lt;code&gt;*&lt;/code&gt;或&lt;code&gt;_&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;正常文字  
+*斜体*_文字_  
+**黑体**__文字__  
+***斜黑体***___文字___
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;正常文字&lt;br&gt;
+&lt;em&gt;斜体&lt;/em&gt;&lt;em&gt;文字&lt;/em&gt;&lt;br&gt;
+&lt;strong&gt;黑体&lt;/strong&gt;&lt;strong&gt;文字&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;&lt;strong&gt;斜黑体&lt;/strong&gt;&lt;/em&gt;&lt;em&gt;&lt;strong&gt;文字&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;最好用&lt;code&gt;*&lt;/code&gt;不用&lt;code&gt;_&lt;/code&gt;&lt;br&gt;
+也可将斜黑体表示为&lt;code&gt;__*1*__&lt;/code&gt;或&lt;code&gt;**_2_**&lt;/code&gt;(VS code并不支持)：__&lt;em&gt;1&lt;/em&gt;__或**&lt;em&gt;2&lt;/em&gt;**&lt;/p&gt;
+&lt;h3&gt;删除线&lt;span class=&#34;absolute -mt-20&#34; id=&#34;删除线&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%88%a0%e9%99%a4%e7%ba%bf&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;在其前后各加&lt;code&gt;~~&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;~~这是删除线测试~~
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;这是删除线测试&lt;/del&gt;&lt;/p&gt;
+&lt;h3&gt;高亮（VS code里无效果）&lt;span class=&#34;absolute -mt-20&#34; id=&#34;高亮vs-code里无效果&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e9%ab%98%e4%ba%aevs-code%e9%87%8c%e6%97%a0%e6%95%88%e6%9e%9c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;在其前后各加&lt;code&gt;==&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;==这是高亮==
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;==这是高亮==&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;列表&lt;span class=&#34;absolute -mt-20&#34; id=&#34;列表&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%88%97%e8%a1%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;有序列表&lt;span class=&#34;absolute -mt-20&#34; id=&#34;有序列表&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%9c%89%e5%ba%8f%e5%88%97%e8%a1%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;数字加&lt;code&gt;.&lt;/code&gt;加一个空格&lt;br&gt;
+可嵌套，若嵌套在前面加四个空格（一个Tab）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1. 一级
+    1. 二级
+        1. 三级
+        2. 三级
+   2. 二级
+2. 一级
+3.一级
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;一级
+&lt;ol&gt;
+&lt;li&gt;二级
+&lt;ol&gt;
+&lt;li&gt;三级&lt;/li&gt;
+&lt;li&gt;三级&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;二级&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;一级&lt;/li&gt;
+&lt;li&gt;一级&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;数字不必按数字顺序排列，但列表会以数字顺序开始。测试一下&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1. 测试
+    1. 序号不按前面数字而是自动变？
+    1. 确实自动啊，估计怕不同级别的序号出现混乱
+    1. 那我是不是可以在哪一级就用哪一数字（滑稽）
+2. 一级
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;测试
+&lt;ol&gt;
+&lt;li&gt;下一级&lt;/li&gt;
+&lt;li&gt;序号好像不按前面数字而是自动变&lt;/li&gt;
+&lt;li&gt;确实自动啊，估计怕不同级别的序号出现混乱&lt;/li&gt;
+&lt;li&gt;那我是不是可以在哪一级就用哪一数字（滑稽）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;一级&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;无序列表&lt;span class=&#34;absolute -mt-20&#34; id=&#34;无序列表&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%97%a0%e5%ba%8f%e5%88%97%e8%a1%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;code&gt;*&lt;/code&gt;、&lt;code&gt;+&lt;/code&gt;或&lt;code&gt;-&lt;/code&gt;加一个空格&lt;br&gt;
+也可以嵌套&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- 一级
+    - 二级
+        - 三级
+    - 二级
+- 一级
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一级
+&lt;ul&gt;
+&lt;li&gt;二级
+&lt;ul&gt;
+&lt;li&gt;三级&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;二级&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;一级&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;再测试一下&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- - 直接二级
+- 三级
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;直接二级
+&lt;ul&gt;
+&lt;li&gt;三级&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;区块引用&lt;span class=&#34;absolute -mt-20&#34; id=&#34;区块引用&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%8c%ba%e5%9d%97%e5%bc%95%e7%94%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;在段落开头使用&lt;code&gt;&amp;gt;&lt;/code&gt;,然后加一个空格(非必需，为了防止有些不支持)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; 区块引用
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;区块引用&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;区块引用也可嵌套使用。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;gt; 1
+&amp;gt;&amp;gt; 2  
+3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;2&lt;br&gt;
+3&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在正文中引用后，换段效果不继续引用，换行继续引用。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;代码&lt;span class=&#34;absolute -mt-20&#34; id=&#34;代码&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%bb%a3%e7%a0%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;可以保留原格式，效果为阴影背景&lt;/p&gt;
+&lt;h3&gt;1)行内代码&lt;span class=&#34;absolute -mt-20&#34; id=&#34;1行内代码&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1%e8%a1%8c%e5%86%85%e4%bb%a3%e7%a0%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;可以在前后各加一个及以上&lt;code&gt;`&lt;/code&gt;（反引号，Tab键上面的那个）来表示，但是要几个开始几个结束&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;这是`行内代码`演示
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这是&lt;code&gt;行内代码&lt;/code&gt;演示&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;`` ` `` 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样就能打出`了，效果如下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;`&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;2)代码区块&lt;span class=&#34;absolute -mt-20&#34; id=&#34;2代码区块&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2%e4%bb%a3%e7%a0%81%e5%8c%ba%e5%9d%97&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;可以使用四个空格（一个Tab）&lt;br&gt;
+显示效果如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;这就是代码区块，记得要换段
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;也可以在前后各加单独由&lt;code&gt;```&lt;/code&gt;构成的一行表示，其后可指定语言。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;```C
+printf(&amp;quot;Hello World!&amp;quot;);
+```
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;行内代码只能显示一行，适合正文插入，区块适合多条语句。我觉得单独一行代码也可用来区块来表示强调。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;链接&lt;span class=&#34;absolute -mt-20&#34; id=&#34;链接&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e9%93%be%e6%8e%a5&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;1.形式为&lt;code&gt;[链接名称](链接地址)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[百度](https://www.baidu.com)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.baidu.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;百度&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.或者使用&lt;code&gt;&amp;lt;链接地址&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;https://www.baidu.com&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.baidu.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.baidu.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;3.或者直接使用链接地址&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://www.baidu.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.baidu.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.baidu.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;4.参考样式链接&lt;/p&gt;
+&lt;p&gt;由两部分组成。第一部分&lt;code&gt;[链接名称][标签]&lt;/code&gt;&lt;br&gt;
+第二部分&lt;code&gt;[标签]: 链接地址&lt;/code&gt;&lt;br&gt;
+其中第二部分可以放置于其他地方（不能在同一段内。）。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;这是一个[链接][1]
+
+[1]:https://www.baidu.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这是一个&lt;a href=&#34;https://www.baidu.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;链接&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;省略写法：&lt;/p&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code&gt;    这是一个[链接]
+ 
+    [链接]:https://www.baidu.com&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这是一个&lt;a href=&#34;https://www.baidu.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;链接&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;5.所以的链接都可以带上格式，如&lt;del&gt;&lt;a href=&#34;https://www.baidu.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.baidu.com&lt;/a&gt;&lt;/del&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;图片&lt;span class=&#34;absolute -mt-20&#34; id=&#34;图片&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%9b%be%e7%89%87&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;插入图片与链接类似，格式如下：&lt;code&gt;![代替文字](图片的本地地址或URL)&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;![Markdown](https://bkimg.cdn.bcebos.com/pic/d009b3de9c82d158ccbf98bc1b430ed8bc3eb135e42e)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://bkimg.cdn.bcebos.com/pic/d009b3de9c82d158ccbf98bc1b430ed8bc3eb135e42e&#34; alt=&#34;Markdown&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;图片也可以添加链接(就是将链接名称换成图片)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;[![Markdown](https://bkimg.cdn.bcebos.com/pic/d009b3de9c82d158ccbf98bc1b430ed8bc3eb135e42e)](https://baike.baidu.com/item/markdown)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;https://baike.baidu.com/item/markdown&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;https://bkimg.cdn.bcebos.com/pic/d009b3de9c82d158ccbf98bc1b430ed8bc3eb135e42e&#34; alt=&#34;Markdown&#34; loading=&#34;lazy&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;脚注（VS code里无效果）&lt;span class=&#34;absolute -mt-20&#34; id=&#34;脚注vs-code里无效果&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%84%9a%e6%b3%a8vs-code%e9%87%8c%e6%97%a0%e6%95%88%e6%9e%9c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;格式：&lt;code&gt;[^要注明的内容]&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;这是要标注的[^内容]  
+[^内容]:一个标注
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;p&gt;这是要标注的&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;表格&lt;span class=&#34;absolute -mt-20&#34; id=&#34;表格&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%a1%a8%e6%a0%bc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;使用&lt;code&gt;|&lt;/code&gt;分隔每一行的单元格，用&lt;code&gt;-&lt;/code&gt;分隔表头与数据。&lt;/p&gt;
+&lt;p&gt;表格对齐方式：&lt;br&gt;
+设置内容和标题栏居右对齐&lt;code&gt;-:&lt;/code&gt;。&lt;br&gt;
+设置内容和标题栏居左对齐&lt;code&gt;:-&lt;/code&gt;。&lt;br&gt;
+设置内容和标题栏居中对齐&lt;code&gt;:-:&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;|表头1|表头2|表头3|
+|:-:|-:|:-|
+|1|2|3|
+|1|2|3|
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;表头1&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;表头2&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;表头3&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2&gt;转义字符&lt;span class=&#34;absolute -mt-20&#34; id=&#34;转义字符&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%bd%ac%e4%b9%89%e5%ad%97%e7%ac%a6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;特殊符号可以用转义字符显示，及前面加&lt;code&gt;\&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;**加粗**  
+\*\*不加粗\*\*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;加粗&lt;/strong&gt;&lt;br&gt;
+**不加粗**&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;支持转义的字符：
+\   反斜线
+`   反引号
+*   星号
+_   下划线
+{}  花括号
+[]  方括号
+&amp;lt;&amp;gt;  尖括号
+()  小括号
+##   井字号
++   加号
+-   减号
+.   英文句点
+!   感叹号
+|   竖线符号
+&lt;/code&gt;&lt;/pre&gt;
+&lt;hr&gt;
+&lt;h2&gt;LaTex公式&lt;span class=&#34;absolute -mt-20&#34; id=&#34;latex公式&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#latex%e5%85%ac%e5%bc%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;用&lt;code&gt;$&lt;/code&gt; &lt;code&gt;$&lt;/code&gt;包围的为行内的公式，用&lt;code&gt;$$&lt;/code&gt; &lt;code&gt;$$&lt;/code&gt;包围的为居中的公式块&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$2^{10} = 1024$
+$$\sum_{n = 0}^{100} n = (100 + 0) + (99 + 1) + ... +  55 = 55 × 100 + 55 = 5555}$$
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：
+$2^{10} = 1024$
+$$\sum_{n = 0}^{100} n = (100 + 0) + (99 + 1) + &amp;hellip; +  55 = 55 × 100 + 55 = 5555$$&lt;/p&gt;
+&lt;p&gt;这个具体语法就不详细介绍了。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;HTML&lt;span class=&#34;absolute -mt-20&#34; id=&#34;html&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#html&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;HTML中的标签可以直接在Markdown中使用，举个例子。&lt;/p&gt;
+&lt;h3&gt;下划线&lt;span class=&#34;absolute -mt-20&#34; id=&#34;下划线&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%b8%8b%e5%88%92%e7%ba%bf&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;HTML中的&lt;code&gt;&amp;lt;u&amp;gt;&lt;/code&gt;和&lt;code&gt;&amp;lt;/u&amp;gt;&lt;/code&gt;标签&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;u&amp;gt;这是下划线测试&amp;lt;/u&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;效果如下：&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;这是下划线测试&lt;/u&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;一个标注&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

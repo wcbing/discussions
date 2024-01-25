@@ -1,0 +1,107 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>炳的自留地 – R</title>
+    <link>/tags/r/</link>
+    <description>Recent content in R on 炳的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 31 Oct 2023 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>「Code」R</title>
+      <link>/vscode/r/</link>
+      <pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/vscode/r/</guid>
+      <description>
+        
+        
+        &lt;!-- more --&gt;
+&lt;hr&gt;
+&lt;h2&gt;0. VS Code安装及使用&lt;span class=&#34;absolute -mt-20&#34; id=&#34;0-vs-code安装及使用&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#0-vs-code%e5%ae%89%e8%a3%85%e5%8f%8a%e4%bd%bf%e7%94%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;下文必看！&lt;/strong&gt; 下载安装VS Code、基本使用等等&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/vscode/vscode/&#34; &gt;「Code」安装与基本操作&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;1. R 安装配置&lt;span class=&#34;absolute -mt-20&#34; id=&#34;1-r-安装配置&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-r-%e5%ae%89%e8%a3%85%e9%85%8d%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;R 下载安装&lt;span class=&#34;absolute -mt-20&#34; id=&#34;r-下载安装&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#r-%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;在 &lt;a href=&#34;https://cloud.r-project.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R 官网&lt;/a&gt; 下载安装。&lt;/p&gt;
+&lt;p&gt;国内下载慢可以在 &lt;a href=&#34;https://mirrors.cernet.edu.cn/app/R&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R - 校园网联合镜像站&lt;/a&gt; 中下载，或在 &lt;a href=&#34;https://mirrors.cernet.edu.cn/list/CRAN&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CRAN - 校园网联合镜像站&lt;/a&gt; 中任选一个。&lt;/p&gt;
+&lt;h3&gt;CRAN 换源&lt;span class=&#34;absolute -mt-20&#34; id=&#34;cran-换源&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#cran-%e6%8d%a2%e6%ba%90&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;要换源请阅读：&lt;a href=&#34;https://help.mirrors.cernet.edu.cn/CRAN/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CRAN 镜像使用帮助&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;上面只说了 &lt;code&gt;.Rprofile&lt;/code&gt; 在 Linux 上位于 &lt;code&gt;~&lt;/code&gt;，自己从 &lt;a href=&#34;https://stackoverflow.com/questions/46819684/how-to-access-and-edit-rprofile&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;r - How to access and edit Rprofile? - Stack Overflow&lt;/a&gt; 回答中找到“通用打开方法”，测试出 Windows 上应该在 &lt;code&gt;%USERPROFILE%\Documents&lt;/code&gt; 也就是 &lt;code&gt;C:\User\[username]\Documents&lt;/code&gt;。
+&lt;del&gt;等我有时间向 MirrorZ 和 sjtug 提 PR&lt;/del&gt;向 MirrorZ 和 sjtug 提 PR 已合并&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;2. 安装扩展和 LSP&lt;span class=&#34;absolute -mt-20&#34; id=&#34;2-安装扩展和-lsp&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-%e5%ae%89%e8%a3%85%e6%89%a9%e5%b1%95%e5%92%8c-lsp&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;在 VS Code 中搜索安装 &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=REditorSupport.r&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R&lt;/a&gt; 和 &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=RDebugger.r-debugger&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R Debugger&lt;/a&gt; 两个扩展。&lt;/p&gt;
+&lt;p&gt;安装后会提示安装一个名叫 &lt;code&gt;Languageserver&lt;/code&gt; 的 R 包：
+&lt;img src=&#34;/imgs/vscode/r/r-languageserver.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;点击 &lt;code&gt;Yes&lt;/code&gt; 安装。如果提示因权限问题导致失败，请自行在 R Terminal 中执行：&lt;/p&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;install.packages&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;languageserver&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;随后根据提示确认安装。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;3. 测试&lt;span class=&#34;absolute -mt-20&#34; id=&#34;3-测试&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-%e6%b5%8b%e8%af%95&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;新建一个 &lt;code&gt;.R&lt;/code&gt; 文件并写入以下内容。点击右上角的运行按钮测试能否正常运行。&lt;/p&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 数据准备&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;info&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 命名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;names&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Google&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Runoob&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Taobao&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Weibo&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 涂色（可选）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;cols&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;#ED1C24&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;#22B14C&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;#FFC90E&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;#3f48CC&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 绘图&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;pie&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;info&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;labels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;names&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;col&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cols&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;样例来源：&lt;a href=&#34;https://www.runoob.com/r/r-pie-charts.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R 绘图 - 饼图&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;4. Jupyter 支持&lt;span class=&#34;absolute -mt-20&#34; id=&#34;4-jupyter-支持&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#4-jupyter-%e6%94%af%e6%8c%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;打开 R Terminal，执行如下命令：&lt;/p&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;install.packages&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;IRkernel&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;IRkernel&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;installspec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;之后就可以使用 Jupyter Notebook 中编写 R 程序了。&lt;/p&gt;
+&lt;p&gt;第二行出错可以参考：&lt;a href=&#34;https://stackoverflow.com/questions/53101645/cannot-get-irkernelinstallspec-to-work-jupyter-client-not-visible&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;r - Cannot get IRkernel::installspec() to work, jupyter-client not visible - Stack Overflow&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;另可参考官方文档：&lt;a href=&#34;https://code.visualstudio.com/docs/languages/r&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R in Visual Studio Code&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

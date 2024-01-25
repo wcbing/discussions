@@ -1,0 +1,206 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>炳的自留地 – 浏览器</title>
+    <link>/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/</link>
+    <description>Recent content in 浏览器 on 炳的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 24 Oct 2022 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Firefox下载</title>
+      <link>/software/browsers/firefox/</link>
+      <pubDate>Mon, 24 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/software/browsers/firefox/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;前言&lt;span class=&#34;absolute -mt-20&#34; id=&#34;前言&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%89%8d%e8%a8%80&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;/imgs/software/firefox-start.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Firefox是开源、自由软件，旨在保护隐私，其由Mozilla开发，前身是世界上第一个浏览器。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;它是现在极少数非 Chromuim 内核的浏览器，也是除了新Edge和Chrome外同步功能最方便的&lt;strong&gt;跨平台&lt;/strong&gt;浏览器（尤其是国内国内google被墙的情况下）。&lt;/p&gt;
+&lt;p&gt;Firefox分为国际版（Mozilla运营）和国内版（北京谋智运营），&lt;strong&gt;两者数据不互通&lt;/strong&gt;，请一定注意。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;桌面端（Windows、Linux、macOS）&lt;span class=&#34;absolute -mt-20&#34; id=&#34;桌面端windowslinuxmacos&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%a1%8c%e9%9d%a2%e7%ab%afwindowslinuxmacos&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;直接去官网下载即可，手机端（Android、IOS）推荐的安装方式都是在应用商店下载，所以官网没有手机端下载链接。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;国内版（北京谋智）：&lt;a href=&#34;https://firefox.com.cn&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://firefox.com.cn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;国际版（Mozilla）：&lt;a href=&#34;https://firefox.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://firefox.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在首页的“下载 Firefox”下方有个“&lt;a href=&#34;https://www.mozilla.org/zh-CN/firefox/all/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;下载其他平台和语言版本&lt;/a&gt;”，可以找到所有桌面平台的所有版本，包括正式版、Beta版等。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;手机端（Android）&lt;span class=&#34;absolute -mt-20&#34; id=&#34;手机端android&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%89%8b%e6%9c%ba%e7%ab%afandroid&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;国际版&lt;span class=&#34;absolute -mt-20&#34; id=&#34;国际版&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%9b%bd%e9%99%85%e7%89%88&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Firefox for Android，代号fenix。&lt;/p&gt;
+&lt;p&gt;国际版官方的下载渠道是 Play 商店，但它被墙了。不过幸好，开发者也在其他地方上传了预编译的程序。下面都是正式版的链接，beta、nightly等可以点进去找上级目录。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;FirefoxCI，FFUpdater上发现的，这个我试着最快：&lt;a href=&#34;https://firefox-ci-tc.services.mozilla.com/tasks/index/mobile.v3.firefox-android.apks.fenix-release.latest&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;链接&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;以前最常用的Mozilla FTP服务器，但这个找起来稍微麻烦点：&lt;a href=&#34;https://ftp.mozilla.org/pub/fenix/releases/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;链接&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Github，这个下载最慢，但是可以留着提Issues啊：&lt;a href=&#34;https://github.com/mozilla-mobile/fenix/releases/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;链接&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;国内版&lt;span class=&#34;absolute -mt-20&#34; id=&#34;国内版&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%9b%bd%e5%86%85%e7%89%88&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;国内应用商店都是国内版。&lt;/p&gt;
+&lt;p&gt;注：如果不嫌弃的话，下载国内版也是能与国际版同步的，关闭设置内“本地服务”即可（如下图选项）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;/imgs/software/firefox-cn.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;其他&lt;span class=&#34;absolute -mt-20&#34; id=&#34;其他&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%85%b6%e4%bb%96&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;另外Firefox有很多第三方版本，比如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/fork-maintainers/iceraven-browser&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Iceraven&lt;/a&gt;
+一个第三方修改版，支持更多扩展。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Android版出于兼容性考虑，不能从网页安装扩展，只能依靠指定的扩展集，安装其中的扩展。官方扩展集内扩展较少，且正式版无法更换。而Beta/Nightly或第三方的Iceraven（已内置一个比较丰富的）等可以自定义扩展集。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2&gt;价值观&lt;span class=&#34;absolute -mt-20&#34; id=&#34;价值观&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%bb%b7%e5%80%bc%e8%a7%82&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.mozilla.org/zh-CN/firefox/features/independent/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Firefox：造反有理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;星星之火，正将燎原&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.mozilla.org/zh-CN/about/manifesto/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mozilla 宣言&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Mozilla的使命：为所有人保持健康、开放且无障碍的互联网。&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>浏览器扩展与用户脚本</title>
+      <link>/software/browsers/ext-us/</link>
+      <pubDate>Fri, 21 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/software/browsers/ext-us/</guid>
+      <description>
+        
+        
+        &lt;p&gt;浏览器扩展与用户脚本的介绍和推荐&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;hr&gt;
+&lt;h2&gt;浏览器扩展&lt;span class=&#34;absolute -mt-20&#34; id=&#34;浏览器扩展&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%b5%8f%e8%a7%88%e5%99%a8%e6%89%a9%e5%b1%95&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;我觉得这个就不用介绍了吧。不过提一下，这叫扩展，不叫插件。浏览器插件是另外的东西。&lt;/p&gt;
+&lt;h3&gt;某些推荐扩展&lt;span class=&#34;absolute -mt-20&#34; id=&#34;某些推荐扩展&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%9f%90%e4%ba%9b%e6%8e%a8%e8%8d%90%e6%89%a9%e5%b1%95&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;翻译&lt;span class=&#34;absolute -mt-20&#34; id=&#34;翻译&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%bf%bb%e8%af%91&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Google 中国关停翻译情况下为数不多的支持网页翻译的。支持划词翻译和整页/双语对照翻译。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;腾讯翻译：&lt;a href=&#34;https://addons.mozilla.org/zh-CN/firefox/addon/%E8%85%BE%E8%AE%AF%E7%BF%BB%E8%AF%91/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;火狐&lt;/a&gt; | &lt;a href=&#34;https://chrome.google.com/webstore/detail/%E8%85%BE%E8%AE%AF%E7%BF%BB%E8%AF%91/lkjkfecdnfjopaeaibboihfkmhdjmanm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Chrome&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;去广告&lt;span class=&#34;absolute -mt-20&#34; id=&#34;去广告&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%8e%bb%e5%b9%bf%e5%91%8a&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;最推荐的是 uBlock Origin，Adguard 好像用的人也不少。&lt;br&gt;
+因为(SB)优酷把北京谋智告了，要求中国区下架所有去广告扩展，国内的Firefox 可能安装不了。可以去Github下载。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/gorhill/uBlock/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;uBlock Origin - Github&lt;/a&gt;（Firefox选不带Lite的）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/AdguardTeam/AdguardBrowserExtension/releases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Adguard - Github&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;FireFox增强扩展&lt;span class=&#34;absolute -mt-20&#34; id=&#34;firefox增强扩展&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#firefox%e5%a2%9e%e5%bc%ba%e6%89%a9%e5%b1%95&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;北京谋智出品增强扩展，国内版自带。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://mozilla.com.cn/thread-319507-1-1.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;标签页优化 - 火狐社区&lt;/a&gt;&lt;br&gt;
+作用：双击关团当前标签页；紧临当前标签页打开新标签页；在新标签页中打开书签、搜索结果……&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://mozilla.com.cn/thread-343905-1-1.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;附加组件管理器 - 火狐社区&lt;/a&gt;&lt;br&gt;
+作用：拖拽手势；地址栏二维码；自动清除三个月以前的历史记录；恢复关闭的标签页快捷按钮&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;手机上支持扩展的浏览器&lt;span class=&#34;absolute -mt-20&#34; id=&#34;手机上支持扩展的浏览器&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%89%8b%e6%9c%ba%e4%b8%8a%e6%94%af%e6%8c%81%e6%89%a9%e5%b1%95%e7%9a%84%e6%b5%8f%e8%a7%88%e5%99%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Firfox系&lt;br&gt;
+请看左边《Firefox下载》，不再重复。最好自建扩展集。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Chromium系&lt;br&gt;
+可以配合下方离线扩展商店使用&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://lemurbrowser.com/app/zh/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;狐猴浏览器&lt;/a&gt;&lt;br&gt;
+国内开发，能方便地从 Edge 的扩展商店安装扩展，可以试试。&lt;/li&gt;
+&lt;li&gt;Kiwi Browser&lt;/li&gt;
+&lt;li&gt;Yandex Browser&lt;br&gt;
+俄罗斯搜索引擎出品，印象中没简中翻译，而且比较卡。反正先用上面的吧。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Chromuim系离线扩展商店&lt;span class=&#34;absolute -mt-20&#34; id=&#34;chromuim系离线扩展商店&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#chromuim%e7%b3%bb%e7%a6%bb%e7%ba%bf%e6%89%a9%e5%b1%95%e5%95%86%e5%ba%97&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://chrome.zzzmh.cn&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;极简插件_Chrome扩展插件商店_优质crx应用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.extfans.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Chrome插件,谷歌浏览器插件下载-扩展迷&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;用户脚本（UserScript）&lt;span class=&#34;absolute -mt-20&#34; id=&#34;用户脚本userscript&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%94%a8%e6%88%b7%e8%84%9a%e6%9c%acuserscript&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;脚本及脚本管理器&lt;span class=&#34;absolute -mt-20&#34; id=&#34;脚本及脚本管理器&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%84%9a%e6%9c%ac%e5%8f%8a%e8%84%9a%e6%9c%ac%e7%ae%a1%e7%90%86%e5%99%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;脚本管理器是一种浏览器扩展，用来允许用户在网页中加载特定的程序代码，那些加载的代码就是用户脚本（UserScript）。更具体的说脚本其实就是JS（JavaScript）代码。&lt;/p&gt;
+&lt;p&gt;用户脚本平时大多简称脚本，又叫浏览器脚本。还有人叫油猴脚本，因为油猴是第一个脚本管理器。很多人说的“油猴” - TamperMonkey 应该叫篡改猴，不是油猴，麻烦浪费2秒翻译一下。同上，脚本，不叫插件。&lt;br&gt;
+（2023 更新）写了一篇文章：&lt;a href=&#34;/blog/tempermonkey/&#34; &gt;给 TamperMonkey 正名 - “我叫篡改猴” &lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/imgs/software/running.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;因为有时候需要手机上浏览也需要一些脚本来优化阅读，所以我用的浏览器有个要求就是能装脚本。而套壳浏览器如Via、X等，虽然声称支持油猴函数等，但还是有些脚本不能被支持，如 &lt;a href=&#34;https://greasyfork.org/zh-CN/scripts/435208-github-%E4%B8%AD%E6%96%87%E5%8C%96%E6%8F%92%E4%BB%B6&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub 中文化插件&lt;/a&gt; （2023 更新，现已支持）。所以最近两年转向了支持扩展的 Firefox。&lt;/p&gt;
+&lt;h3&gt;脚本托管网站&lt;span class=&#34;absolute -mt-20&#34; id=&#34;脚本托管网站&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%84%9a%e6%9c%ac%e6%89%98%e7%ae%a1%e7%bd%91%e7%ab%99&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://greasyfork.org/zh-CN&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Greasy Fork - 安全、实用的用户脚本大全&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://scriptcat.org/search&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;用户脚本列表 - 脚本猫&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>浏览器内核及UA</title>
+      <link>/software/browsers/kernel-ua/</link>
+      <pubDate>Fri, 21 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/software/browsers/kernel-ua/</guid>
+      <description>
+        
+        
+        &lt;p&gt;什么叫浏览器内核以及 UA（UserAgent）&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;hr&gt;
+&lt;h2&gt;浏览器内核介绍&lt;span class=&#34;absolute -mt-20&#34; id=&#34;浏览器内核介绍&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%b5%8f%e8%a7%88%e5%99%a8%e5%86%85%e6%a0%b8%e4%bb%8b%e7%bb%8d&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;浏览器内核分为两部分：渲染引擎和JS引擎。由于JS引擎越来越独立，内核就倾向于只指渲染引擎。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;浏览器大战 - 奔跑中的奶酪
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.runningcheese.com/browser-war&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;人类早期网上冲浪珍贵资料：第一次浏览器大战 - 奔跑中的奶酪&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.runningcheese.com/browser-war-2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;人类早期网上冲浪珍贵资料：第二次浏览器大战 - 奔跑中的奶酪&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ghxi.com/ghvideo15.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;【果核视频】浏览器内核发展编年史&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;看图可能更清楚（图源老殁，有一些小错误）
+&lt;img src=&#34;/imgs/software/laomo.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;UA（UserAgent）介绍及检测&lt;span class=&#34;absolute -mt-20&#34; id=&#34;uauseragent介绍及检测&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#uauseragent%e4%bb%8b%e7%bb%8d%e5%8f%8a%e6%a3%80%e6%b5%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;访问互联网内容时我们看到的并不是原始内容，而是浏览器等获取给我们渲染后的结果。这些浏览器等就是我们的用户代理（UserAgent）。对服务器来说，UA 是决定要交付什么样内容的很重要的参考，所以我们访问这些服务器时，也会告诉其我们的 User-Agent 值。&lt;/p&gt;
+&lt;p&gt;UA 其实就是浏览器（或其他客户端）的“身份码”。其历史可看：&lt;a href=&#34;https://www.runningcheese.com/useragent&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;互联网的“套娃行为”有多凶残? - 奔跑中的奶酪&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在任意界面按下F12打开开发者模式，切换到终端，输入如下内容即可查看浏览器UA。&lt;/p&gt;
+&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-JS&#34; data-lang=&#34;JS&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;alert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;navigator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;userAgent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
+    &lt;button
+      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
+      title=&#34;Copy code&#34;
+    &gt;
+      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;在线检测：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.ip33.com/browser.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;在线浏览器检测_ip33.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ie.icoa.cn/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;浏览器内核检测工具 Browser kernel v2.1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;……这种太多啦&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
