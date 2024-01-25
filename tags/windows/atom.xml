@@ -1,13 +1,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>炳的自留地 – Windows</title>
-    <link>/software/windows/</link>
+    <link>/tags/windows/</link>
     <description>Recent content in Windows on 炳的自留地</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 05 Oct 2022 00:00:00 +0000</lastBuildDate>
     
-	  <atom:link href="/software/windows/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/tags/windows/atom.xml" rel="self" type="application/rss+xml" />
     
     
       

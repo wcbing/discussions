@@ -1,149 +1,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>炳的自留地 – Blog</title>
-    <link>/blog/</link>
-    <description>Recent content in Blog on 炳的自留地</description>
+    <title>炳的自留地 – markdown</title>
+    <link>/tags/markdown/</link>
+    <description>Recent content in markdown on 炳的自留地</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 15 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 25 Jan 2021 00:00:00 +0000</lastBuildDate>
     
-	  <atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/tags/markdown/atom.xml" rel="self" type="application/rss+xml" />
     
     
       
         
       
     
-    
-    <item>
-      <title>地区语言代码</title>
-      <link>/blog/region_lang_code/</link>
-      <pubDate>Thu, 15 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/region_lang_code/</guid>
-      <description>
-        
-        
-        &lt;h2&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%9C%8B%E5%AE%B6%E5%9C%B0%E5%8D%80%E4%BB%A3%E7%A2%BC&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;国家地区代码&lt;/a&gt;&lt;span class=&#34;absolute -mt-20&#34; id=&#34;国家地区代码httpszhwikipediaorgwikie59c8be5aeb6e59cb0e58d80e4bba3e7a2bc&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e5%9b%bd%e5%ae%b6%e5%9c%b0%e5%8c%ba%e4%bb%a3%e7%a0%81httpszhwikipediaorgwikie59c8be5aeb6e59cb0e58d80e4bba3e7a2bc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;ISO标准国家代码 - &lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_3166-1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 3166&lt;/a&gt;&lt;span class=&#34;absolute -mt-20&#34; id=&#34;iso标准国家代码---iso-3166httpszhwikipediaorgwikiiso_3166-1&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#iso%e6%a0%87%e5%87%86%e5%9b%bd%e5%ae%b6%e4%bb%a3%e7%a0%81---iso-3166httpszhwikipediaorgwikiiso_3166-1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;形如：CN&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;分为3种，即&lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_3166-1%E4%BA%8C%E4%BD%8D%E5%AD%97%E6%AF%8D%E4%BB%A3%E7%A0%81&#34; title=&#34;ISO 3166-1二位字母代码&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;二位字母代码&lt;/a&gt;（alpha-2）、&lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_3166-1%E4%B8%89%E4%BD%8D%E5%AD%97%E6%AF%8D%E4%BB%A3%E7%A0%81&#34; title=&#34;ISO 3166-1三位字母代码&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;三位字母代码&lt;/a&gt;（alpha-3）、&lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_3166-1%E6%95%B0%E5%AD%97%E4%BB%A3%E7%A0%81&#34; title=&#34;ISO 3166-1数字代码&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;数字代码&lt;/a&gt;（numeric）。其中，二位字母代码适用于通常情况，三位字母代码较接近国家名称，而数字代码则适用于非拉丁字母环境中。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E4%BA%92%E8%81%94%E7%BD%91%E9%A1%B6%E7%BA%A7%E5%9F%9F%E5%88%97%E8%A1%A8#%E5%9B%BD%E5%AE%B6%E6%88%96%E5%9C%B0%E5%8D%80%E9%A0%82%E7%B4%9A%E5%9F%9F&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;国家顶级域&lt;/a&gt;&lt;span class=&#34;absolute -mt-20&#34; id=&#34;国家顶级域httpszhwikipediaorgwikie4ba92e88194e7bd91e9a1b6e7baa7e59f9fe58897e8a1a8e59bbde5aeb6e68896e59cb0e58d80e9a082e7b49ae59f9f&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e5%9b%bd%e5%ae%b6%e9%a1%b6%e7%ba%a7%e5%9f%9fhttpszhwikipediaorgwikie4ba92e88194e7bd91e9a1b6e7baa7e59f9fe58897e8a1a8e59bbde5aeb6e68896e59cb0e58d80e9a082e7b49ae59f9f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;形如：.cn&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;2字母国家代码顶级域的DNS名称。它们遵循ISO 3166-1两字母代码，除了个别一些例外：“.ac”用于阿森松岛、“.eu”用于欧盟或英国选用“.uk”而非“.gb”。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h2&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E8%AA%9E%E8%A8%80%E4%BB%A3%E7%A2%BC&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;语言代码&lt;/a&gt;&lt;span class=&#34;absolute -mt-20&#34; id=&#34;语言代码httpszhwikipediaorgwikie8aa9ee8a880e4bba3e7a2bc&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e8%af%ad%e8%a8%80%e4%bb%a3%e7%a0%81httpszhwikipediaorgwikie8aa9ee8a880e4bba3e7a2bc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;ISO标准语言代码 - &lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_639-1%E4%BB%A3%E7%A0%81%E8%A1%A8&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 639&lt;/a&gt;&lt;span class=&#34;absolute -mt-20&#34; id=&#34;iso标准语言代码---iso-639httpszhwikipediaorgwikiiso_639-1e4bba3e7a081e8a1a8&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#iso%e6%a0%87%e5%87%86%e8%af%ad%e8%a8%80%e4%bb%a3%e7%a0%81---iso-639httpszhwikipediaorgwikiiso_639-1e4bba3e7a081e8a1a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;形如：zh、zho&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_639&#34; title=&#34;ISO 639&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 639&lt;/a&gt;&lt;/strong&gt; 是为语言分类的设计的一套标准代码。每种语言都被分配了两个字母（639-1）或三个字母（639-2 和 639-3）的小写代码。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/IETF%E8%AA%9E%E8%A8%80%E6%A8%99%E7%B1%A4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IETF语言标签&lt;/a&gt;&lt;span class=&#34;absolute -mt-20&#34; id=&#34;ietf语言标签httpszhwikipediaorgwikiietfe8aa9ee8a880e6a899e7b1a4&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#ietf%e8%af%ad%e8%a8%80%e6%a0%87%e7%ad%behttpszhwikipediaorgwikiietfe8aa9ee8a880e6a899e7b1a4&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;形如：zh（中文）、zh-CN（大陆中文）、zh-Hans-CN（大陆简体中文）、yue / zh-yue（粤语）, cmn / zh-cmn（普通话）&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;IETF语言标签由&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E4%BA%92%E8%81%94%E7%BD%91%E5%B7%A5%E7%A8%8B%E4%BB%BB%E5%8A%A1%E7%BB%84&#34; title=&#34;互联网工程任务组&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;互联网工程任务组&lt;/a&gt;（IETF）的“&lt;a href=&#34;https://zh.wikipedia.org/w/index.php?title=%E6%9C%80%E4%BD%B3%E5%BD%93%E5%89%8D%E5%AE%9E%E8%B7%B5&amp;amp;action=edit&amp;amp;redlink=1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BCP&lt;/a&gt; 47”文档系列定义。现在标准化为RFC 5646（引用了相关的RFC 5645）与RFC 4647，&lt;em&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E4%BA%92%E8%81%94%E7%BD%91%E5%8F%B7%E7%A0%81%E5%88%86%E9%85%8D%E5%B1%80&#34; title=&#34;互联网号码分配局&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IANA&lt;/a&gt;语言子标签登记&lt;/em&gt;。使用的各成分来自&lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_639&#34; title=&#34;ISO 639&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 639&lt;/a&gt;、&lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_15924&#34; title=&#34;ISO 15924&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 15924&lt;/a&gt;、&lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_3166-1&#34; title=&#34;ISO 3166-1&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 3166-1&lt;/a&gt;以及&lt;a href=&#34;https://zh.wikipedia.org/wiki/UN_M.49&#34; title=&#34;UN M.49&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;UN M.49&lt;/a&gt;。
-IETF语言标签的最早版本是1995年3月发布的RFC 1766。使用ISO 639的2字母语言代码，ISO 3166的2字母国家地区代码，允许登记的标签携带variant或书写文字子标签。
-2001年1月发布RFC 3066, 使用ISO 639-2的3字母语言代码。
-2006年9月发布RFC 4646 (规范的主体)与RFC 4647 (处理匹配行为)。RFC 4646增加了使用ISO 15924 的4字母书写文字代码与UN M.49的3数字地理分区码。
-2009年9月发布RFC 5646，引入了3字符码的ISO 639-3与639-5作为语言子标签。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h2&gt;语言代码实例&lt;span class=&#34;absolute -mt-20&#34; id=&#34;语言代码实例&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e8%af%ad%e8%a8%80%e4%bb%a3%e7%a0%81%e5%ae%9e%e4%be%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Linux Locale&lt;span class=&#34;absolute -mt-20&#34; id=&#34;linux-locale&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#linux-locale&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;命名规则为：&lt;code&gt;language[_territory[.codeset]][@modifier]&lt;/code&gt;
-其中language是&lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_639-1&#34; title=&#34;ISO 639-1&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 639-1&lt;/a&gt;标准中定义的双字母的语言代码，territory是&lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_3166-1&#34; title=&#34;ISO 3166-1&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 3166-1&lt;/a&gt;标准中定义的双字母的国家和地区代码，codeset是字符集的名称 (如 UTF-8等)，而 modifier 则是某些 locale 变体的修正符。^[&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;区域设置 - 维基百科&lt;/a&gt;]&lt;/p&gt;
-&lt;p&gt;目前的 Debian 桌面 GUI（图形用户界面）系统通常在 GUI 环境中设置语言环境为 &lt;code&gt;LANG=xx_YY.UTF-8&lt;/code&gt;。这里，&lt;code&gt;xx&lt;/code&gt; 是 &lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_639-1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 639 语言代码&lt;/a&gt; ，&lt;code&gt;YY&lt;/code&gt; 是 &lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_3166-1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 3166 国家地区代码&lt;/a&gt; ^[&lt;a href=&#34;https://www.debian.org/doc/manuals/debian-reference/ch08.zh-cn.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;第 8 章 国际化和本地化&lt;/a&gt;]&lt;/p&gt;
-&lt;h3&gt;Windows 开发&lt;span class=&#34;absolute -mt-20&#34; id=&#34;windows-开发&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#windows-%e5%bc%80%e5%8f%91&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;语言字符串
-Windows 媒体格式 SDK 的多语言支持功能使用符合 RFC 1766 的语言字符串。^[&lt;a href=&#34;https://learn.microsoft.com/zh-cn/windows/win32/wmformat/language-strings&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Language Strings - Win32 apps|Microsoft Learn&lt;/a&gt;]&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;.NET
-类 &lt;a href=&#34;https://learn.microsoft.com/zh-cn/dotnet/api/system.globalization.cultureinfo?view=net-7.0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CultureInfo&lt;/a&gt; 根据 RFC 4646 为每个区域性指定唯一名称。 该名称是与语言关联的 ISO 639 双字母或三字母小写区域性代码和与国家或地区关联的 ISO 3166 双字母大写子区域性代码的组合。 此外，对于面向 .NET Framework 4 或更高版本且在 Windows 10 或更高版本下运行的应用，支持对应于有效 BCP-47 语言标记的区域性名称。
-基于 RFC 4646 的区域性名称的格式为 &lt;em&gt;&lt;code&gt;languagecode2&lt;/code&gt;&lt;/em&gt;-&lt;em&gt;&lt;code&gt;country/regioncode2&lt;/code&gt;&lt;/em&gt;，其中 &lt;em&gt;&lt;code&gt;languagecode2&lt;/code&gt;&lt;/em&gt; 是双字母语言代码， &lt;em&gt;&lt;code&gt;country/regioncode2&lt;/code&gt;&lt;/em&gt; 是双字母子区域性代码。^[&lt;a href=&#34;https://learn.microsoft.com/zh-cn/dotnet/api/system.globalization.cultureinfo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CultureInfo 类 (System.Globalization)|Microsoft Learn&lt;/a&gt;]&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;HTML lang 属性&lt;span class=&#34;absolute -mt-20&#34; id=&#34;html-lang-属性&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#html-lang-%e5%b1%9e%e6%80%a7&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;由 &lt;a href=&#34;https://www.ietf.org/rfc/bcp/bcp47.txt&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;用于定义语言的标签 (BCP47)&lt;/a&gt; IETF 文档定义。^[&lt;a href=&#34;https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/lang&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MDN&lt;/a&gt;]&lt;/p&gt;
-&lt;p&gt;BCP 47标准代替了早期使用的RFC 3066 与RFC 1766标准，且信息量远远超过了ISO语言与国家地区标准。您还应该使用IANA语言子标签注册表（IANA Language Subtag Registry）来改善语言标记，而非ISO标准。^[&lt;a href=&#34;https://www.w3.org/International/getting-started/language.zh-hans.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;W3C&lt;/a&gt;]&lt;/p&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>给 TamperMonkey 正名 - “我叫篡改猴”</title>
-      <link>/blog/tempermonkey/</link>
-      <pubDate>Thu, 06 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/tempermonkey/</guid>
-      <description>
-        
-        
-        &lt;p&gt;这也是我的一篇 &lt;a href=&#34;https://zhuanlan.zhihu.com/p/619671247&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;知乎文章&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;图片是知乎的外链，不会给我挂了吧&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;6.3：昨天在几个新闻上和Appinn频道看到了也就算了，今天在沙雕墙的频道看到了，好丢人&lt;br&gt;
-&lt;strong&gt;不许说名字难听&lt;/strong&gt;，不许说不如“窜天猴”，我找了好几个翻译都是这么翻的，奔跑中的奶酪那张图中还有一些文章都是这么叫的，我只是搬运工罢了。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://pic1.zhimg.com/v2-06762e31682fe91a1eecdec6127bd4d0_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;省流：官网之前一直没中文名，今年不知谁把官网上的“Tampermonkey”翻译为了“油猴”，我才和作者发邮件提出更改的。&lt;/p&gt;
-&lt;p&gt;至于这句“有些人也会把篡改猴(Tampermonkey)称作油猴(Greasemonkey)，尽管后者只是一款仅适用于 Firefox 浏览器的浏览器扩展程序。”，虽然邮件里提到了，但是最开始作者并没有加上。可能是有些人觉得 不好听/像盗版 又去找作者讨论了吧。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;水文章罢了。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;TamperMonkey 作为大名鼎鼎的脚本管理器，就算没用过也大概率听过吧。没？这个图标总见过吧&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://pic3.zhimg.com/v2-f5cedd382a1be17969a140458f9115d6_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;到这有人可能会说了，哦，这个我知道，这是 我同学/某UP主 推荐的宝藏啊，能去广告、刷课等等，叫油猴来着。嗯，恭喜你，答错了&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://pic4.zhimg.com/v2-a002c2e382d58e9385f9bb74b303e9cb_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;腾讯翻译&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://pic3.zhimg.com/v2-de63646a71f1b3e3ffe0b384b8e39936_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;微软翻译&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://pic4.zhimg.com/v2-7a4de573135b6b5f8366a794d7f23e5f_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;图源 奔跑中的奶酪&lt;/p&gt;
-&lt;h3&gt;TamperMonkey为什么被叫做“油猴”&lt;span class=&#34;absolute -mt-20&#34; id=&#34;tampermonkey为什么被叫做油猴&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#tampermonkey%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a2%ab%e5%8f%ab%e5%81%9a%e6%b2%b9%e7%8c%b4&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;很多人把 Userscript 叫做“油猴脚本”，原因上面文章也提到了，因为最早的用户脚本管理器叫油猴（Greasemonkey ），所以很多人叫其“油猴脚本”，这&lt;strong&gt;也能理解&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;不过，Greasemonkey 只支持Firefox，于是就有人做Chrome等上面的移植版，就比如我们要说的 Tampermonkey，它也是其中最有名的。但是问题来了，Tampermonkey 官方一直没有正式中文名称（而油猴、暴力猴等都有“官方认证”的中文名），所有场合出现的都是它的英文名字，这我们这些说中文的日常交流多不方便啊。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://pic1.zhimg.com/v2-01cc99564e8b0abc4e0ca94a9ff5eae0_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Firefox，有油猴和暴力猴为对比&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://pic3.zhimg.com/v2-7995099829b64fdf780f96962417326a_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Edge，有暴力猴为对比&lt;/p&gt;
-&lt;p&gt;那么它中文叫什么呢，很多人这时候犯懒了，翻字典是不可能翻的，“当时xxx给我推荐这个，能装脚本来做xxx，他当时说叫什么来着，哦对，油猴脚本！油猴脚本、油猴脚本，那这个东西是用来做这个的，那他一定叫“油猴”吧。”&lt;/p&gt;
-&lt;p&gt;当然以上只是个人猜想的一些人（尤其近几年才接触的人）的思路，可能一些“老人”就像 &lt;a href=&#34;https://www.zhihu.com/question/334287319/answer/744468836&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;为什么Tampermonkey被翻译成&amp;quot;油猴&amp;quot;？&lt;/a&gt; 里说的，纯粹是习惯了罢，就像一些人老是说“百度一下”，实际他并不用百度一样。&lt;/p&gt;
-&lt;h3&gt;官网名称被改&lt;span class=&#34;absolute -mt-20&#34; id=&#34;官网名称被改&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e5%ae%98%e7%bd%91%e5%90%8d%e7%a7%b0%e8%a2%ab%e6%94%b9&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;今年2月份，当我重装手机上Firefox时，安装扩展时不小心选了TamperMonkey（为什么说不小心，因为它有个弹窗在手机上关不掉，我没法操作，所以一般都用的暴力猴）。大家都知道它装完之后会弹出官网的欢迎界面，而作者在前几个月更新了官网。在我将要关闭时，我发现了一点异常：Tampermonkey 有中文自称了，还是“油猴”？！&lt;/p&gt;
-&lt;p&gt;这……你让Greasemonkey怎么面对，你让Tampermonkey怎么想，“没想到这么多年了，我终究还是个替身( ꒦ິ⌓꒦ີ )”。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://pic2.zhimg.com/v2-96b0d0ca3958b6e3e6242a466ac3a3f9_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;我再附上几张历史截图，证明一下，TamperMonkey 官网之前从来没有自称过“油猴”。或者可以从&lt;a href=&#34;https://old.tampermonkey.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Tampermonkey&lt;/a&gt; 的旧备份查看。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://pic1.zhimg.com/v2-ca3469a948b9cc6ba2004758f71d5c68_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;2021.2.22 &lt;a href=&#34;https://www.tampermonkey.net/?locale=zh&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.tampermonkey.net/?locale=zh&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://pic2.zhimg.com/v2-e365e1297d1e8cd7b35e637f01f5fd29_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;2022.8.11 &lt;a href=&#34;https://www.tampermonkey.net/?ext=dhdg&amp;amp;locale=zh&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.tampermonkey.net/?ext=dhdg&amp;locale=zh&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;因为不同语言是通过url传参实现的，所以中文没有什么固定的URL&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;当时就想提个反馈，但我找遍网站也没有发现反馈位置，只有一个邮箱。Github上 也只有扩展本体及扩展的翻译，没地方提关于网站的issue。&lt;/p&gt;
-&lt;p&gt;发邮件，对我来说有点太过正式，我写了两句就懒癌犯了，算了吧。&lt;/p&gt;
-&lt;h3&gt;反馈起因及结果&lt;span class=&#34;absolute -mt-20&#34; id=&#34;反馈起因及结果&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e5%8f%8d%e9%a6%88%e8%b5%b7%e5%9b%a0%e5%8f%8a%e7%bb%93%e6%9e%9c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;最近某同学要刷智慧树的课，他给我说他一搜排名第一的是 &lt;a href=&#34;https://greasyfork.org/zh-CN/scripts/457151-ocs-%25E7%25BD%2591%25E8%25AF%25BE%25E5%258A%25A9%25E6%2589%258B&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OCS 网课助手&lt;/a&gt; ，装上后发现提示我推荐的暴力猴不支持，必须用“油猴”。当时我就忍不了了，什么，看不起我“暴力猴”是吧，另外你连名字都打不对，你在教我做事？（狗头&lt;/p&gt;
-&lt;p&gt;于是上Github给他拉了分支，改了翻译再提了个PR。&lt;a href=&#34;https://github.com/ocsjs/ocs-docs/pull/4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/ocsjs/ocs-docs/pull/4&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;然后，隔了几天（因为回复邮件被Outlook收到垃圾箱了）我发现他回复说官网就叫油猴。得，官网的更新让错误翻译更有理了。于是我又忍不了了，又打开了PR，同时又从草稿箱翻出草稿来给TamperMonkey发了个邮件。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://pic3.zhimg.com/v2-9d184115de07a28eb69788b6e7273e1e_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;很快啊，他没给我回复……&lt;/p&gt;
-&lt;p&gt;不过4.4忽然收到Github邮件： OCS doc 批准了PR。然后我去官网一看，现在已经改过来了&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://pic1.zhimg.com/v2-d3b01bfedc08a83d76f76c9988611c74_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;截图于 2023.4.4&lt;/p&gt;
-      </description>
-    </item>
     
     <item>
       <title>Markdwon 笔记（样式测试）</title>

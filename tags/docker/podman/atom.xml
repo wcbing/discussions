@@ -6,7 +6,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     
-	  <atom:link href="/tags/docker/podman/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/tags/docker/podman/atom.xml" rel="self" type="application/rss+xml" />
     
     
       
