@@ -5,7 +5,7 @@
     <description>Recent content on 炳的自留地</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 05 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 06 Jan 2024 00:00:00 +0000</lastBuildDate>
     
 	  <atom:link href="/atom.xml" rel="self" type="application/rss+xml" />
     
@@ -13,6 +13,192 @@
       
       
     
+    
+    <item>
+      <title>字体重要参数</title>
+      <link>/blog/font/</link>
+      <pubDate>Sat, 06 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/font/</guid>
+      <description>
+        
+        
+        &lt;iframe src=&#34;../font-test.html&#34; frameborder=&#34;0&#34; height=40px&gt;&lt;/iframe&gt;
+&lt;p&gt;讲讲字体，也不讲那么细，毕竟咱也不是专业的。说几个重要参数，能让你在下载和使用字体时知道怎么挑就行。&lt;/p&gt;
+&lt;h2&gt;字型、字体、字族&lt;span class=&#34;absolute -mt-20&#34; id=&#34;字型字体字族&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ad%97%e5%9e%8b%e5%ad%97%e4%bd%93%e5%ad%97%e6%97%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;很多人会将字体叫为 Font，但 Font 的专业名称应该叫字型。一种字体（Typeface）有不同字型（Font），一个字体的不同字型之间的差别就是&lt;strong&gt;会有不同的字重和尺码等&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;有些地方（如网页设计）也会将字体叫做 Font Family（字族）。当然我们一般也不用分那么清楚，感兴趣可以看看维基百科上的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%AD%97%E4%BD%93&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;字体&lt;/a&gt;、&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%AD%97%E4%BD%93%E5%AE%B6%E6%97%8F&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;字体家族&lt;/a&gt;与&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%AD%97%E5%9E%8B&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;字型&lt;/a&gt;。&lt;/p&gt;
+&lt;h2&gt;下载字体应注意&lt;span class=&#34;absolute -mt-20&#34; id=&#34;下载字体应注意&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%b8%8b%e8%bd%bd%e5%ad%97%e4%bd%93%e5%ba%94%e6%b3%a8%e6%84%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;字重——字的粗细&lt;span class=&#34;absolute -mt-20&#34; id=&#34;字重字的粗细&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ad%97%e9%87%8d%e5%ad%97%e7%9a%84%e7%b2%97%e7%bb%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;如题，字重其实就是字的粗细。可以通过这个网站查看一下效果：&lt;a href=&#34;https://font.yukonga.top/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;字体字重测试&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;像我常用的思源黑体就有：Thin、Light、DemiLight、Regular、Medium、Bold、Black 共7种字重。其中用的最多/最重要的字重就是 Regular ，有些会叫 Normal 或者其他的，没有字重需求的下载这一个就可以了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;常见一种字重标准：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;100 - 淡体 Thin ( Hairline )&lt;/li&gt;
+&lt;li&gt;200 - 特细 Extra-light ( ultra-light )&lt;/li&gt;
+&lt;li&gt;300 - 细体 Light&lt;/li&gt;
+&lt;li&gt;350 - 次细 Demi-Light&lt;/li&gt;
+&lt;li&gt;400 - 标准 Regular ( normal / book / plain )&lt;/li&gt;
+&lt;li&gt;500 - 适中 Medium&lt;/li&gt;
+&lt;li&gt;600 - 次粗 Demi-bold / semi-bold&lt;/li&gt;
+&lt;li&gt;700 - 粗体 Bold&lt;/li&gt;
+&lt;li&gt;800 - 特粗 Extra-bold / ( Ultra-bold )&lt;/li&gt;
+&lt;li&gt;900 - 浓体 Black ( Heavy )&lt;/li&gt;
+&lt;li&gt;950 - 特浓 Extra-black ( Ultra-black )&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;可变字体&lt;span class=&#34;absolute -mt-20&#34; id=&#34;可变字体&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%8f%af%e5%8f%98%e5%ad%97%e4%bd%93&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;上面我们知道了一个字体会有不同字重的字型，我们下载一个字体时，想体验更完善就要下载不同字重的好几个字体文件，这也太麻烦了。&lt;/p&gt;
+&lt;p&gt;不过幸好不是我一个人觉得麻烦，苹果、微软、谷歌和 Adobe 等几个大厂之后又推出了&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%8F%AF%E5%8F%98%E5%AD%97%E4%BD%93&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;可变字体（Variable Fonts）&lt;/a&gt;规范。可变字体是字体格式 OpenType 的一种特殊规范，一个可变字体文件可以储存一个设计的多个变体，相当于是一个字体文件包含了无数个字型。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不过我实际使用下来，（Linux 下）Qt 程序的字重会有问题，所以并没有使用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;异体字&lt;span class=&#34;absolute -mt-20&#34; id=&#34;异体字&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%bc%82%e4%bd%93%e5%ad%97&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;就是不同国家/地区都包含的文字，但是相互之间写法稍有不同。比如：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;部分手机上可能没有效果&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;默认&lt;/th&gt;
+&lt;th&gt;&lt;p&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;中文(大陆) lang=zh-cn&lt;/td&gt;
+&lt;td&gt;&lt;p lang=&#34;zh-cn&#34;&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;中文(台湾) lang=zh-tw&lt;/td&gt;
+&lt;td&gt;&lt;p lang=&#34;zh-tw&#34;&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;中文(香港) lang=zh-hk&lt;/td&gt;
+&lt;td&gt;&lt;p lang=&#34;zh-hk&#34;&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;日文 lang=ja&lt;/td&gt;
+&lt;td&gt;&lt;p lang=&#34;en&#34;&gt;&lt;p lang=&#34;ja&#34;&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;韩文 lang=ko&lt;/td&gt;
+&lt;td&gt;&lt;p lang=&#34;ko&#34;&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;字体文件格式&lt;span class=&#34;absolute -mt-20&#34; id=&#34;字体文件格式&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ad%97%e4%bd%93%e6%96%87%e4%bb%b6%e6%a0%bc%e5%bc%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;现在操作系统中常用的字体类型标准主要有两类，即 TrueType 和 OpenType。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Adobe 使用 PostScript 语言开发了包括 Type1 在内的 PostScript字体。为了对抗其颇高的商业授权，苹果联合微软推出了 TrueType 字体。而后，微软又联合 Adobe 在TrueType 的基础上推出了OpenType 字体，在 OpenType 类型字体中，可以选择PostScript或TrueType作为记述方式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;TrueType 字体文件的扩展名是 &lt;code&gt;.ttf&lt;/code&gt;；而对于 OpenType 字体文件，OpenType TT字体扩展名为 &lt;code&gt;.ttf&lt;/code&gt;，OpenType PS字体扩展名为 &lt;code&gt;.otf&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;同时，OpenType 还推出了特殊的“字体集”格式。文件扩展名分别为 &lt;code&gt;.ttc&lt;/code&gt;（TrueType Collection）、&lt;code&gt;.otc&lt;/code&gt;（OpenType Collection），这种“字体集”一个文件内包含了多种字体类型。实际应用中一般用于将不同字体或同一字体的不同语言封装成一个文件，如 Windows 中文版内置的 &lt;code&gt;simsun.ttc&lt;/code&gt; 就包含了（中易）宋体 SimSun 和新宋体 NSimSun 两种字体的 Regular 字型。&lt;/p&gt;
+&lt;h3&gt;下载实例——思源黑体&lt;span class=&#34;absolute -mt-20&#34; id=&#34;下载实例思源黑体&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%b8%8b%e8%bd%bd%e5%ae%9e%e4%be%8b%e6%80%9d%e6%ba%90%e9%bb%91%e4%bd%93&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;思源黑体（Source Han Sans / Noto Sans CJK），它是一个包含了中文（C）、日文（J）、韩文（K）的“CJK”字体，当然中文还可细分为简体中文（SC）、繁体（即台湾正体）中文（TC）、香港繁体中文（HK）。由于这些文字中会有一些异体字，所以它除了不带任何标志的字体外，还有带有 SC、TC、HK、J、K 后缀的字体，每款的默认字形会使用该地区常用的。&lt;/p&gt;
+&lt;h2&gt;使用字体应注意&lt;span class=&#34;absolute -mt-20&#34; id=&#34;使用字体应注意&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%bd%bf%e7%94%a8%e5%ad%97%e4%bd%93%e5%ba%94%e6%b3%a8%e6%84%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;通用字族&lt;span class=&#34;absolute -mt-20&#34; id=&#34;通用字族&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e9%80%9a%e7%94%a8%e5%ad%97%e6%97%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;字体选择中可以使用“通用字族”（generic font family）指定某一大类的字体，至于选择成哪个则是取决于用户和系统的设定。&lt;/p&gt;
+&lt;p&gt;通用字族有 Cursive（手写体，对应中文楷体）、Fantasy（另类体）、Monospace（等宽字体）、Sans-serif（无衬线体，对应中文黑体）、Serif（衬线体，对应中文宋体/明体）、Fangsong（仿宋体）等。&lt;/p&gt;
+&lt;p&gt;其中最常用的是 Monospace（等宽字体）、Sans-serif（无衬线体）、Serif（衬线体）。你也可以在上面查看字重的网站上进行更详细的对比。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字族设定&lt;/th&gt;
+&lt;th&gt;示例结果（取决于系统设定）&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Sans-serif&lt;br&gt;无衬线体&lt;br&gt;黑体（中文）&lt;/td&gt;
+&lt;td&gt;&lt;p style=&#34;font-family: sans-serif;&#34;&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 αβγ عربي язык  &lt;br&gt;我能吞下玻璃而不伤身体。 The quick brown fox jumps over the lazy dog.&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Serif&lt;br&gt;衬线体&lt;br&gt;宋体/明体（中文）&lt;/td&gt;
+&lt;td&gt;&lt;p style=&#34;font-family: serif;&#34;&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 αβγ عربي язык  &lt;br&gt;我能吞下玻璃而不伤身体。 The quick brown fox jumps over the lazy dog.&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Monospace&lt;br&gt;等宽字体&lt;/td&gt;
+&lt;td&gt;&lt;p style=&#34;font-family: monospace;&#34;&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 αβγ عربي язык  &lt;br&gt;我能吞下玻璃而不伤身体。 The quick brown fox jumps over the lazy dog.&lt;/p&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>关于 2FA/MFA</title>
+      <link>/blog/2fa-mfa/</link>
+      <pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2fa-mfa/</guid>
+      <description>
+        
+        
+        &lt;p&gt;2FA/MFA：双重、多重（因素）验证&lt;/p&gt;
+&lt;p&gt;指出于安全原因，登陆账户或进行敏感操作等情况时除了用户名（Username）和密码（Password）外，额外使用其他一种或多种方式进行身份验证。&lt;/p&gt;
+&lt;p&gt;常用的附加验证方式有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一次性密码、动态密码（OTP）
+&lt;ul&gt;
+&lt;li&gt;短信验证码（SMS OTP）&lt;/li&gt;
+&lt;li&gt;身份验证器（Authenticator OTP）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;通行密钥（Passkey）&lt;/li&gt;
+&lt;li&gt;移动端 APP（Mobile APP）*&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;*即用已登陆账户的设备给其他设备授权，具体授权方法不确定。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;下图就是 Github 的 2FA 设置界面。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/imgs/blog/2fa-mfa/gihub-2fa.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;OTP&lt;span class=&#34;absolute -mt-20&#34; id=&#34;otp&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#otp&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;OTP 常见算法有&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HOTP：基于散列消息验证码的一次性密码&lt;/li&gt;
+&lt;li&gt;TOTP：基于时间的一次性密码，基于HOTP，广泛应用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其具体形式有&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SMS OTP&lt;/strong&gt;：短信验证码&lt;/li&gt;
+&lt;li&gt;Mail OTP：邮箱验证码&lt;/li&gt;
+&lt;li&gt;APP OTP：已登陆的设备接收的验证码&lt;br&gt;
+这种一般作为短信/邮件验证码的（廉价）替代。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Authenticator OTP&lt;/strong&gt;：常见的一种形式是有效期为 30s 的 6 位验证码，某些人所说 TOTP 专指这种验证码。&lt;br&gt;
+Authenticator，身份验证器，“软件令牌”，很多 Authenticator 会与密码管理器组合到一起。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;硬件令牌&lt;/strong&gt;，银行等行业中经常使用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Passkey&lt;span class=&#34;absolute -mt-20&#34; id=&#34;passkey&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#passkey&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;具体参见：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://zh.wikipedia.org/zh-cn/%E9%80%9A%E8%A1%8C%E5%AF%86%E9%92%A5&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;通行密钥 - 维基百科&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.passkeys.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;passkey.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;严格来说，我觉得用 Passkey 验证不是 MFA，因为仅通过这一种方式你可以直接完成认证，不需要用其他方式。&lt;/p&gt;
+&lt;h2&gt;Mobile APP&lt;span class=&#34;absolute -mt-20&#34; id=&#34;mobile-app&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#mobile-app&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;即用已登陆账户的设备给其他设备授权，具体授权方法不确定。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;有些会像前面提到的，向已登陆的设备发送验证码（OTP），Telegram、微博等会使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Telegram 登陆手机版时只需要短信验证码 / 旧设备验证码，所以这个 OTP 不是 2FA。但是其开启 2FA 后需要 验证码 + 密码，这时 OTP 就是 2FA 中的一种方式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;有些验证时需要在 APP 中输入相应的数字，图中的 Github Mobile、Android 上的 Google Service 等就是。&lt;/li&gt;
+&lt;li&gt;有些会内置一个仅用于其账户的 Authenticator 组件，如 Steam 的令牌功能。&lt;/li&gt;
+&lt;li&gt;还有就是扫码验证（不是直接扫码登陆），我们经常使用的微信/ QQ 经常使用这种方法验证新的设备。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;直接扫码登陆一般用于“高权重”的设备（手机）给“更低权重”的设备（PC、网页版等）“授权”，而不能用于同等级设备。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;img src=&#34;/imgs/blog/2fa-mfa/qq-2fa.jpg&#34; width=&#34;360px&#34; /&gt;
+
+      </description>
+    </item>
     
     <item>
       <title>地区语言代码</title>
@@ -34,7 +220,6 @@
 &lt;p&gt;形如：.cn&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;2字母国家代码顶级域的DNS名称。它们遵循ISO 3166-1两字母代码，除了个别一些例外：“.ac”用于阿森松岛、“.eu”用于欧盟或英国选用“.uk”而非“.gb”。&lt;/p&gt;
-&lt;hr&gt;
 &lt;h2&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E8%AA%9E%E8%A8%80%E4%BB%A3%E7%A2%BC&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;语言代码&lt;/a&gt;&lt;span class=&#34;absolute -mt-20&#34; id=&#34;语言代码httpszhwikipediaorgwikie8aa9ee8a880e4bba3e7a2bc&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e8%af%ad%e8%a8%80%e4%bb%a3%e7%a0%81httpszhwikipediaorgwikie8aa9ee8a880e4bba3e7a2bc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;ISO标准语言代码 - &lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_639-1%E4%BB%A3%E7%A0%81%E8%A1%A8&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 639&lt;/a&gt;&lt;span class=&#34;absolute -mt-20&#34; id=&#34;iso标准语言代码---iso-639httpszhwikipediaorgwikiiso_639-1e4bba3e7a081e8a1a8&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#iso%e6%a0%87%e5%87%86%e8%af%ad%e8%a8%80%e4%bb%a3%e7%a0%81---iso-639httpszhwikipediaorgwikiiso_639-1e4bba3e7a081e8a1a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
@@ -50,7 +235,6 @@ IETF语言标签的最早版本是1995年3月发布的RFC 1766。使用ISO 639�
 2001年1月发布RFC 3066, 使用ISO 639-2的3字母语言代码。
 2006年9月发布RFC 4646 (规范的主体)与RFC 4647 (处理匹配行为)。RFC 4646增加了使用ISO 15924 的4字母书写文字代码与UN M.49的3数字地理分区码。
 2009年9月发布RFC 5646，引入了3字符码的ISO 639-3与639-5作为语言子标签。&lt;/p&gt;
-&lt;hr&gt;
 &lt;h2&gt;语言代码实例&lt;span class=&#34;absolute -mt-20&#34; id=&#34;语言代码实例&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e8%af%ad%e8%a8%80%e4%bb%a3%e7%a0%81%e5%ae%9e%e4%be%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Linux Locale&lt;span class=&#34;absolute -mt-20&#34; id=&#34;linux-locale&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#linux-locale&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;命名规则为：&lt;code&gt;language[_territory[.codeset]][@modifier]&lt;/code&gt;
