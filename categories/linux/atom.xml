@@ -1,0 +1,1684 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>炳的自留地 – Linux</title>
+    <link>/categories/linux/</link>
+    <description>Recent content in Linux on 炳的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 20 Nov 2024 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="/categories/linux/atom.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>是否要用 Podman 代替 Docker</title>
+      <link>/linux/containers/whether-podman/</link>
+      <pubDate>Wed, 20 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/containers/whether-podman/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Docker 作为最有名的容器引擎应该就不用我多说了。Podman 是 Redhat 开发的 “Docker 替代品”，特点是无需后台运行守护进程，并且是 rootless 的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;无守护进程是个好事，少个常驻进程。&lt;/li&gt;
+&lt;li&gt;rootless 简单说就是普通用户可以以非 root 身份管理容器，具体可看官网介绍，现在 Docker 也有办法实现。&lt;br&gt;
+但 rootless 说是更安全，但是对我来说反倒会带来不方便，比如跑个 nginx 需要 80、443 ，普通用户没有权限创建，root/sudo 创建了之后普通用户又看不见这个容器。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Podman 用法和 Docker 基本上一样，甚至官方文档里说习惯 docker 的可以直接 &lt;code&gt;alias docker=podman&lt;/code&gt;。其实现在基本的容器引擎基本都是😂&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Podman 优缺点&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;podman-优缺点&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#podman-%e4%bc%98%e7%bc%ba%e7%82%b9&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;最明显的优点就是内存占用小。&lt;/li&gt;
+&lt;li&gt;无需守护进程，配置网络代理等时更方便。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;缺点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;资料、热度不如 docker 多，不过很多其实是通用的。&lt;/li&gt;
+&lt;li&gt;更新不方便&lt;br&gt;
+Podman 和 Docker，各大发行版都会在官方仓库收录，安装都很简单。但是代价呢，大部分发行版是 Point-Release，仓库里的会锁版本。Docker 还有官方仓库，可以替换掉发行版仓库中的来更新，但是 Podman 不放出 deb、rpm 包，你想用最新版很困难。&lt;/li&gt;
+&lt;li&gt;配套的 podman compose 和 docker compose 有差别，有些用 docker compose 进行的特殊操作不好实现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;特点（可能是优点也可能是缺点）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;rootless&lt;br&gt;
+每个用户的容器是各自独立的，不扯安全性，多用户时只看隐私性这样也会更好。但是前面也说了，有些资源就是得 root 才能操作，你可能要 podman、 sudo podman 混用。&lt;/li&gt;
+&lt;li&gt;生态兼容，迁移成本低&lt;br&gt;
+因为容器的标准已经标准化（OCI, Open Container Initiative），所以相互之间兼容是很正常的，甚至 CLI 操作也基本一样。不过因为大部分常用镜像都放在 Docker Hub，而很多文档因为使用 docker 会有一些简写，比如省略 docker.io、library这些，你需要给 Podman 配置一下缺省使用 Docker Hub。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;还有就是网络问题，待写。&lt;/p&gt;
+&lt;h2&gt;内存占用对比&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;内存占用对比&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%86%85%e5%ad%98%e5%8d%a0%e7%94%a8%e5%af%b9%e6%af%94&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;下面是 docker 和 podan 同时运行两个相同容器的进程信息，我整理并将两者分开后结果如下。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;时间 2024.11，宿主系统 Alpine Linux 3.20&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Podman&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;pre&gt;&lt;code&gt;Tree:                                                             MemB
+[-]─8125 conmon (/usr/bin/conmon --api-version 1 -c c6c992b132)   896K
+ │  └─ 8138 agent (./agent)                                        40M
+[-]─28148 conmon (/usr/bin/conmon --api-version 1 -c c97c4960f)   896K
+ │  └─ 28159 frps (/usr/bin/frps -c /etc/frp/frps.toml)            24M
+[-]─2138 supervise-daemo (supervise-daemon)                       384K
+ │  └─ 2139 podman (/usr/bin/podman system service --time 0)       58M&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;Docker&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;pre&gt;&lt;code&gt;Tree:                                                             MemB
+[-]─28497 containerd-shim (containerd-shim-runc-v2)                20M
+ │  └─ 28518 agent (./agent)                                       44M
+[-]─28416 containerd-shim (containerd-shim-runc-v2)                19M
+ │  └─ 28435 frps (/usr/bin/frps -c /etc/frp/frps.toml)            23M
+[-]─2393 supervise-daemo (supervise-daemon)                       384K
+ │ [-]─2394 dockerd (/usr/bin/dockerd)                            108M
+ │  │  ├─ 2412 containerd                                          49M
+ │  │  ├─ 28482 docker-proxy                                      4.4M
+ │  │  ├─ 2395 log_proxy                                          1.4M
+ │  │  └─ 2397 log_proxy                                          1.4M&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;首先可以看到，对每个单独容器，每个容器对应的守护进程确相差挺大。Docker 的 containerd-shim 有 20 MB，而 Podman 的 conmon 却只有 1MB 不到。也就是每跑一个容器，Docker 要比 Podman 多用 20 MB.&lt;/p&gt;
+&lt;p&gt;还有就是容器引擎的守护进程。而前面说了 Podman 无守护进程，但是为什么我图中又有了，因为我图中用的宿主系统是 Alpine，没有用 Systemd 等那一套，不过这样对比也是明显的。结果显示 dockerd 占用是 160MB 以上，而podman 是不到 60 MB，相差大概 100 MB。&lt;/p&gt;
+&lt;p&gt;所以，假如你服务器上要跑 5 个容器，那么用 docker 和 podman 的内存占用就有 100+20*5=200 MB 的差距了。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>自建 APT 软件源</title>
+      <link>/linux/package-manager/wcbing-apt-repo/</link>
+      <pubDate>Sat, 06 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/package-manager/wcbing-apt-repo/</guid>
+      <description>
+        
+        
+        &lt;p&gt;向 Debian、Ubuntu 等 Linux 发行版用户分享我自建的软件仓库。里面收集了一些国内常用的软件，使安装和更新更方便。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/wcbing/wcbing-apt-repo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/wcbing/wcbing-apt-repo&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注：目前仅针对 x86 用户&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;仓库特点&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;仓库特点&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%bb%93%e5%ba%93%e7%89%b9%e7%82%b9&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;里面收集了一些国内常用的软件，像腾讯系的QQ、QQ音乐、腾讯会议，还有钉钉、百度网盘、Xmind 等。还有一些官方提供源的，包括 Firefox、Tailscale 以及 Chrome、VS Code、Steam 等（后面这些安装后会自行添加软件源），减少需要手动添加源的次数。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;兼容性强：因为是官方提供的通用 deb 包，所以较新版本的 Debian、Ubuntu 及其衍生版应该都可以正常安装运行。&lt;/li&gt;
+&lt;li&gt;下载速度：除了 Github Releases 之外，其他大都是&lt;strong&gt;重定向至软件官网&lt;/strong&gt;，所以下载速度和从软件官网下载一样。&lt;/li&gt;
+&lt;li&gt;Github 代理： Releases 文件重定向到了代理网站，如 &lt;a href=&#34;https://ghp.ci/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ghproxy&lt;/a&gt;，使国内也有不错的下载速度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2&gt;F&amp;amp;Q&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;fq&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#fq&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;有些不是星火商店已经收录了吗，为什么不用星火商店？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本软件源与星火商店形式有些不同，星火商店必须要安装额外的客户端，而这个是通用的 APT 软件源，你可以通过APT或 GNOME Software、KDE Discover 等任意客户端进行升级。并且相比星火商店还有个&lt;strong&gt;小优势&lt;/strong&gt;是更新快，因为都是自动化的流程，不用人工审核投稿。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;我知道 DebianCN、铜豌豆软件源等，这个有什么优势？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;确实，这个源和 DebianCN、铜豌豆软件源 等类似。相比两者&lt;strong&gt;优势是&lt;/strong&gt;更新快，都是自动化的流程，不用人工整理。拿 DebianCN 为例，其现收录软件大概30多个，除 Chrome 在更新外，其他最新的更新都距今半年以上，很多都是5、6年前的软件。铜豌豆相比之下要好很多，但也不太及时，并且自打包应用较多，兼容性也较差。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;有什么劣势？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;劣势&lt;/strong&gt;就是应用较少，现在只有自己常用的软件。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;最后，欢迎大家参与，提交现有repo的地址或为常用程序编写定时检测代码。&lt;/p&gt;
+&lt;p&gt;本文同时发布于 &lt;a href=&#34;https://bbs.deepin.org/zh/post/279737&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;deepin&lt;/a&gt;。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Linux 日常设置</title>
+      <link>/linux/linux-setting/</link>
+      <pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/linux-setting/</guid>
+      <description>
+        
+        
+        &lt;p&gt;一些很重要但设置一次后基本后不会管的 Linux 系统设置。&lt;/p&gt;
+&lt;p&gt;这下面 &lt;code&gt;xxxctl&lt;/code&gt; 都是 Systemd 的组件，虽然有争议，但确实为平时使用带来了不少方便。&lt;br&gt;
+不过既然有的不用 Systemd 或不能用Systemd（像容器里），还是把具体配置文件也列出来了。&lt;/p&gt;
+&lt;h2&gt;地区语言设置&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;地区语言设置&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%9c%b0%e5%8c%ba%e8%af%ad%e8%a8%80%e8%ae%be%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;查看当前语言设置主要涉及&lt;code&gt;localectl&lt;/code&gt;、&lt;code&gt;locale&lt;/code&gt;、&lt;code&gt;locale-gen&lt;/code&gt;等。建议使用 &lt;code&gt;localectl&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;生成语言文件：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;locale-gen&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;localectl&lt;/code&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;生成语言文件&lt;/td&gt;
+          &lt;td&gt;1. &lt;code&gt;vim /etc/locale.gen&lt;/code&gt;，找到需要语言，如 &lt;code&gt;zh_CN.UTF-8&lt;/code&gt;，取消注释。&lt;br /&gt;2. 执行 &lt;code&gt;locale-gen&lt;/code&gt; 生成Locale&lt;/td&gt;
+          &lt;td&gt;设置默认语言时自动生成&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;假如要将默认语言改为简体中文，对比如下：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;配置文件&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;locale&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;localectl&lt;/code&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看当前语言&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;cat /etc/locale.conf&lt;/code&gt;&lt;br /&gt;某些会使用&lt;br /&gt;&lt;code&gt;/etc/default/locale&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;locale&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;localectl status&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看所有语言&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;locale -a&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;localectl list-locales&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;设置默认语言&lt;/td&gt;
+          &lt;td&gt;配置文件内容改为&lt;code&gt;LANG=zh_CN.UTF-8&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;localectl set-locale LANG=zh_CN.UTF-8&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关于“桌面”、“下载”等中文目录：&lt;br&gt;
+&lt;a href=&#34;https://wiki.archlinuxcn.org/wiki/XDG_%E7%94%A8%E6%88%B7%E7%9B%AE%E5%BD%95&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;XDG 用户目录 - Arch Linux 中文维基&lt;/a&gt;&lt;br&gt;
+使用 &lt;code&gt;LC_ALL=C.UTF-8 xdg-user-dirs-update --force&lt;/code&gt; 命令可以强制创建英语目录。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;时间设置&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;时间设置&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%97%b6%e9%97%b4%e8%ae%be%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;日期时间、时区等的设置，涉及 &lt;code&gt;timedatectl&lt;/code&gt;、&lt;code&gt;date&lt;/code&gt;、&lt;code&gt;tzselect&lt;/code&gt; 等。还是推荐 &lt;code&gt;timedatectl&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;例子如下：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;date&lt;/code&gt; 和 &lt;code&gt;tzselect&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;timedatectl&lt;/code&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看时间信息&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;date&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;timedatectl&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;设置时间&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;date -s &amp;quot;2002-02-02 01:01:01&amp;quot;&lt;/code&gt;&lt;br /&gt;或&lt;code&gt;date -s 01:01:01&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;timedatectl set-time &amp;quot;2002-02-02 01:01:01&amp;quot;&lt;/code&gt;&lt;br /&gt;或&lt;code&gt;timedatectl set-time 01:01:01&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;设置时区&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;tzselect&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;timedatectl set-timezone Asia/Shanghai&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;设置 NTP&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;timedatectl set-ntp true&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关于双系统时间不同步的问题：&lt;br&gt;
+&lt;a href=&#34;https://sspai.com/post/55983&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux Windows 双系统时间不一致 - 少数派&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://wiki.archlinuxcn.org/wiki/%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4#Windows_%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8_UTC&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;系统时间#Windows_系统使用_UTC - Arch Linux 中文维基&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;主机名设置&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;主机名设置&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%b8%bb%e6%9c%ba%e5%90%8d%e8%ae%be%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;主机名，即Hostname&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;配置文件&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;hostname&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;hostnamectl&lt;/code&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看主机名&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;cat /etc/hostname&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;hostname&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;hostnamectl&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;设置主机名&lt;/td&gt;
+          &lt;td&gt;将上述配置文件中内容改为所设主机名，重新登陆后生效&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;hostname [hostname]&lt;/code&gt;临时修改&lt;br /&gt;&lt;code&gt;hostname -F /etc/hostname&lt;/code&gt; 立即根据配置文件更新主机名&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;hostnamectl hostname [hostname]&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docker / Podman 上安装 Portainer</title>
+      <link>/linux/containers/portainer/</link>
+      <pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/containers/portainer/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Portainer，用来管理容器的 Web 面板。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;Podman 相关内容参考：&lt;a href=&#34;https://github.com/portainer/portainer/issues/2991#issuecomment-1139101638&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;podman support - github&lt;/a&gt;。&lt;br&gt;
+我修改了一些细节，比如将 &lt;code&gt;--restart=always&lt;/code&gt; 换为推荐的 &lt;code&gt;--restart always&lt;/code&gt;，将 &lt;code&gt;${HOME}&lt;/code&gt; 换为所有 Shell 都支持的 &lt;code&gt;&amp;quot;$HOME&amp;quot;&lt;/code&gt;，等等。&lt;/p&gt;
+&lt;p&gt;更新：2.22 之后官方添加了正式的 Podman 支持，&lt;a href=&#34;https://docs.portainer.io/2.22/start/install-ce/server/podman/linux&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文档地址&lt;/a&gt;，这是个非 LTS 版本。&lt;br&gt;
+文档还是有些细节问题，下面的我就不更新了。而且文档中的方法相当完全放弃了 podman rootless 用户，虽然我在 rootless 情况下（桌面环境中）也不用它😄。&lt;/p&gt;
+&lt;h2&gt;portainer-ce&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;portainer-ce&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#portainer-ce&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;docker&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;docker&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#docker&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker volume create portainer_data
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run -d -p 9443:9443 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --name portainer &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --restart always &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -v /var/run/docker.sock:/var/run/docker.sock &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -v portainer_data:/data &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    portainer/portainer-ce:alpine&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h3&gt;podman root&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;podman-root&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#podman-root&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;podman volume create portainer_data
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;podman run -d -p 9443:9443 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --name portainer &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --restart always &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -v /run/podman/podman.sock:/var/run/docker.sock &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -v portainer_data:/data &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    portainer/portainer-ce:alpine&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h3&gt;podman rootless&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;podman-rootless&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#podman-rootless&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl --user &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt; --now podman.socket
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;podman volume create portainer_data
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;podman run -d -p 9443:9443 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --name portainer &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --restart always &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --security-opt &lt;span class=&#34;nv&#34;&gt;label&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;disable &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -v /run/user/&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;id -u&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;/podman/podman.sock:/var/run/docker.sock &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -v portainer_data:/data &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    portainer/portainer-ce:alpine&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h2&gt;portainer-agent&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;portainer-agent&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#portainer-agent&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;docker&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;docker-1&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#docker-1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run -d -p 9001:9001 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --name portainer_agent &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --restart always &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -v /var/run/docker.sock:/var/run/docker.sock &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -v /var/lib/docker/volumes:/var/lib/docker/volumes &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -v /:/host &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    portainer/agent:alpine&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h3&gt;podman root&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;podman-root-1&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#podman-root-1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -p /var/lib/containers/storage/volumes
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;podman run -d -p 9001:9001 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --name portainer_agent &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --restart always &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -v /run/podman/podman.sock:/var/run/docker.sock &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -v /var/lib/containers/storage/volumes:/var/lib/docker/volumes &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -v /:/host &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    portainer/agent:alpine&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h3&gt;podman rootless&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;podman-rootless-1&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#podman-rootless-1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl --user &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt; --now podman.socket
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;podman run -d -p 9001:9001 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --name portainer_agent &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --security-opt &lt;span class=&#34;nv&#34;&gt;label&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;disable &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --restart always &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -v /run/user/&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;id -u&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;/podman/podman.sock:/var/run/docker.sock &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -v &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$HOME&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;/.local/share/containers/storage/volumes:/var/lib/docker/volumes &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -v /:/host &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    portainer/agent:alpine&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Termux的使用</title>
+      <link>/linux/termux/</link>
+      <pubDate>Mon, 13 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/termux/</guid>
+      <description>
+        
+        
+        &lt;p&gt;手机上搞搞 Linux？我劝你三思。在此特别同意&lt;code&gt;Termux第三方中文维基&lt;/code&gt;的介绍&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在看这个维基/使用Termux之前，请先学好Linux基础！而不是看到某些文章/视频就跃跃欲试！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;!-- more --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://termux.dev/cn/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Termux 官网（中文）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://wiki.termux.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Termux Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/TermuxCHN/wiki&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Termux第三方中文维基&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Termux 是什么&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;termux-是什么&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#termux-%e6%98%af%e4%bb%80%e4%b9%88&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;参见&lt;a href=&#34;https://mirrors.bfsu.edu.cn/help/termux/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;教育网镜像站的帮助&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Termux is a terminal emulator and Linux environment bringing powerful terminal access to Android.&lt;br&gt;
+Termux 是运行在 Android 上的 terminal。不需要root，运行于内部存储（不在SD卡上）。&lt;br&gt;
+自带了一个包管理器，可以安装许多现代化的开发和系统维护工具。比如：&lt;br&gt;
+neovim、tmux、zsh、clang、gcc…&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;自带的包管理器 &lt;code&gt;pkg&lt;/code&gt; 实际是给 &lt;code&gt;apt&lt;/code&gt; 又包了一层，感觉没啥必要，直接用 &lt;code&gt;apt&lt;/code&gt; 就可以了。&lt;/p&gt;
+&lt;h2&gt;安装及换源&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;安装及换源&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ae%89%e8%a3%85%e5%8f%8a%e6%8d%a2%e6%ba%90&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;我们打开&lt;a href=&#34;https://termux.dev/cn/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Termux 官网（中文）&lt;/a&gt;，可以看到我们能在 F-droid 或 Github 上下载最新版本。下载安装后打开界面如下图。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;1.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;接下来就是换源了，&lt;a href=&#34;https://help.mirrors.cernet.edu.cn/termux/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;教育网镜像站&lt;/a&gt;已经写的很清楚了，按照里面的操作。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;apt upgrade&lt;/code&gt; 升级完成后&lt;strong&gt;需要第二次换源&lt;/strong&gt;，因为下载一些工具时镜像源会刷新掉。第二次多了一个“Mirror group（镜像组）”，请根据实际网络情况选择。&lt;/p&gt;
+&lt;p&gt;（第一次）换完源之后，每次新打开后提示多了一行，如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;5.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;SSH 服务&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;ssh-服务&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ssh-%e6%9c%8d%e5%8a%a1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;如果感觉屏幕小、没有外置键盘，想在其他设备上访问，可以通过SSH服务。官方 Wiki 在&lt;a href=&#34;https://wiki.termux.com/wiki/Remote_Access#Using_the_SSH_server&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;apt install openssh&lt;/code&gt; 安装SSH，输入 &lt;code&gt;sshd&lt;/code&gt; 启动SSH服务，然后就可以通过 SSH 客户端连接了。&lt;/p&gt;
+&lt;p&gt;对客户端：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主机名：使用 &lt;code&gt;ifconfig&lt;/code&gt;（自带）或 &lt;code&gt;ip a&lt;/code&gt; 查看当前设备ip，或者在系统设置的网络里查看。&lt;/li&gt;
+&lt;li&gt;端口号：默认端口号是 &lt;code&gt;8022&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;用户名：安装时提示内会有形如 &lt;code&gt;u0_a000&lt;/code&gt; 的用户名，如果没看到也可以使用 &lt;code&gt;whoami&lt;/code&gt; 查看。&lt;/li&gt;
+&lt;li&gt;密码：之前未设置请使用 &lt;code&gt;passwd&lt;/code&gt; 设置密码（都知道输入时不会显示字符吧）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Wiki 里提到 Termux 没有初始化系统，所以每次都要手动运行 &lt;code&gt;sshd&lt;/code&gt;。在 Wiki 里搜索自启动方法，找到一个解决方案：&lt;a href=&#34;https://wiki.termux.com/wiki/Termux-services&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Termux-services&lt;/a&gt;。&lt;/p&gt;
+&lt;h2&gt;VS Code / code-server&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;vs-code--code-server&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#vs-code--code-server&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;很多人装 Termux 是为了临时敲一敲代码，纯命令行操作对大部分人来说又太难受。这个时候肯定需要一款方便的 GUI 编辑器，如 VS Code。&lt;/p&gt;
+&lt;p&gt;但 Termux 没有 GUI，就算装了桌面有了 GUI 后 VS Code 也不能安装，因为 Termux 毕竟不是真 Linux，没有适合的版本。这个时候有几个办法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一是用 &lt;code&gt;proot&lt;/code&gt; 跑一个 Linux 容器，装上桌面，用 &lt;code&gt;Termux X11&lt;/code&gt; 等显示。&lt;/li&gt;
+&lt;li&gt;二是用“阉割的第三方网页版 VS Code” - &lt;code&gt;code-server&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;三是在容器里装 &lt;code&gt;code-server&lt;/code&gt;，但，很多人之前这么做是因为没法直接装，现在没必要。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这里不套娃了，只讲一下第二个。&lt;/p&gt;
+&lt;p&gt;code-server 具体怎么整，&lt;a href=&#34;https://coder.com/docs/code-server/latest/termux#installation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;（code-server）官方文档&lt;/a&gt;永远是你应该看的。只需要&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Run &lt;code&gt;pkg install tur-repo&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;pkg install code-server&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;You can now start code server by simply running &lt;code&gt;code-server&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;安装并启动后浏览器打开&lt;code&gt;127.0.0.1:8080&lt;/code&gt;，这里推荐Firefox、Chrome、Edge等支持PWA的浏览器，可以将其加到桌面。&lt;/p&gt;
+&lt;p&gt;打开后你会发现它提示要密码，密码的&lt;a href=&#34;https://coder.com/docs/code-server/latest/FAQ#how-does-the-config-file-work&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;配置文件在哪&lt;/a&gt;？官方文档告诉你在&lt;code&gt;~/.config/code-server/config.yaml&lt;/code&gt;。这里可以使用 nano 或 vim 编辑（不会？请看文章开头）&lt;/p&gt;
+&lt;h2&gt;图形界面（Termux X11）&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;图形界面termux-x11&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%9b%be%e5%bd%a2%e7%95%8c%e9%9d%a2termux-x11&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Termux 本身是没有GUI支持的，我们可以通过 &lt;a href=&#34;https://github.com/termux/termux-x11&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Termux X11&lt;/a&gt; 来获得GUI支持。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;之前常用的 VNC 也可以，但是现在有 x11 肯定还是用 x11 更好。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果不想看大段英文，可以参考这篇文章，正好是这两天写的。里面Termux的X11与proot内Linux发行版的X11都有写。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://ivonblog.com/posts/termux-x11/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Termux X11：手機上的XWayland伺服器使用教學&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;容器（proot）内装 Linux 发行版&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;容器proot内装-linux-发行版&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ae%b9%e5%99%a8proot%e5%86%85%e8%a3%85-linux-%e5%8f%91%e8%a1%8c%e7%89%88&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;termux 可以通过 proot 容器运行 Linux 发行版，推荐使用 &lt;code&gt;proot-distro&lt;/code&gt; 对其管理，可以查看&lt;a href=&#34;https://github.com/termux/proot-distro&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;官方仓库&lt;/a&gt;的介绍。&lt;/p&gt;
+&lt;p&gt;首先安装 proot-distro 这个包：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apt install proot-distro&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;之后 &lt;code&gt;proot-distro --help&lt;/code&gt; 看看帮助。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;proot-distro list&lt;/code&gt;列出支持的发行版。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;proot-distro install xxx&lt;/code&gt;进行安装。&lt;br&gt;
+如我要安装 Debian 就可以输入&lt;code&gt;proot-distro install debian&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;proot-distro login xxx&lt;/code&gt;登陆进容器中。&lt;br&gt;
+指定用户可以加上&lt;code&gt;--user xxx&lt;/code&gt;，如&lt;code&gt;proot-distro login --user root debian&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;像 Ubuntu 22.04 的镜像大概只有 20MB，Alpina 更小，但是因为是从 Github 下载，速度挺慢的。&lt;/p&gt;
+&lt;p&gt;不过官方仓库的 README 中 “Adding distribution” 说了存放 metadata 的位置，我们可以将其改为从 Github 代理网站下载。下面是一个例子，按需将 debian 改为你要的发行版。&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$PREFIX&lt;/span&gt;/etc/proot-distro
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cp debian.sh debian-bak.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sed -i &lt;span class=&#34;s1&#34;&gt;&amp;#39;s#https://github#https://ghp.ci/https://github#g&amp;#39;&lt;/span&gt; debian.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;proot-distro install debian&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;若该网站失效，请自行搜索“Github 代理”寻找可用网站。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;更多详细用法见帮助和仓库的 README。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Linux（Shell）环境变量</title>
+      <link>/linux/linux-env/</link>
+      <pubDate>Thu, 15 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/linux-env/</guid>
+      <description>
+        
+        
+        &lt;p&gt;乱七八糟的。说是 Linux，但 Unix-like 基本都适用。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2&gt;环境变量&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;环境变量&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;环境变量一般习惯为全大写，使用时前面加 &lt;code&gt;$&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;可以使用 &lt;code&gt;echo&lt;/code&gt; 查看，例如 &lt;code&gt;echo $PATH&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Linux 上多个环境变量用 &lt;code&gt;:&lt;/code&gt; 分隔&lt;/li&gt;
+&lt;li&gt;查看所有环境变量可以使用 Shell 内置的 &lt;code&gt;export&lt;/code&gt;、&lt;code&gt;set&lt;/code&gt;，或者使用 &lt;code&gt;env&lt;/code&gt; 、&lt;code&gt;printenv&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;自己设置环境变量可以使用 &lt;code&gt;export&lt;/code&gt; 声明，其只在当前 Shell 进程（及子进程）中起作用。如：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;AB&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/root&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;使用 export 时等号前后都不可有空格，内容有空格的话用引号包围。&lt;/p&gt;
+&lt;h2&gt;环境变量持久化&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;环境变量持久化&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f%e6%8c%81%e4%b9%85%e5%8c%96&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;/etc/environment&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;etcenvironment&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#etcenvironment&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Linux有一个 &lt;code&gt;/etc/environment&lt;/code&gt; 文件可以存放&lt;strong&gt;系统环境变量&lt;/strong&gt;，里面只能写变量的声明语句，语法就是如 &lt;code&gt;AA=1234&lt;/code&gt; 的键值对。修改后重新登录用户（注销、重启）以生效。
+但是这个地方不支持变量展开（如：&lt;code&gt;PATH=$PATH:/usr/local/sbin&lt;/code&gt;），所以不是很推荐。&lt;/p&gt;
+&lt;h3&gt;写进 Shell 初始化文件&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;写进-shell-初始化文件&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%86%99%e8%bf%9b-shell-%e5%88%9d%e5%a7%8b%e5%8c%96%e6%96%87%e4%bb%b6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;可以&lt;strong&gt;将 &lt;code&gt;export&lt;/code&gt; 命令添加进Shell的初始化文件&lt;/strong&gt;，这样每次启动 Shell 时就会自动加载环境变量。初始化时依次读取系统和用户的初始化文件，以最后读到的为准。&lt;/p&gt;
+&lt;p&gt;要注意不同Shell的初始化文件也不同，区别在下面一节，先说结论，对于大多数人用的 Bash、Zsh 等：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果&lt;strong&gt;修改用户的环境变量，建议修改 &lt;code&gt;~/.xx-rc&lt;/code&gt;&lt;/strong&gt;（根据你使用的shell，如 &lt;code&gt;.bashrc&lt;/code&gt; ）。修改完使用 &lt;code&gt;source ~/.xx-rc&lt;/code&gt; 命令或启动新shell进程、切换用户等即可生效。&lt;/li&gt;
+&lt;li&gt;如果&lt;strong&gt;修改系统环境变量，建议在 &lt;code&gt;/etc/profile.d&lt;/code&gt; 目录下新建或修改 &lt;code&gt;.sh&lt;/code&gt; 结尾的脚本&lt;/strong&gt;。修改完使用 &lt;code&gt;source /etc/profile&lt;/code&gt; 命令或重新登录用户（注销、重启）以生效。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;另外，&lt;code&gt;source&lt;/code&gt; 命令也可以用&lt;code&gt;.&lt;/code&gt;代替。不过它们只在当前 shell 进程起作用，所以最好还是重新登录或重启。&lt;/p&gt;
+&lt;h2&gt;Shell 初始化文件&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;shell-初始化文件&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#shell-%e5%88%9d%e5%a7%8b%e5%8c%96%e6%96%87%e4%bb%b6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;部分 Shell 初始化文件&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;部分-shell-初始化文件&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e9%83%a8%e5%88%86-shell-%e5%88%9d%e5%a7%8b%e5%8c%96%e6%96%87%e4%bb%b6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;系统/全局配置都在&lt;code&gt;/etc/&lt;/code&gt;目录下&lt;/th&gt;
+          &lt;th&gt;用户配置都在&lt;code&gt;~&lt;/code&gt;目录下&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;bash(login)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;/ect/profile&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;~/.profile&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;bash(non-login)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;/etc/bash.bashrc&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;~/.bashrc&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;zsh(login)&lt;/td&gt;
+          &lt;td&gt;同 bash，以及 &lt;code&gt;/etc/zsh/zshprofile&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;zsh(non-login)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;/etc/zsh/zshrc&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;~/.zshrc&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;fish&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;/etc/fish/config.fish&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;~/.config/fish/config.fish&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;某些发行版可能不同，比如 &lt;code&gt;/etc/bash.bashrc&lt;/code&gt; 换为 &lt;code&gt;/etc/bashrc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;没有列出所有；各种&lt;code&gt;xx-login&lt;/code&gt;与&lt;code&gt;xx-profile&lt;/code&gt;作用类似&lt;/li&gt;
+&lt;li&gt;Fish 好像是没有专门给 login shell 用的文件，需要自己使用 if 判断。其实我觉得这样挺好，因为现在的配置文件太多太乱了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;login shell 与 non-login shell&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;login-shell-与-non-login-shell&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#login-shell-%e4%b8%8e-non-login-shell&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;看过上表会发现有些 Shell 有 &lt;code&gt;xx-profile&lt;/code&gt; 和 &lt;code&gt;xx-rc&lt;/code&gt; 两套 Shell 的初始化文件。其原因是登录 Shell 有两种方法：login shell 与 non-login shell。&lt;/p&gt;
+&lt;p&gt;下面来自鸟哥的 Linux 私房菜：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在开始介绍 bash 的配置文件前，我们一定要先知道的就是 login shell 与 non-login shell！ 重点在于有没有登入 (login) 啦！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;login shell：取得 bash 时需要完整的登入流程的，就称为 login shell。举例来说，你要由 tty1 ~ tty6 登入，需要输入用户的账号与密码，此时取得的 bash 就称为『 login shell 』啰；&lt;/li&gt;
+&lt;li&gt;non-login shell：取得 bash 接口的方法不需要重复登入的举动，举例来说，(1)你以 X window 登入 Linux 后，再以 X 的图形化接口启动终端机，此时那个终端接口并没有需要再次的输入账号与密码，那个 bash 的环境就称为 non-login shell 了。(2)你在原本的 bash 环境下再次下达 bash 这个指令，同样的也没有输入账号密码， 那第二个 bash (子程序) 也是 non-login shell 。
+为什么要介绍 login, non-login shell 呢？这是因为这两个取得 bash 的情况中，读取的配置文件数据并不一样所致。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对于这些Shell，启动 non-login shell 时只会加载 &lt;code&gt;xx-rc&lt;/code&gt;；启动 login shell 时只会加载 &lt;code&gt;xx-profile&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;通过 &lt;code&gt;su&lt;/code&gt; 切换用户时，若直接 &lt;code&gt;su 用户名&lt;/code&gt;，会以 non-login shell 登录到该用户，若加上选项 &lt;code&gt;-&lt;/code&gt;、&lt;code&gt;-l&lt;/code&gt;、&lt;code&gt;--login&lt;/code&gt;，则会以 login shell 登录到该用户。&lt;/p&gt;
+&lt;h3&gt;初始化文件读取顺序&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;初始化文件读取顺序&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%88%9d%e5%a7%8b%e5%8c%96%e6%96%87%e4%bb%b6%e8%af%bb%e5%8f%96%e9%a1%ba%e5%ba%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;还是先以 Bash 为例，可查看 &lt;a href=&#34;https://wiki.archlinuxcn.org/wiki/Bash&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bash - ArchWiki&lt;/a&gt;。&lt;br&gt;
+因为 &lt;code&gt;profile&lt;/code&gt; 一般会加载同级的 &lt;code&gt;bashrc&lt;/code&gt;，我们简化来看后，其实际初始化文件读取顺序：
+&lt;img src=&#34;bash-init.drawio.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;如果考虑到是否是交互式、是否远程登陆等因素，之前看到一张图讲 sh、bash、zsh 初始化文件的读取顺序大概分别是这样的：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;shell-init.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;令人头大是吧。当然也有这图的原因，登陆条件与读取文件的图例没有明显区分，大家看个乐子就行。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Git基础</title>
+      <link>/linux/git-base/</link>
+      <pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/git-base/</guid>
+      <description>
+        
+        
+        &lt;p&gt;一点点基础，应该够给你搭博客使用了&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;&lt;img src=&#34;git-base.drawio.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;提前的设置&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;提前的设置&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%8f%90%e5%89%8d%e7%9a%84%e8%ae%be%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;git config&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-config&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-config&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;在提交之前，你必须先设置你的名字和 email。
+这是你在提交 commit 时的签名，每次提交记录里都会包含这些信息。&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.name &lt;span class=&#34;s2&#34;&gt;&amp;#34;YourName&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.email &lt;span class=&#34;s2&#34;&gt;&amp;#34;YourEmail@xxx&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h2&gt;本地操作&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;本地操作&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%9c%ac%e5%9c%b0%e6%93%8d%e4%bd%9c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;git init&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-init&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-init&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Git初始化，在目标目录内执行&lt;/p&gt;
+&lt;h3&gt;git status&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-status&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-status&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;检测当前目录和暂存区的状态&lt;/p&gt;
+&lt;h3&gt;git add&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-add&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-add&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;将要同步的内容加入本地暂存区&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git add 目录/文件
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;常用&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add . &lt;span class=&#34;c1&#34;&gt;## 将当前目录下所有改动添加到暂存区&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add -A &lt;span class=&#34;c1&#34;&gt;## 将仓库所有改动添加到暂存区&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h3&gt;git commit&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-commit&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-commit&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;提交到本地仓库中，后面加注释&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;注释&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -am &lt;span class=&#34;s2&#34;&gt;&amp;#34;注释&amp;#34;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;## 相当于同时执行了 git add -A&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;git commit 提交信息参考规范：&lt;a href=&#34;https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Angular&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;远程仓库&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;远程仓库&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;git clone&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-clone&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-clone&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;克隆一个Git仓库到本地，可以将仓库内容直接下载下来。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone &amp;lt;url&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;git remote&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-remote&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-remote&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;管理远程仓库，常用的是与远程仓库添加关联&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remove add &amp;lt;仓库别名&amp;gt; &amp;lt;仓库url&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;下面先不涉及分支，默认主分支master&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;git push&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-push&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-push&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;将本地仓库内容推送到远端仓库中&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push &amp;lt;仓库别名&amp;gt; &amp;lt;本地分支&amp;gt;:&amp;lt;远程分支&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push &amp;lt;仓库别名&amp;gt; &amp;lt;本地分支&amp;gt; &lt;span class=&#34;c1&#34;&gt;## 分支相同可简写&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;-f&lt;/code&gt;：强制推送&lt;br&gt;
+&lt;code&gt;-u&lt;/code&gt;：同时建立分支的关联&lt;/p&gt;
+&lt;h3&gt;git pull&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-pull&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-pull&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;从远程仓库拉取到本地仓库，与&lt;code&gt;git push&lt;/code&gt;相反&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git pull &amp;lt;仓库别名&amp;gt; &amp;lt;远程分支&amp;gt;:&amp;lt;本地分支&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git pull &amp;lt;仓库别名&amp;gt; &amp;lt;远程分支&amp;gt; &lt;span class=&#34;c1&#34;&gt;## 分支相同可省略&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docker / Podman 安装与换源</title>
+      <link>/linux/containers/install/</link>
+      <pubDate>Wed, 22 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/containers/install/</guid>
+      <description>
+        
+        
+        &lt;p&gt;安装 Docker 或 Podman（选一个就好），以及更换 Docker Hub 镜像源。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2&gt;安装 Docker / Podman&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;安装-docker--podman&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ae%89%e8%a3%85-docker--podman&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;我到底安装哪一个？可以参考下表：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;Linux（CLI）&lt;/th&gt;
+          &lt;th&gt;Windows &amp;amp; macOS &amp;amp; Linux（GUI）&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;docker&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://docs.docker.com/engine/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker Engine&lt;/a&gt;&lt;br&gt;（原 Docker CE）&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.docker.com/products/docker-desktop/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker Desktop&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;podman&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://podman.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Podman&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://podman-desktop.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Podman Desktop&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Docker 作为最有名的容器引擎应该就不用我多说了。Podman 是 Redhat 开发的 “Docker 替代品”，特点是无需后台运行守护进程，并且是 rootless 的。更多请看：&lt;a href=&#34;../whether-podman/&#34; &gt;是否要用 Podman 代替 Docker&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Docker CLI（Linux）&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;docker-clilinux&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#docker-clilinux&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;如果你发行版的仓库中有且更新及时（比如 Arch、Alpine），那直接用包管理器安装就行了。&lt;/li&gt;
+&lt;li&gt;需要注意的是，Debian系（包括Ubuntu等）仓库中的 &lt;code&gt;docker&lt;/code&gt; 并不是我们要用的，Docker 包名为&lt;code&gt;docker.io&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;如果仓库中没有，或仓库版本较旧要最新版的请查看&lt;a href=&#34;https://docs.docker.com/engine/install/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;官方文档&lt;/a&gt;或 &lt;a href=&#34;https://help.mirrors.cernet.edu.cn/docker-ce/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker CE 软件仓库镜像使用帮助&lt;/a&gt;安装。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;个人用户推荐用其中的安装脚本进行安装：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以正常访问 docker 请执行
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -fsSL https://get.docker.com/ &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo -E sh&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;使用校园网联合镜像站请执行：
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;DOWNLOAD_URL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;https://mirrors.cernet.edu.cn/docker-ce&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -fsSL https://get.docker.com/ &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo -E sh&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;使用阿里云镜像站安装请执行
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -fsSL https://get.docker.com/ &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo sh -s - --mirror Aliyun&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Podman CLI （Linux）&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;podman-cli-linux&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#podman-cli-linux&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Podman 因为是 Redhat 推出的，主流发行版的仓库基本都是有的，包管理器直接安装即可。&lt;/p&gt;
+&lt;h4&gt;配置缺省 Docker Hub&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;配置缺省-docker-hub&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e9%85%8d%e7%bd%ae%e7%bc%ba%e7%9c%81-docker-hub&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Podman 拉取 Docker Hub 内镜像时，镜像名称不能省略 &lt;code&gt;docker.io/&lt;/code&gt; 前缀。你可以每次都手动添加，也可以按下面方法配置缺省使用。&lt;/p&gt;
+&lt;p&gt;打开 &lt;code&gt;/etc/containers/registries.conf&lt;/code&gt; 或新建 &lt;code&gt;/etc/containers/registries.conf.d/docker.conf&lt;/code&gt;，在末尾添加：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;unqualified-search-registries&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;docker.io&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h3&gt;Docker Desktop 或 Podman Desktop&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;docker-desktop-或-podman-desktop&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#docker-desktop-%e6%88%96-podman-desktop&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Docker Desktop 是 Docker 官方提供的一个 GUI 管理工具，可以帮你自动化安装 docker（Docker Engine）。Podman 官方也提供了类似的 GUI 管理工具 Podman Desktop，它不仅可以帮你自动化安装和管理 Podman，还支持 Docker 管理。&lt;/p&gt;
+&lt;p&gt;它们都是支持 Windows &amp;amp; macOS &amp;amp; Linux 的，具体下载地址请看前面的表格。&lt;/p&gt;
+&lt;p&gt;Docker 使用了 Linux 内核的一些特性，在 Windows &amp;amp; macOS 上使用需要虚拟机内运行（比如 Windows 上的 Docker 就是通过 WSL 实现的），这两个平台一般会安装 Docker Desktop。Podman 也也同理。&lt;/p&gt;
+&lt;p&gt;Linux 上就算了，占用太高了，真喜欢这种“图形化面板”不如用 &lt;a href=&#34;../portainer/&#34; &gt;Portainer&lt;/a&gt;，或者 lazydocker 这样的 TUI 软件。&lt;/p&gt;
+&lt;h2&gt;访问 Docker Hub&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;访问-docker-hub&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%ae%bf%e9%97%ae-docker-hub&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;因为 Docker Hub 服务器在国外，国内拉取镜像挺慢的，解决方法有两种。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一是可以使用镜像站，国内还是有&lt;del&gt;很多&lt;/del&gt;镜像的。&lt;/li&gt;
+&lt;li&gt;二是可以让 docker、podman 通过代理拉取镜像。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Docker Hub 仓库镜像&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;docker-hub-仓库镜像&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#docker-hub-%e4%bb%93%e5%ba%93%e9%95%9c%e5%83%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;可用镜像&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;云服务器参考下面
+&lt;ul&gt;
+&lt;li&gt;阿里云，需要自己去 &lt;a href=&#34;https://cr.console.aliyun.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;容器镜像服务&lt;/a&gt; 创建专属镜像仓库。&lt;/li&gt;
+&lt;li&gt;腾讯云，按照&lt;a href=&#34;https://cloud.tencent.com/document/product/1207/45596&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;文档&lt;/a&gt;操作即可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;公网
+&lt;ul&gt;
+&lt;li&gt;2024.6 知名高校、企业的公网镜像基本都关了。如果你有可用的镜像，请自行替换下面的配置文件。&lt;br&gt;
+可用镜像参考：&lt;a href=&#34;https://status.1panel.top/status/docker&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://status.1panel.top/status/docker&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Docker 配置镜像源&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;docker-配置镜像源&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#docker-%e9%85%8d%e7%bd%ae%e9%95%9c%e5%83%8f%e6%ba%90&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;打开或新建 &lt;code&gt;/etc/docker/daemon.json&lt;/code&gt;，添加：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nt&#34;&gt;&amp;#34;registry-mirrors&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		&lt;span class=&#34;s2&#34;&gt;&amp;#34;https://example.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;将 &lt;code&gt;example.com&lt;/code&gt; 替换为可用镜像。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;Podman 配置镜像源&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;podman-配置镜像源&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#podman-%e9%85%8d%e7%bd%ae%e9%95%9c%e5%83%8f%e6%ba%90&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;在刚刚配置 Docker Hub 的地方继续追加：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;registry&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;location&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;docker.io&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;registry&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;mirror&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;location&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;exaple.com&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;将 &lt;code&gt;example.com&lt;/code&gt; 替换为可用镜像。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Docker / Podman 设置代理&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;docker--podman-设置代理&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#docker--podman-%e8%ae%be%e7%bd%ae%e4%bb%a3%e7%90%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;Docker 设置代理&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;docker-设置代理&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#docker-%e8%ae%be%e7%bd%ae%e4%bb%a3%e7%90%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;参见官方文档：https://docs.docker.com/config/daemon/proxy/#systemd-unit-file&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;因为 Docker 有守护进程 dockerd，我们应该修改它的配置。而它又是 Systemd 管理的，所以我们要编辑 Systemd 的配置。&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;pre&gt;&lt;code&gt;sudo mkdir -p /etc/systemd/system/docker.service.d
+echo &amp;#39;[Service]
+Environment=&amp;#34;HTTP_PROXY=http://127.0.0.1:7890/&amp;#34;
+Environment=&amp;#34;HTTPS_PROXY=http://127.0.0.1:7890/&amp;#34;
+Environment=&amp;#34;NO_PROXY=localhost,127.0.0.1&amp;#34;
+&amp;#39; | sudo tee /etc/systemd/system/docker.service.d/proxy.conf&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h4&gt;Podman 设置代理&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;podman-设置代理&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#podman-%e8%ae%be%e7%bd%ae%e4%bb%a3%e7%90%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;与之相比 Podman 就简单多了，设置系统代理就好了，也就是它会读取 &lt;code&gt;http_proxy&lt;/code&gt;、&lt;code&gt;https_proxy&lt;/code&gt; 等变量。无守护进程的又一个优势。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docker / Podman 常用镜像</title>
+      <link>/linux/containers/images/</link>
+      <pubDate>Wed, 22 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/containers/images/</guid>
+      <description>
+        
+        
+        &lt;!-- more --&gt;
+&lt;h2&gt;OS&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;os&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#os&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;alpine&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;debian&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;debian:12-slim&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;fedora&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;databases&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;databases&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#databases&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;PostgreSQL&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;postgresql&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#postgresql&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;postgres:alpine&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run -d -p 5432:5432 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -e &lt;span class=&#34;nv&#34;&gt;POSTGRES_PASSWORD&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;123456&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --name postgres postgres:alpine&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h3&gt;MySQL&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;mysql&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#mysql&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mysql:debian&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run -d -p 3306:3306 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -e &lt;span class=&#34;nv&#34;&gt;MYSQL_ROOT_PASSWORD&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;123456&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --name mysql mysql:debian&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h3&gt;openGauss&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;opengauss&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#opengauss&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;enmotech/opengauss&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;opengauss/opengauss:5.0.0&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;251 DB。密码还有要求，破事真多。&lt;br&gt;
+社区做的晚也就罢了，连个 latest 标签都没有，不会又是大学生做的吧。而且基于 openEuler 镜像，比较大。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run -d &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -e &lt;span class=&#34;nv&#34;&gt;GS_PASSWORD&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;openGauss@123 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --privileged &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --name opengauss enmotech/opengauss&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h3&gt;Redis&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;redis&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#redis&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;redis:alpine&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run -d -p 6379:6379 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --name redis redis:alpine&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h2&gt;tools&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;tools&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#tools&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Nginx&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;nginx&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#nginx&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;nginx:alpine&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nginx:alpine-perl&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run -d &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --network host &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --restart always &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --name nginx &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    nginx:alpine&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;挂载本地目录&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -p nginx/conf.d nginx/web
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run -d &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -v &lt;span class=&#34;nv&#34;&gt;$PWD&lt;/span&gt;/conf.d:/etc/nginx/conf.d &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -v &lt;span class=&#34;nv&#34;&gt;$PWD&lt;/span&gt;/web:/usr/share/nginx &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --network host &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --restart always &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    --name nginx &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    nginx:alpine&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h3&gt;weasyprint&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;weasyprint&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#weasyprint&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run --rm -v &lt;span class=&#34;nv&#34;&gt;$PWD&lt;/span&gt;:/app &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -w /app minidocks/weasyprint &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    https://weasyprint.org/ weasyprint.pdf&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docker / Podman 基础操作</title>
+      <link>/linux/containers/base-usages/</link>
+      <pubDate>Wed, 22 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/containers/base-usages/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Docker 镜像和容器的基础操作。Podman 用法与其相同，将&lt;code&gt;docker&lt;/code&gt;替换为&lt;code&gt;podman&lt;/code&gt;即可。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2&gt;镜像管理&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;镜像管理&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e9%95%9c%e5%83%8f%e7%ae%a1%e7%90%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;功能&lt;/th&gt;
+          &lt;th&gt;命令&lt;/th&gt;
+          &lt;th&gt;说明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查找镜像&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker search &amp;lt;关键字&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;下载镜像&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker pull &amp;lt;镜像名&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;镜像名 = 镜像仓库名(用户名/软件名):tag，用户名为library时会省略，tag为latest时可省略&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看镜像&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker image ls&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;列出的镜像ID是镜像短ID，镜像ID一般使用时取开头3、4位，能分辨即可。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;删除镜像&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker image rm &amp;lt;镜像名&amp;gt;/&amp;lt;镜像 ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;别名：&lt;code&gt;docker rmi &amp;lt;镜像名&amp;gt;/&amp;lt;镜像 ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;容器管理&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;容器管理&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ae%b9%e5%99%a8%e7%ae%a1%e7%90%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;操作容器一般使用&amp;lt;容器名&amp;gt;或&amp;lt;容器ID&amp;gt;。容器名可通过&lt;code&gt;--name&lt;/code&gt;在&lt;code&gt;docker run&lt;/code&gt;时指定，也可由系统自动分配；容器ID同镜像ID一样，仅需开头3、4位，能分辨即可。&lt;/p&gt;
+&lt;h3&gt;使用镜像创建容器 - &lt;code&gt;docker run&lt;/code&gt;命令&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;使用镜像创建容器---docker-run命令&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%bd%bf%e7%94%a8%e9%95%9c%e5%83%8f%e5%88%9b%e5%bb%ba%e5%ae%b9%e5%99%a8---docker-run%e5%91%bd%e4%bb%a4&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;参数&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &amp;lt;镜像名&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;docker run&lt;/code&gt; 创建容器时如果本地没有镜像，docker 会自动去拉取镜像，可以免去 &lt;code&gt;docker pull&lt;/code&gt; 这一步。&lt;/p&gt;
+&lt;p&gt;常用参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--name xxx&lt;/code&gt; ：给新容器命名为“xxx”&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-d&lt;/code&gt; ：后台运行&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-i&lt;/code&gt; ：进行交互式操作&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-t&lt;/code&gt; ：分配一个伪终端，一般与i一同使用&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-p xxxx:xxxx&lt;/code&gt; ：指定端口映射，格式为“主机端口:容器端口”&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-e xxx&lt;/code&gt; ：设置环境变量&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-v xx:xx&lt;/code&gt; ：挂载数据卷、主机目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--mount xx=xx,xx=xx&lt;/code&gt; ：同上&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;样例：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MySQL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run -d &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-p 3306:3306 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-e &lt;span class=&#34;nv&#34;&gt;MYSQL_ROOT_PASSWORD&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;123456&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--name mysql &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;mysql&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;PostgreSQL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run -d &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-p 5432:5432 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-e &lt;span class=&#34;nv&#34;&gt;POSTGRES_PASSWORD&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;123456&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--name postgresql &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;postgres:alpine&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;容器的管理 - &lt;code&gt;docker container&lt;/code&gt;命令&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;容器的管理---docker-container命令&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ae%b9%e5%99%a8%e7%9a%84%e7%ae%a1%e7%90%86---docker-container%e5%91%bd%e4%bb%a4&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;docker container&lt;/code&gt; 的常用命令一般可以省略container，如&lt;code&gt;docker container start&lt;/code&gt; 可以写为 &lt;code&gt;docker start&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;功能&lt;/th&gt;
+          &lt;th&gt;docker container 命令&lt;/th&gt;
+          &lt;th&gt;别名&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker container ps&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker ps&lt;/code&gt;，常加&lt;code&gt;-a&lt;/code&gt;查看所有容器&lt;br /&gt;还有个&lt;code&gt;docker ls&lt;/code&gt;也可以&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;启动容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker container start &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker start &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;重启容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker container restart &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker restart &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;停止容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker container stop &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker stop &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;删除容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker container rm &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker rm &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看日志&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker container logs &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker logs &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;进入后台运行的容器&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;进入后台运行的容器&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%bf%9b%e5%85%a5%e5%90%8e%e5%8f%b0%e8%bf%90%e8%a1%8c%e7%9a%84%e5%ae%b9%e5%99%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker attach &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;或&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt; 命令&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-it &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt; bash&lt;/code&gt; ：进入容器并启动bash进行交互式操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;推荐exec，退出容器不会停止。&lt;/p&gt;
+&lt;h2&gt;Compose 管理&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;compose-管理&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#compose-%e7%ae%a1%e7%90%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;很多情况下我们项目会需要多个相互配合的容器组成一个容器组；或者需要进行批量部署。这时继续通过上面的方法就有些费力，可以通过 Docker Compose（或者 Podman Compose）进行方便的管理。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有些创建的容器创建后想修改，这时也可以通过这个完成。虽然重新部署实际还是把容器删掉再建一个。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;它使用一个 &lt;code&gt;compose.yaml&lt;/code&gt; 文件作为配置文件。使用时只需在该文件所在目录执行 &lt;code&gt;docker compose&lt;/code&gt; 相关指令就可进行容器组的建立、启动、停止等操作。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有些人将这个配置文件命名为 &lt;code&gt;docker-compose.yml&lt;/code&gt;，这是一种过时但仍兼容的写法。详细请看 &lt;a href=&#34;https://docs.docker.com/compose/compose-application-model/#the-compose-file&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://docs.docker.com/compose/compose-application-model/#the-compose-file&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;功能&lt;/th&gt;
+          &lt;th&gt;docker compose 命令&lt;/th&gt;
+          &lt;th&gt;备注&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker compose ps&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;还有 &lt;code&gt;docker compose ls&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;建立容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker compose up&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;常加 &lt;code&gt;-d&lt;/code&gt;，后台运行&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;启动容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker compose start&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;重启容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker compose restart&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;停止容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker compose stop&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;删除容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker compose down&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看日志&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker compose logs&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>apt remove purge autoremove autopurge 异同</title>
+      <link>/linux/package-manager/apt-remove-purge/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/package-manager/apt-remove-purge/</guid>
+      <description>
+        
+        
+        &lt;p&gt;你可以将这些看作 &lt;code&gt;apt remove&lt;/code&gt; 是否使用 &lt;code&gt;--purge&lt;/code&gt;、&lt;code&gt;--autoremove&lt;/code&gt; 这两个参数排列组合结果的别名。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--purge&lt;/code&gt; 参数作用是删除程序包时删除其配置文件，&lt;code&gt;--autoremove&lt;/code&gt; 参数的作用是删除不再需要的依赖包。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;apt remove&lt;/li&gt;
+&lt;li&gt;apt purge&lt;br&gt;
+= apt remove &lt;strong&gt;&amp;ndash;purge&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;apt autoremove&lt;br&gt;
+= apt remove &lt;strong&gt;&amp;ndash;autoremove&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;apt autopurge&lt;br&gt;
+= apt remove &lt;strong&gt;&amp;ndash;autoremove &amp;ndash;purge&lt;/strong&gt;&lt;br&gt;
+= apt autoremove &amp;ndash;purge&lt;br&gt;
+= apt purge &amp;ndash;autoremove&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在 man 手册里，apt(8) 只提到了前三个，且都显示来自apt-get(8)，没有 &lt;code&gt;autopurge&lt;/code&gt;。而 apt-get(8) 中有 &lt;code&gt;autopurge&lt;/code&gt;，并说其是 &lt;code&gt;autoremove --purge&lt;/code&gt; 的别名。&lt;br&gt;
+新版 fish 补全中四个子命令都有，旧版也是没有 &lt;code&gt;autopurge&lt;/code&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Linux 发行版</title>
+      <link>/linux/disto/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/disto/</guid>
+      <description>
+        
+        
+        &lt;ul&gt;
+&lt;li&gt;什么是 &lt;a href=&#34;https://zh.wikipedia.org/wiki/Linux%e5%8f%91%e8%a1%8c%e7%89%88&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux发行版&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;主要 Linux 发行版发展时间线 - &lt;a href=&#34;https://github.com/FabioLolix/LinuxTimeline&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux Distribution Timeline&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;好用的桌面（Deaktop）发行版：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Debian&lt;br&gt;
+各种都有
+&lt;ul&gt;
+&lt;li&gt;deepin&lt;br&gt;
+默认 DDE&lt;/li&gt;
+&lt;li&gt;Ubuntu&lt;br&gt;
+默认修改版 GNOME
+&lt;ul&gt;
+&lt;li&gt;Kubuntu&lt;br&gt;
+默认 KDE&lt;/li&gt;
+&lt;li&gt;Linux Mint&lt;br&gt;
+默认 Cinnamon&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;LMDE&lt;br&gt;
+Linux Mint 的另一个版本，默认 Cinnamon&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Arch
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://endeavouros.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EndeavourOS&lt;/a&gt;&lt;br&gt;
+默认 KDE&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://getcryst.al/site/zh&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Crystal Linux&lt;/a&gt;&lt;br&gt;
+默认底栏布局 GNOME&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;Redhat&lt;/del&gt;
+&lt;ul&gt;
+&lt;li&gt;fedora&lt;br&gt;
+默认 GNOME&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;SUSE&lt;/del&gt;
+&lt;ul&gt;
+&lt;li&gt;openSUSE&lt;br&gt;
+默认 KDE&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;软件&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://wiki.archlinuxcn.org/wiki/Plymouth&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Plymouth - 开机启动界面&lt;/a&gt;
+Plymouth 是一个来自于 Fedora 社区的提供漂亮的启动界面的项目，现在它被列入了freedesktop.org 的官方资源之中。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>像使用 apt、dnf 那样使用 pacman —— 给 pacman 增加子命令样式的参数</title>
+      <link>/linux/package-manager/subcmd-for-pacman/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/package-manager/subcmd-for-pacman/</guid>
+      <description>
+        
+        
+        &lt;p&gt;用过 Arch 的都知道其包管理器 pacman 以及很多“AUR helper”如 yay、paru 等，使用的 &lt;code&gt;-S&lt;/code&gt; 形式的“选项”（OPTIONS）作为参数。这和主流的 apt、dnf/yum 等的子命令式参数有着明显差异，很多新接触的都是一脸懵逼，比如最经典的 &lt;code&gt;-S&lt;/code&gt;、&lt;code&gt;-Sy&lt;/code&gt;、&lt;code&gt;-Syy&lt;/code&gt;、&lt;code&gt;-Syu&lt;/code&gt;、&lt;code&gt;-Syyu&lt;/code&gt;、&lt;code&gt;-Syuu&lt;/code&gt; 这一连串看着类似的选项。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;很多人就算用 Arch 挺长时间也根本不知道什么意思，就是入门时看的什么“小白教材”这么写就这么一直用了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其实 apt 和 dnf/yum 的“底层” —— dpkg、rpm 也是选项式的，而他们作为直接与用户交互的封装都使用了子命令式，说明子命令应该对大部分人来说是更易使用的，因为它更“human-readable”。所以简单写了个脚本，让用户也可以以 apt 那样的子命令使用 pacman 或 yay。&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/usr/bin/sh
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;command&lt;/span&gt; -v yay &amp;gt;/dev/null&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;pkg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;yay&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;elif&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;command&lt;/span&gt; -v paru &amp;gt;/dev/null&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;pkg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;paru&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;pkg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;pacman&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; !&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;root&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PKG&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;pacman&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;sudo_prefix&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;sudo &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;sudo_prefix&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$#&lt;/span&gt; -eq &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;The user is &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;The package manager is &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;sub_cmd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;shift&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;other_args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sub_cmd&lt;/span&gt; in
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;search&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt; -Ss &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;show&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt; -Si &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# from repo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;info&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt; -Qi &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# from local&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;update&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Avoid doing partial upgrades. Always use upgrade(-Syu) instead of update(-Sy).&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Refer to https://wiki.archlinux.org/title/System_maintenance 3.2 3.3&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;请避免部分更新，不要运行 update(-Sy)，而是运行 upgrade(-Syu)。&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;请参阅 https://wiki.archlinuxcn.org/wiki/系统维护 3.2 3.3&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;install&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;add&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; in
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            ./*&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -U &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# install local package&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            *&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -S &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;upgrade&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Syu &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;force-upgrade&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Syyu &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;remove&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;del&amp;#34;&lt;/span&gt;* &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;uninstall&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; Suggest using &lt;span class=&#34;s2&#34;&gt;&amp;#34;purge&amp;#34;&lt;/span&gt; or &lt;span class=&#34;s2&#34;&gt;&amp;#34;autopurge&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -R &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;purge&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Rn &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;autoremove&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;autopurge&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$#&lt;/span&gt; -eq &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;c1&#34;&gt;# from https://wiki.archlinuxcn.org/wiki/Pacman/提示和技巧 1.6&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt; -Qtdq &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Rns -
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$sub_cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;autoremove&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Rcs &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$sub_cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;autopurge&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Rncs &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;clean&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Sc &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    *&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sub_cmd&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

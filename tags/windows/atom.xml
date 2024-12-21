@@ -1,0 +1,263 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>炳的自留地 – Windows</title>
+    <link>/tags/windows/</link>
+    <description>Recent content in Windows on 炳的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 05 Oct 2022 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="/tags/windows/atom.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Windows分区</title>
+      <link>/software/windows/windows-partition/</link>
+      <pubDate>Wed, 05 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/software/windows/windows-partition/</guid>
+      <description>
+        
+        
+        &lt;p&gt;说实话，永远不要高估别人“会用电脑的水平”，或者说，“文件管理的水平”。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;很多人说软件装D盘、E盘，但是我见到很多听这些话的“小白”就是在“乱搞”，一个程序装另一个程序的文件夹里了，一个程序直接装D盘根目录了，这些都是挺常见的。其实还不如从根本上解决问题，把C盘搞大点然后直接装。游戏或者几十G的大型专业软件除外。&lt;/p&gt;
+&lt;p&gt;而且固态硬盘上的&lt;strong&gt;分区越少越好&lt;/strong&gt;。建议两个分区，一个装系统和软件，一个装资料、文件；胆子大的可以直接当C盘战士。在说一遍，记得&lt;strong&gt;把C盘分大一点！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;接下来是步骤。&lt;/p&gt;
+&lt;h3&gt;调整 D 盘分区大小&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;调整-d-盘分区大小&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%b0%83%e6%95%b4-d-%e7%9b%98%e5%88%86%e5%8c%ba%e5%a4%a7%e5%b0%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;分区扩容时只能分配相邻的为分配的空间，所以我们需要调整 D 盘（具体看磁盘管理中你 C 盘和谁相邻）空间。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;你也可以直接删除 D 盘，用下一节提到的的“磁盘管理”中的“删除卷”功能删除。需要提示的是，&lt;strong&gt;删除分区前记得备份！备份！&lt;/strong&gt; 把要删除的D盘中的文件复制到别的盘中去。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;只有系统分区工具可以不关机调整C盘，但其只能由后部压缩空间，这里需要先使用其他工具，如【DiskGenius】。&lt;/p&gt;
+&lt;p&gt;下载并打开 DiskGenius，在 D 盘上右键，选择【调整分区大小】，分配出空间，注意空出的是前半部分。&lt;/p&gt;
+&lt;h3&gt;扩容 C 盘&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;扩容-c-盘&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%89%a9%e5%ae%b9-c-%e7%9b%98&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;在“开始”按钮处右键（或同时按Windows 和 x），选择【磁盘管理】。&lt;/p&gt;
+&lt;p&gt;在 C 盘上右键，选择【扩展卷】，将前面得到的为分配空间分给 C 盘。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Windows装机必备</title>
+      <link>/software/windows/base-software/</link>
+      <pubDate>Mon, 09 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/software/windows/base-software/</guid>
+      <description>
+        
+        
+        &lt;p&gt;（2021.8）本文写给普通人，都是一些经常会用到而且容易有广告的。要求是&lt;strong&gt;开箱即用，操作简单&lt;/strong&gt;。需要折腾的（或者找破解版）就不推荐了。&lt;/p&gt;
+&lt;h2&gt;软件安装&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;软件安装&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%bd%af%e4%bb%b6%e5%ae%89%e8%a3%85&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Windows上下载软件一般推荐官网，但寻找和更新比较麻烦，而且下载速度差异很大。应用商店有基本的审核，比直接搜索要安全一点，就是有的不全、更新不及时。&lt;/p&gt;
+&lt;p&gt;微软商店里面还是有不少东西的，但是国内常用的软件很多都没有。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;a href=&#34;https://www.huorong.cn/app_store.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;火绒应用商店&lt;/a&gt; 或 &lt;a href=&#34;https://lestore.lenovo.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;联想应用商店（网页版）&lt;/a&gt;🔺&lt;/th&gt;
+          &lt;th&gt;推荐&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://pc.qq.com/category/c0.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;腾讯软件中心（网页版）&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;点击普通下载&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://baoku.360.cn/soft/list/cid/0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;360软件宝库（网页版）&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;点击普通下载&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;火绒应用商店是和联想应用商店合作的，内容较全，除了没账号基本一样。&lt;br&gt;
+但是我建议在设置中关闭【快装功能】，否则别问别人你软件装哪了。&lt;/p&gt;
+&lt;h2&gt;软件卸载&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;软件卸载&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%bd%af%e4%bb%b6%e5%8d%b8%e8%bd%bd&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;a href=&#34;https://lestore.lenovo.com/detail/L101659&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;HiBit Uninstaller&lt;/a&gt;&lt;/th&gt;
+          &lt;th&gt;列出所有“安装”的软件并启动它们的卸载程序，卸载完还会扫描有没有残留的文件夹、注册表等垃圾。这个是&lt;strong&gt;单文件，建议放到桌面，点开就能用。&lt;/strong&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://lestore.lenovo.com/detail/24068&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Geek Uninstaller&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;很多人推荐，但功能有些简陋。和上面的主要功能差不多。&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;浏览器类（任选一两个即可）&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;浏览器类任选一两个即可&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%b5%8f%e8%a7%88%e5%99%a8%e7%b1%bb%e4%bb%bb%e9%80%89%e4%b8%80%e4%b8%a4%e4%b8%aa%e5%8d%b3%e5%8f%af&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;a href=&#34;https://www.mozilla.org/zh-CN/firefox/all&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Firefox&lt;/a&gt;&lt;/th&gt;
+          &lt;th&gt;火狐国际版，开源、自由、跨平台。我最常用的浏览器。&lt;br /&gt;注意最好下载国际版，具体看&lt;a href=&#34;/software/browsers/firefox/&#34; &gt;Firefox下载&lt;/a&gt;。&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.microsoft.com/zh-cn/edge&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Edge&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;Windows自带。现在也算跨平台了。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.google.cn/chrome&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Chrome&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;国内环境用着很难受，难同步、默认Google（很多人真的不会改）。有些网站为了兼容性推荐你用Chrome，直接上面的Edge就行。非要用的话记得改搜素引擎（推荐Bing，广告少而且新建标签页漂亮）。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://browser.360.cn/ee/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;360极速浏览器&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;唯一推荐的国产（大厂）浏览器。内核较新，广告较少。同步功能完善。&lt;br /&gt;有Linux版，虽然叫“360安全浏览器”但其实就是“极速”，密码同步方式不同。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://browser.qq.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;QQ浏览器&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;虽然不推荐但不少同学用，当然它的外观和翻译功能做得确实不错&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;输入法&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;输入法&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%be%93%e5%85%a5%e6%b3%95&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Win10以上最好用自带的微软拼音。&lt;/p&gt;
+&lt;h2&gt;文档阅读&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;文档阅读&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%96%87%e6%a1%a3%e9%98%85%e8%af%bb&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;MS office&lt;/th&gt;
+          &lt;th&gt;几乎所有一线笔记本（联想、惠普、戴尔）和大部分二线笔记本都带家庭版授权，记得及时激活，毕竟花了钱的。&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.wps.cn/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;金山WPS&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;跨平台的国产办公软件，建议在不影响正常使用的情况下尽量“支持国产”。 如果嫌弃广告可以试试这个计算机等级考试官网的&lt;a href=&#34;https://ncre.neea.edu.cn/html1/report/1507/861-1.htm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;教育考试专用版&lt;/a&gt;。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.daokeyuedu.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;稻壳阅读器&lt;/a&gt;🔺&lt;/td&gt;
+          &lt;td&gt;支持PDF、EPUB、MOBI、TXT等常见的电子书籍文档，还支持知网的.caj文件。&lt;br /&gt;甚至可以查看.md和.chm等，但效果不佳。&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;本地看图/视频/听歌类&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;本地看图视频听歌类&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%9c%ac%e5%9c%b0%e7%9c%8b%e5%9b%be%e8%a7%86%e9%a2%91%e5%90%ac%e6%ad%8c%e7%b1%bb&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;自带播放器🔺&lt;/th&gt;
+          &lt;th&gt;又不是不能用，Win10（较新版本）、Win11上自带的还不错。&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://static-s.iqiyi.com/wnbf/get.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;万能联播&lt;/a&gt;🔺&lt;/td&gt;
+          &lt;td&gt;爱奇艺出品。视频、音频、图片都支持，基本没有广告。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.videolan.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VLC&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;一个开源、自由、跨平台的播放器。去微软商店下载UWP版吧，原版太丑。&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不要推荐potplayer，一是要求开箱即用，它的默认配置不行，操作也不符合国内大多数人的使用习惯；二是 FFmpeg 耻辱柱；三是它也有广告了，棒子的软件火了都会加广告&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;压缩解压类（任选一个）&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;压缩解压类任选一个&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%8e%8b%e7%bc%a9%e8%a7%a3%e5%8e%8b%e7%b1%bb%e4%bb%bb%e9%80%89%e4%b8%80%e4%b8%aa&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;a href=&#34;https://www.360totalsecurity.com/zh-cn/360zip/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;360压缩 - 国际版&lt;/a&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.7-zip.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;7-Zip&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;或者在 &lt;a href=&#34;https://lestore.lenovo.com/detail/2685&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;联想软件商店&lt;/a&gt; 里下载。设置里有关联文件类型&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不推荐用BandiZip，也是韩国人开发的。基本就是个缝合怪，日常使用没有突出的优点，而且它现在也有广告。&lt;br&gt;
+&lt;a href=&#34;https://apphot.cc/121.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;WinRAR - 烈火修改版|App热&lt;/a&gt; 不太推荐修改版软件，但是某些人就爱这口，留个链接备用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;文件搜索&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;文件搜索&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%96%87%e4%bb%b6%e6%90%9c%e7%b4%a2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;a href=&#34;https://lestore.lenovo.com/detail/22042&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Everything&lt;/a&gt;&lt;/th&gt;
+          &lt;th&gt;一款文件、文件夹名称快速搜索软件&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;安全管理类（任选一个）&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;安全管理类任选一个&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ae%89%e5%85%a8%e7%ae%a1%e7%90%86%e7%b1%bb%e4%bb%bb%e9%80%89%e4%b8%80%e4%b8%aa&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;a href=&#34;https://guanjia.lenovo.com.cn/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;联想电脑管家&lt;/a&gt;&lt;/th&gt;
+          &lt;th&gt;和火绒有合作，添加了软件管理和驱动管理等，没有品牌限制。&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.huorong.cn/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;火绒安全&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;用它主要是拦截弹窗和流氓软件的安装。推荐搭配 &lt;del&gt;联想软件商店&lt;/del&gt; 和联想合作的火绒应用商店使用。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://weishi.360.cn/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;360安全卫士&lt;/a&gt;（极速版）&lt;/td&gt;
+          &lt;td&gt;去选极速版，无广告。结果还是有一个“360安全”，不过杀毒没得说，老流氓还是能镇住小流氓的。&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;远程控制&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;远程控制&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;a href=&#34;https://sunlogin.oray.com/download&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;向日葵远程控制&lt;/a&gt;&lt;/th&gt;
+          &lt;th&gt;出问题解决不了了就让别人帮你解决&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;再次提示&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;再次提示&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%86%8d%e6%ac%a1%e6%8f%90%e7%a4%ba&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;注意不要直接百度然后用下载站的下载器，就是 &lt;strong&gt;“高速下载”&lt;/strong&gt; 那个下载器，以免被捆绑安装。&lt;/p&gt;
+&lt;p&gt;最好在软件商店安装，推荐联想软件商店（网页版也行）和微软商店。&lt;/p&gt;
+&lt;p&gt;今年（2022）315曝光了，很多下载站都下架了“高速下载器”，就是不知道能维持多久&lt;/p&gt;
+&lt;h2&gt;进阶版&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;进阶版&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%bf%9b%e9%98%b6%e7%89%88&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;你可以去自行发现一些工具类软件、绿色版软件等，这几个博客是例子。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ghxi.com/category/all/pcsoft&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;果核剥壳&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.coolexe.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;阿酷杂货铺&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.mpyit.com/category/pcsoft&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;殁漂遥&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;……&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cloud.189.cn/web/share?code=rENziuQjamiy%EF%BC%88%E8%AE%BF%E9%97%AE%E7%A0%81%EF%BC%9A5zvc%EF%BC%89&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;一些Windows工具&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>DNS</title>
+      <link>/software/dns/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/software/dns/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;DNS 缓存查看与清理&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;dns-缓存查看与清理&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#dns-%e7%bc%93%e5%ad%98%e6%9f%a5%e7%9c%8b%e4%b8%8e%e6%b8%85%e7%90%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;浏览器类 - Chrome/Chromium&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;浏览器类---chromechromium&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%b5%8f%e8%a7%88%e5%99%a8%e7%b1%bb---chromechromium&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;地址栏中输入：&lt;code&gt;chrome://net-internals/#dns&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;浏览器类 - Firefox&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;浏览器类---firefox&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%b5%8f%e8%a7%88%e5%99%a8%e7%b1%bb---firefox&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;地址栏中输入：&lt;code&gt;about:networking#dns&lt;/code&gt;&lt;/p&gt;
+&lt;h3&gt;操作系统类 -  Windows&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;操作系统类----windows&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%93%8d%e4%bd%9c%e7%b3%bb%e7%bb%9f%e7%b1%bb----windows&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;查看 DNS 缓存：&lt;code&gt;ipconfig /displaydns&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;清空 DNS 缓存：&lt;code&gt;ipconfig /flushdns&lt;/code&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

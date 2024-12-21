@@ -1,0 +1,197 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>炳的自留地 – SSH</title>
+    <link>/tags/ssh/</link>
+    <description>Recent content in SSH on 炳的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 11 Sep 2021 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="/tags/ssh/atom.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>SSH</title>
+      <link>/network/ssh/</link>
+      <pubDate>Sat, 11 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/network/ssh/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;检查 SSH 客户端&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;检查-ssh-客户端&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%a3%80%e6%9f%a5-ssh-%e5%ae%a2%e6%88%b7%e7%ab%af&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;如果使用专门的 SSH 客户端可跳过该步。&lt;/p&gt;
+&lt;p&gt;检查一下本机（要远程连接别人的机器）有没有安装 SSH 客户端，终端中输入 &lt;code&gt;ssh&lt;/code&gt; 查看输出，如果提示未找到命令则需要手动安装 OpenSSH。&lt;/p&gt;
+&lt;p&gt;以 Ubuntu 等 Debian 系发行版为例：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install openssh-client&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h2&gt;开启 SSHD 服务&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;开启-sshd-服务&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%bc%80%e5%90%af-sshd-%e6%9c%8d%e5%8a%a1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;有些系统的 sshd 服务默认开启，如云服务器，可跳过该步。&lt;/p&gt;
+&lt;p&gt;在将要被远程的系统的终端中输入 &lt;code&gt;ssh 127.0.0.1&lt;/code&gt;，看到提示“Are you sure you want to continue connecting (yes/no/[fingerprint])?”可以 &lt;code&gt;Ctrl + c&lt;/code&gt; 停止；提示“Connection refused”的，请先安装并开启 ssh 服务器。&lt;/p&gt;
+&lt;p&gt;sshd 就是 ssh 的服务器。安装还是以 Ubuntu 等 Debian 系发行版为例：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install openssh-server&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;然后开启 sshd 服务，并设置自启动。&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl start sshd  &lt;span class=&#34;c1&#34;&gt;#启动服务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt; sshd &lt;span class=&#34;c1&#34;&gt;#设置自启动&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Debian 系给 sshd 的 service 起名叫 ssh，不知怎么想得，不过 sshd 也还能用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;SSH登录命令&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;ssh登录命令&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ssh%e7%99%bb%e5%bd%95%e5%91%bd%e4%bb%a4&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;直接输入&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;直接输入&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%9b%b4%e6%8e%a5%e8%be%93%e5%85%a5&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;ssh 登陆命令的一般格式为 &lt;code&gt;ssh user@HostName&lt;/code&gt;，如：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh root@0.0.0.0&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;如果需要指定端口就增加&lt;code&gt;-p &amp;lt;port&amp;gt;&lt;/code&gt;，不指定端口使用默认的22端口，如：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh -p &lt;span class=&#34;m&#34;&gt;8022&lt;/span&gt; root@0.0.0.0&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;接下来输入密码登陆就可以了。&lt;/p&gt;
+&lt;h3&gt;配置文件&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;配置文件&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;每次输入太长也不好记，可以自己设置一个别名，别名配置保存在 &lt;code&gt;~/.ssh/config&lt;/code&gt; 中。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;~&lt;/code&gt;是指当前用户的主目录。Unix-like 上即 &lt;code&gt;~&lt;/code&gt; 或 &lt;code&gt;$HOME&lt;/code&gt; 所指；Windows 上为 &lt;code&gt;%USERPROFILE%&lt;/code&gt; 所指，在地址栏输入 &lt;code&gt;%USERPROFILE%&lt;/code&gt; 即可进入。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;下面是一个例子，注释是 Github Copilot 提示的，我看是对的，说明有人写过，哈哈：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;pre&gt;&lt;code&gt;Host demo    # 主机别名，可以自定义
+  HostName 0.0.0.0  # 服务器地址
+  Port 8022  # 端口号，可以不写，默认22
+  User root  # 登录用户名，可以不写，默认当前用户&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;写好保存之后就可以直接使用 &lt;code&gt;ssh demo&lt;/code&gt; 登录了，和使用 &lt;code&gt;ssh -p 8022 root@0.0.0.0&lt;/code&gt; 效果是一样的。&lt;/p&gt;
+&lt;h2&gt;SSH 免密登录&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;ssh-免密登录&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ssh-%e5%85%8d%e5%af%86%e7%99%bb%e5%bd%95&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;SSH认证方式有两种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用户名密码认证&lt;/li&gt;
+&lt;li&gt;公钥私钥认证&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;上面什么都不做就登陆会使用第一种用户名密码认证，如果不配置密钥的话每次连接都要输入密码进行验证。下面说第二种方式。&lt;/p&gt;
+&lt;h3&gt;生成本地公私钥&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;生成本地公私钥&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%94%9f%e6%88%90%e6%9c%ac%e5%9c%b0%e5%85%ac%e7%a7%81%e9%92%a5&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;本地终端中执行&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-keygen&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;生成的密钥文件就放在了 &lt;code&gt;~/.ssh&lt;/code&gt; 目录中，图为 Windows 的样例。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;keys.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;添加到“已授权”文件中&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;添加到已授权文件中&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%b7%bb%e5%8a%a0%e5%88%b0%e5%b7%b2%e6%8e%88%e6%9d%83%e6%96%87%e4%bb%b6%e4%b8%ad&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;将本地用户 &lt;code&gt;~/.ssh/id_rsa.pub&lt;/code&gt; 中的内容添加到被远程用户的 &lt;code&gt;~/.ssh/authorized_keys&lt;/code&gt; 文件中，这个本地用户以后就可以免密登录了。&lt;/p&gt;
+&lt;p&gt;可以使用 &lt;code&gt;ssh-copy-id&lt;/code&gt;，用法和 ssh 一样，只需把 ssh 换成 ssh-copy-id 即可。（Windows 上的 OpenSSH 好像没有？）&lt;/p&gt;
+&lt;p&gt;如：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;pre&gt;&lt;code&gt;ssh-copy-id user@HostName&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;也可以自己复制粘贴（没有已授权文件的话自己创建一下）。
+&lt;img src=&#34;copy.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

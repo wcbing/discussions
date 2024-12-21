@@ -1,0 +1,70 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>炳的自留地 – 软件</title>
+    <link>/categories/%E8%BD%AF%E4%BB%B6/</link>
+    <description>Recent content in 软件 on 炳的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 21 Aug 2023 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="/categories/%E8%BD%AF%E4%BB%B6/atom.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>内网穿透工具</title>
+      <link>/network/intranet/</link>
+      <pubDate>Mon, 21 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/network/intranet/</guid>
+      <description>
+        
+        
+        &lt;p&gt;广泛应用的 NAT 技术缓解了 IPv4 地址用尽的困境，这同时导致一个问题，就是我们普通用户是没有公网（IPv4）IP 的。
+有时候我们开发时在自己电脑上搭了个 Web 服务想让别人预览一下，或是需要 SSH 远程连接，或者临时想访问本机其他服务，我们无法直接定位到这台机器。为了解决这个问题，就有了这里提到的“内网穿透”。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;用 IPv6 是一个办法，但现实是并不是所有设备都有 IPv6。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我常用内网穿透工具如下。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;公司运营&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://hsk.oray.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;花生壳&lt;/a&gt;：花生壳是国内老牌的内网穿透工具，我家十多年前的路由器里都有提到过“花生壳”。他的姊妹产品之一向日葵也是很多人都用过的。&lt;br&gt;
+需要注意的国内公司的内网穿透产品都是要实名认证的。向日葵添加新设备要用安装时的SN码绑定。&lt;br&gt;
+免费套餐：1 Mbps 带宽、1 G/月的流量、固定子域名、自定义子域名&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://ngrok.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ngrok&lt;/a&gt;：Ngrok 是一款流行的内网穿透工具。&lt;br&gt;
+免费套餐：未知带宽、1 G/月的流量、1 G HTTP 请求数、固定子域名&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;自托管&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gofrp.org/zh-cn/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;frp&lt;/a&gt;：frp 也是很流行的内网穿透工具。&lt;br&gt;
+开源，所以你能看到不少相关的项目，像：Sakura Frp（要实名，没用过）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ngrok.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ngrok&lt;/a&gt;：  开源过旧版。&lt;br&gt;
+开源，所以你能看到不少相关的项目，像：Sunny-Ngrok（没用过，现在支持Ngrok和frp）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;“公益”&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.i996.me/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;i996.me&lt;/a&gt;：用过两次，不用实名，通过微信公众号回复管理。&lt;br&gt;
+套餐：2 Mbps 带宽、可自定义的子域名、自定义子域名&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

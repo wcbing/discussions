@@ -1,0 +1,178 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>炳的自留地 – Java</title>
+    <link>/tags/java/</link>
+    <description>Recent content in Java on 炳的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 21 Sep 2021 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="/tags/java/atom.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>「Code」Java SE</title>
+      <link>/vscode/java_se/</link>
+      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/vscode/java_se/</guid>
+      <description>
+        
+        
+        &lt;p&gt;写写小文件vscode还是很舒服的&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2&gt;0. VS Code安装及使用&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;0-vs-code安装及使用&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#0-vs-code%e5%ae%89%e8%a3%85%e5%8f%8a%e4%bd%bf%e7%94%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;下文必看！&lt;/strong&gt; 下载安装VS Code、基本使用等等。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/vscode/vscode/&#34; &gt;「Code」安装与基本操作&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;1. JDK下载安装&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;1-jdk下载安装&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-jdk%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;写过了，懒得复制了，请看&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/dev/jdk&#34; &gt;JDK介绍和下载&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;2. 开始使用&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;2-开始使用&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-%e5%bc%80%e5%a7%8b%e4%bd%bf%e7%94%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;用VS Code打开&lt;code&gt;.java&lt;/code&gt;文件会自动提示安装Java扩展包，或者自己直接搜索安装。安装完即可正常编写Java了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;1.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;新建一个&lt;code&gt;Hello.java&lt;/code&gt;来写一个Java的Hello World试试&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Hello&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//公共类名(这里是Hello)必须和你的文件名一样&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;某个类的主方法可以点击上方的&lt;code&gt;Run&lt;/code&gt;运行。如果整个个文件有多个类可以点击右上角的运行。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;2.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;3. 新建项目&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;3-新建项目&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-%e6%96%b0%e5%bb%ba%e9%a1%b9%e7%9b%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;安装完Java扩展包后，没打开文件夹时资源管理器中“打开的文件夹”会有一个如图“创建Java项目”的按钮（或者有一栏“Java Projects”，里面有个加号）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;3.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;点击之后如果有相应的框架可以用相应的框架构建项目，如果没有选择第一个“No build tools”。&lt;/p&gt;
+&lt;p&gt;选择一个文件夹打开，按照提示输入项目名称会生成一个项目模板，里面自带一个App.java（就是个Hello World），可以自己运行试试。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;4.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;资源管理器左下方有一栏Java Projects，点开可以&lt;strong&gt;查看“项目视图”&lt;/strong&gt;。在这里添加第三方包方便一点，不用手改json。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;5.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>JDK下载安装</title>
+      <link>/dev/jdk/</link>
+      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/dev/jdk/</guid>
+      <description>
+        
+        
+        &lt;p&gt;凡是到现在还让你配置 &lt;code&gt;CLASS_PATH&lt;/code&gt; 的都是垃圾文章，不要看了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;把官网和介绍放到了最后&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;1. Windows - &lt;strong&gt;免手动配置PATH&lt;/strong&gt;&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;1-windows---免手动配置path&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-windows---%e5%85%8d%e6%89%8b%e5%8a%a8%e9%85%8d%e7%bd%aepath&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;推荐开源免费的 &lt;strong&gt;AdoptOpenJDK（Adoptium）&lt;/strong&gt;，它也是VS Code的默认推荐。你可以在下面找到需要的版本进行下载。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://mirrors.cernet.edu.cn/list/Adoptium&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Adoptium - 校园网联合镜像站&lt;/a&gt;
+任意点击一个镜像站的名字进入，以清华镜像站TUNA为例，依次点击“需要的版本（推荐8、11、17等LTS版本）”- “jdk” - “架构（x64）” - “平台（windows）”，如图就是64位Windows用的jdk11，选择第一个&lt;code&gt;.msi&lt;/code&gt;文件下载打开即可。
+&lt;img src=&#34;jdk-mirrors.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.injdk.cn/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Java I tell you（包含了多个版本的JDK）&lt;/a&gt;
+选择Temurin即可
+&lt;img src=&#34;java-i-tell-you.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;安装时将下面第三个选项选上，装完重启（或关闭所有终端）即可。
+&lt;img src=&#34;jdk-env-win.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;微软加入了Adoptium，也有自己的&lt;a href=&#34;https://www.microsoft.com/openjdk&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Microsoft Build of OpenJDK&lt;/a&gt;，&lt;a href=&#34;https://www.injdk.cn/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Java I tell you&lt;/a&gt;中也有下载。
+我看着安装程序和上面差不多，可以试试。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;2. Linux（含 WSL）&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;2-linux含-wsl&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-linux%e5%90%ab-wsl&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;可以直接&lt;strong&gt;用包管理器安装&lt;/strong&gt;。
+以Ubuntu为例，终端内输入&lt;code&gt;javac&lt;/code&gt;，如果提示没有安装，复制提示的命令来安装JDK。
+&lt;img src=&#34;ubuntu-javac.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;
+如上图，Ubuntu安装默认版本的OpenJDK（JDK11）的命令是&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install default-jdk&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;安装完之后就可以正常使用了。&lt;/p&gt;
+&lt;p&gt;通过包管理器安装的软件不用配置PATH环境变量就能使用，但是有些程序会检测JAVA_HOME这个环境变量，这时需要设置一下。通过下面可以看到JDK在&lt;code&gt;/usr/lib/jvm/java-xxx&lt;/code&gt;目录中，将其添加到环境变量中即可。
+&lt;img src=&#34;jdk-env-linux.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;系统环境变量推荐在&lt;code&gt;/etc/environment&lt;/code&gt;声明，或在&lt;code&gt;/etc/profile.d&lt;/code&gt;目录下以&lt;code&gt;.sh&lt;/code&gt;结尾的脚本中用&lt;code&gt;export&lt;/code&gt;语句声明，下面例子就放在了&lt;code&gt;/etc/environment&lt;/code&gt;中。根据&lt;strong&gt;实际情况&lt;/strong&gt;修改单引号中的路径。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;root用户：&lt;code&gt;echo &#39;JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64&#39; &amp;gt;&amp;gt; /etc/environment&lt;/code&gt;&lt;br&gt;
+普通用户：&lt;code&gt;echo &#39;JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64&#39; | sudo tee /etc/environment&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;系统环境注销再登录后即可生效。更多关于Linux环境变量的请看&lt;a href=&#34;/linux/linux-env&#34; &gt;Linux环境变量&lt;/a&gt;。&lt;/p&gt;
+&lt;h2&gt;3. JDK、JRE、JVM的关系及区别&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;3-jdkjrejvm的关系及区别&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-jdkjrejvm%e7%9a%84%e5%85%b3%e7%b3%bb%e5%8f%8a%e5%8c%ba%e5%88%ab&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;JDK(Java Development Kit)是Java开发工具包。&lt;/li&gt;
+&lt;li&gt;JRE(Java Runtime Enviroment)是Java的运行环境。&lt;/li&gt;
+&lt;li&gt;JVM(Java Virtual Machine)是Java虚拟机。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;JDK里包含了JRE，JRE里又包含JVM。所以&lt;strong&gt;开发者只用安装JDK&lt;/strong&gt;就行。&lt;/p&gt;
+&lt;h2&gt;4. 官网及版本&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;4-官网及版本&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#4-%e5%ae%98%e7%bd%91%e5%8f%8a%e7%89%88%e6%9c%ac&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;官网&lt;/th&gt;
+          &lt;th&gt;介绍&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.oracle.com/cn/java&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Java SE&lt;/a&gt;(Oracle JDK)&lt;/td&gt;
+          &lt;td&gt;包含&lt;strong&gt;Oracle JDK&lt;/strong&gt;和JRE的下载，商业用途收费。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://openjdk.java.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OpenJDK&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;Java开源的源码。下面是预编译的OpenJDK。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://jdk.java.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Oracle OpenJDK&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;现在与Oracle JDK功能基本无区别，维护周期不同。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://adoptopenjdk.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AdoptOpenJDK&lt;/a&gt;(现为&lt;a href=&#34;https://www.adoptium.net&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Adoptium&lt;/a&gt;)&lt;/td&gt;
+          &lt;td&gt;AdoptOpenJDK是OpenJDK的社区维护版，现已移交eclipse基金会并更名为Adoptium。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;……&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;三个不同版本：(Sun/Oracle) JDK、OpenJDK、Oracle OpenJDK&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;jdks.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

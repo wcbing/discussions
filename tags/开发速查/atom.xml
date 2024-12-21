@@ -1,0 +1,423 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>炳的自留地 – 开发速查</title>
+    <link>/tags/%E5%BC%80%E5%8F%91%E9%80%9F%E6%9F%A5/</link>
+    <description>Recent content in 开发速查 on 炳的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 14 Sep 2022 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="/tags/%E5%BC%80%E5%8F%91%E9%80%9F%E6%9F%A5/atom.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Git基础</title>
+      <link>/linux/git-base/</link>
+      <pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/git-base/</guid>
+      <description>
+        
+        
+        &lt;p&gt;一点点基础，应该够给你搭博客使用了&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;&lt;img src=&#34;git-base.drawio.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;提前的设置&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;提前的设置&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%8f%90%e5%89%8d%e7%9a%84%e8%ae%be%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;git config&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-config&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-config&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;在提交之前，你必须先设置你的名字和 email。
+这是你在提交 commit 时的签名，每次提交记录里都会包含这些信息。&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.name &lt;span class=&#34;s2&#34;&gt;&amp;#34;YourName&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.email &lt;span class=&#34;s2&#34;&gt;&amp;#34;YourEmail@xxx&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h2&gt;本地操作&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;本地操作&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%9c%ac%e5%9c%b0%e6%93%8d%e4%bd%9c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;git init&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-init&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-init&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Git初始化，在目标目录内执行&lt;/p&gt;
+&lt;h3&gt;git status&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-status&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-status&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;检测当前目录和暂存区的状态&lt;/p&gt;
+&lt;h3&gt;git add&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-add&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-add&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;将要同步的内容加入本地暂存区&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git add 目录/文件
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;常用&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add . &lt;span class=&#34;c1&#34;&gt;## 将当前目录下所有改动添加到暂存区&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add -A &lt;span class=&#34;c1&#34;&gt;## 将仓库所有改动添加到暂存区&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h3&gt;git commit&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-commit&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-commit&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;提交到本地仓库中，后面加注释&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;注释&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -am &lt;span class=&#34;s2&#34;&gt;&amp;#34;注释&amp;#34;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;## 相当于同时执行了 git add -A&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;git commit 提交信息参考规范：&lt;a href=&#34;https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Angular&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;远程仓库&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;远程仓库&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;git clone&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-clone&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-clone&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;克隆一个Git仓库到本地，可以将仓库内容直接下载下来。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone &amp;lt;url&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;git remote&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-remote&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-remote&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;管理远程仓库，常用的是与远程仓库添加关联&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remove add &amp;lt;仓库别名&amp;gt; &amp;lt;仓库url&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;下面先不涉及分支，默认主分支master&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;git push&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-push&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-push&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;将本地仓库内容推送到远端仓库中&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push &amp;lt;仓库别名&amp;gt; &amp;lt;本地分支&amp;gt;:&amp;lt;远程分支&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push &amp;lt;仓库别名&amp;gt; &amp;lt;本地分支&amp;gt; &lt;span class=&#34;c1&#34;&gt;## 分支相同可简写&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;-f&lt;/code&gt;：强制推送&lt;br&gt;
+&lt;code&gt;-u&lt;/code&gt;：同时建立分支的关联&lt;/p&gt;
+&lt;h3&gt;git pull&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;git-pull&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#git-pull&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;从远程仓库拉取到本地仓库，与&lt;code&gt;git push&lt;/code&gt;相反&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git pull &amp;lt;仓库别名&amp;gt; &amp;lt;远程分支&amp;gt;:&amp;lt;本地分支&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git pull &amp;lt;仓库别名&amp;gt; &amp;lt;远程分支&amp;gt; &lt;span class=&#34;c1&#34;&gt;## 分支相同可省略&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docker / Podman 基础操作</title>
+      <link>/linux/containers/base-usages/</link>
+      <pubDate>Wed, 22 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/containers/base-usages/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Docker 镜像和容器的基础操作。Podman 用法与其相同，将&lt;code&gt;docker&lt;/code&gt;替换为&lt;code&gt;podman&lt;/code&gt;即可。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2&gt;镜像管理&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;镜像管理&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e9%95%9c%e5%83%8f%e7%ae%a1%e7%90%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;功能&lt;/th&gt;
+          &lt;th&gt;命令&lt;/th&gt;
+          &lt;th&gt;说明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查找镜像&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker search &amp;lt;关键字&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;下载镜像&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker pull &amp;lt;镜像名&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;镜像名 = 镜像仓库名(用户名/软件名):tag，用户名为library时会省略，tag为latest时可省略&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看镜像&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker image ls&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;列出的镜像ID是镜像短ID，镜像ID一般使用时取开头3、4位，能分辨即可。&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;删除镜像&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker image rm &amp;lt;镜像名&amp;gt;/&amp;lt;镜像 ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;别名：&lt;code&gt;docker rmi &amp;lt;镜像名&amp;gt;/&amp;lt;镜像 ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2&gt;容器管理&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;容器管理&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ae%b9%e5%99%a8%e7%ae%a1%e7%90%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;操作容器一般使用&amp;lt;容器名&amp;gt;或&amp;lt;容器ID&amp;gt;。容器名可通过&lt;code&gt;--name&lt;/code&gt;在&lt;code&gt;docker run&lt;/code&gt;时指定，也可由系统自动分配；容器ID同镜像ID一样，仅需开头3、4位，能分辨即可。&lt;/p&gt;
+&lt;h3&gt;使用镜像创建容器 - &lt;code&gt;docker run&lt;/code&gt;命令&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;使用镜像创建容器---docker-run命令&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%bd%bf%e7%94%a8%e9%95%9c%e5%83%8f%e5%88%9b%e5%bb%ba%e5%ae%b9%e5%99%a8---docker-run%e5%91%bd%e4%bb%a4&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;参数&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &amp;lt;镜像名&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;docker run&lt;/code&gt; 创建容器时如果本地没有镜像，docker 会自动去拉取镜像，可以免去 &lt;code&gt;docker pull&lt;/code&gt; 这一步。&lt;/p&gt;
+&lt;p&gt;常用参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--name xxx&lt;/code&gt; ：给新容器命名为“xxx”&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-d&lt;/code&gt; ：后台运行&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-i&lt;/code&gt; ：进行交互式操作&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-t&lt;/code&gt; ：分配一个伪终端，一般与i一同使用&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-p xxxx:xxxx&lt;/code&gt; ：指定端口映射，格式为“主机端口:容器端口”&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-e xxx&lt;/code&gt; ：设置环境变量&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-v xx:xx&lt;/code&gt; ：挂载数据卷、主机目录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--mount xx=xx,xx=xx&lt;/code&gt; ：同上&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;样例：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MySQL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run -d &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-p 3306:3306 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-e &lt;span class=&#34;nv&#34;&gt;MYSQL_ROOT_PASSWORD&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;123456&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--name mysql &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;mysql&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;PostgreSQL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run -d &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-p 5432:5432 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;-e &lt;span class=&#34;nv&#34;&gt;POSTGRES_PASSWORD&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;123456&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--name postgresql &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;postgres:alpine&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;容器的管理 - &lt;code&gt;docker container&lt;/code&gt;命令&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;容器的管理---docker-container命令&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ae%b9%e5%99%a8%e7%9a%84%e7%ae%a1%e7%90%86---docker-container%e5%91%bd%e4%bb%a4&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;docker container&lt;/code&gt; 的常用命令一般可以省略container，如&lt;code&gt;docker container start&lt;/code&gt; 可以写为 &lt;code&gt;docker start&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;功能&lt;/th&gt;
+          &lt;th&gt;docker container 命令&lt;/th&gt;
+          &lt;th&gt;别名&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker container ps&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker ps&lt;/code&gt;，常加&lt;code&gt;-a&lt;/code&gt;查看所有容器&lt;br /&gt;还有个&lt;code&gt;docker ls&lt;/code&gt;也可以&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;启动容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker container start &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker start &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;重启容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker container restart &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker restart &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;停止容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker container stop &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker stop &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;删除容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker container rm &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker rm &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看日志&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker container logs &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker logs &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3&gt;进入后台运行的容器&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;进入后台运行的容器&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%bf%9b%e5%85%a5%e5%90%8e%e5%8f%b0%e8%bf%90%e8%a1%8c%e7%9a%84%e5%ae%b9%e5%99%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker attach &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;或&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt; 命令&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-it &amp;lt;容器名&amp;gt;/&amp;lt;容器ID&amp;gt; bash&lt;/code&gt; ：进入容器并启动bash进行交互式操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;推荐exec，退出容器不会停止。&lt;/p&gt;
+&lt;h2&gt;Compose 管理&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;compose-管理&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#compose-%e7%ae%a1%e7%90%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;很多情况下我们项目会需要多个相互配合的容器组成一个容器组；或者需要进行批量部署。这时继续通过上面的方法就有些费力，可以通过 Docker Compose（或者 Podman Compose）进行方便的管理。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有些创建的容器创建后想修改，这时也可以通过这个完成。虽然重新部署实际还是把容器删掉再建一个。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;它使用一个 &lt;code&gt;compose.yaml&lt;/code&gt; 文件作为配置文件。使用时只需在该文件所在目录执行 &lt;code&gt;docker compose&lt;/code&gt; 相关指令就可进行容器组的建立、启动、停止等操作。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有些人将这个配置文件命名为 &lt;code&gt;docker-compose.yml&lt;/code&gt;，这是一种过时但仍兼容的写法。详细请看 &lt;a href=&#34;https://docs.docker.com/compose/compose-application-model/#the-compose-file&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://docs.docker.com/compose/compose-application-model/#the-compose-file&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;功能&lt;/th&gt;
+          &lt;th&gt;docker compose 命令&lt;/th&gt;
+          &lt;th&gt;备注&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker compose ps&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;还有 &lt;code&gt;docker compose ls&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;建立容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker compose up&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;常加 &lt;code&gt;-d&lt;/code&gt;，后台运行&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;启动容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker compose start&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;重启容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker compose restart&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;停止容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker compose stop&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;删除容器&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker compose down&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看日志&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;docker compose logs&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

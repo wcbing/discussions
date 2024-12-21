@@ -5,7 +5,7 @@
     <description>Recent content on 炳的自留地</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 06 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 20 Nov 2024 00:00:00 +0000</lastBuildDate>
     
 	  <atom:link href="/atom.xml" rel="self" type="application/rss+xml" />
     
@@ -25,11 +25,11 @@
         
         &lt;iframe src=&#34;../font-test.html&#34; frameborder=&#34;0&#34; height=40px&gt;&lt;/iframe&gt;
 &lt;p&gt;讲讲字体，也不讲那么细，毕竟咱也不是专业的。说几个重要参数，能让你在下载和使用字体时知道怎么挑就行。&lt;/p&gt;
-&lt;h2&gt;字型、字体、字族&lt;span class=&#34;absolute -mt-20&#34; id=&#34;字型字体字族&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;字型、字体、字族&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;字型字体字族&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%ad%97%e5%9e%8b%e5%ad%97%e4%bd%93%e5%ad%97%e6%97%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;很多人会将字体叫为 Font，但 Font 的专业名称应该叫字型。一种字体（Typeface）有不同字型（Font），一个字体的不同字型之间的差别就是&lt;strong&gt;会有不同的字重和尺码等&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;有些地方（如网页设计）也会将字体叫做 Font Family（字族）。当然我们一般也不用分那么清楚，感兴趣可以看看维基百科上的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%AD%97%E4%BD%93&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;字体&lt;/a&gt;、&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%AD%97%E4%BD%93%E5%AE%B6%E6%97%8F&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;字体家族&lt;/a&gt;与&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%AD%97%E5%9E%8B&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;字型&lt;/a&gt;。&lt;/p&gt;
-&lt;h2&gt;下载字体应注意&lt;span class=&#34;absolute -mt-20&#34; id=&#34;下载字体应注意&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e4%b8%8b%e8%bd%bd%e5%ad%97%e4%bd%93%e5%ba%94%e6%b3%a8%e6%84%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;字重——字的粗细&lt;span class=&#34;absolute -mt-20&#34; id=&#34;字重字的粗细&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;下载字体应注意&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;下载字体应注意&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%b8%8b%e8%bd%bd%e5%ad%97%e4%bd%93%e5%ba%94%e6%b3%a8%e6%84%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;字重——字的粗细&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;字重字的粗细&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%ad%97%e9%87%8d%e5%ad%97%e7%9a%84%e7%b2%97%e7%bb%86&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;如题，字重其实就是字的粗细。可以通过这个网站查看一下效果：&lt;a href=&#34;https://font.yukonga.top/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;字体字重测试&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;像我常用的思源黑体就有：Thin、Light、DemiLight、Regular、Medium、Bold、Black 共7种字重。其中用的最多/最重要的字重就是 Regular ，有些会叫 Normal 或者其他的，没有字重需求的下载这一个就可以了。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -48,82 +48,82 @@
 &lt;li&gt;950 - 特浓 Extra-black ( Ultra-black )&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
-&lt;h3&gt;可变字体&lt;span class=&#34;absolute -mt-20&#34; id=&#34;可变字体&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;可变字体&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;可变字体&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%8f%af%e5%8f%98%e5%ad%97%e4%bd%93&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;上面我们知道了一个字体会有不同字重的字型，我们下载一个字体时，想体验更完善就要下载不同字重的好几个字体文件，这也太麻烦了。&lt;/p&gt;
 &lt;p&gt;不过幸好不是我一个人觉得麻烦，苹果、微软、谷歌和 Adobe 等几个大厂之后又推出了&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%8F%AF%E5%8F%98%E5%AD%97%E4%BD%93&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;可变字体（Variable Fonts）&lt;/a&gt;规范。可变字体是字体格式 OpenType 的一种特殊规范，一个可变字体文件可以储存一个设计的多个变体，相当于是一个字体文件包含了无数个字型。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;不过我实际使用下来，（Linux 下）Qt 程序的字重会有问题，所以并没有使用。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3&gt;异体字&lt;span class=&#34;absolute -mt-20&#34; id=&#34;异体字&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;异体字&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;异体字&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%bc%82%e4%bd%93%e5%ad%97&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;就是不同国家/地区都包含的文字，但是相互之间写法稍有不同。比如：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;部分手机上可能没有效果&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;默认&lt;/th&gt;
-&lt;th&gt;&lt;p&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;中文(大陆) lang=zh-cn&lt;/td&gt;
-&lt;td&gt;&lt;p lang=&#34;zh-cn&#34;&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;中文(台湾) lang=zh-tw&lt;/td&gt;
-&lt;td&gt;&lt;p lang=&#34;zh-tw&#34;&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;中文(香港) lang=zh-hk&lt;/td&gt;
-&lt;td&gt;&lt;p lang=&#34;zh-hk&#34;&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;日文 lang=ja&lt;/td&gt;
-&lt;td&gt;&lt;p lang=&#34;en&#34;&gt;&lt;p lang=&#34;ja&#34;&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;韩文 lang=ko&lt;/td&gt;
-&lt;td&gt;&lt;p lang=&#34;ko&#34;&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;默认&lt;/th&gt;
+          &lt;th&gt;&lt;p&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;中文(大陆) lang=zh-cn&lt;/td&gt;
+          &lt;td&gt;&lt;p lang=&#34;zh-cn&#34;&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;中文(台湾) lang=zh-tw&lt;/td&gt;
+          &lt;td&gt;&lt;p lang=&#34;zh-tw&#34;&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;中文(香港) lang=zh-hk&lt;/td&gt;
+          &lt;td&gt;&lt;p lang=&#34;zh-hk&#34;&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;日文 lang=ja&lt;/td&gt;
+          &lt;td&gt;&lt;p lang=&#34;en&#34;&gt;&lt;p lang=&#34;ja&#34;&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/p&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;韩文 lang=ko&lt;/td&gt;
+          &lt;td&gt;&lt;p lang=&#34;ko&#34;&gt;遍角次亮采之门，门上插刀、直字拐弯、天上平板、船顶漏雨。&lt;/p&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h3&gt;字体文件格式&lt;span class=&#34;absolute -mt-20&#34; id=&#34;字体文件格式&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;字体文件格式&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;字体文件格式&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%ad%97%e4%bd%93%e6%96%87%e4%bb%b6%e6%a0%bc%e5%bc%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;现在操作系统中常用的字体类型标准主要有两类，即 TrueType 和 OpenType。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Adobe 使用 PostScript 语言开发了包括 Type1 在内的 PostScript字体。为了对抗其颇高的商业授权，苹果联合微软推出了 TrueType 字体。而后，微软又联合 Adobe 在TrueType 的基础上推出了OpenType 字体，在 OpenType 类型字体中，可以选择PostScript或TrueType作为记述方式。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;TrueType 字体文件的扩展名是 &lt;code&gt;.ttf&lt;/code&gt;；而对于 OpenType 字体文件，OpenType TT字体扩展名为 &lt;code&gt;.ttf&lt;/code&gt;，OpenType PS字体扩展名为 &lt;code&gt;.otf&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;同时，OpenType 还推出了特殊的“字体集”格式。文件扩展名分别为 &lt;code&gt;.ttc&lt;/code&gt;（TrueType Collection）、&lt;code&gt;.otc&lt;/code&gt;（OpenType Collection），这种“字体集”一个文件内包含了多种字体类型。实际应用中一般用于将不同字体或同一字体的不同语言封装成一个文件，如 Windows 中文版内置的 &lt;code&gt;simsun.ttc&lt;/code&gt; 就包含了（中易）宋体 SimSun 和新宋体 NSimSun 两种字体的 Regular 字型。&lt;/p&gt;
-&lt;h3&gt;下载实例——思源黑体&lt;span class=&#34;absolute -mt-20&#34; id=&#34;下载实例思源黑体&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;下载实例——思源黑体&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;下载实例思源黑体&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e4%b8%8b%e8%bd%bd%e5%ae%9e%e4%be%8b%e6%80%9d%e6%ba%90%e9%bb%91%e4%bd%93&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;思源黑体（Source Han Sans / Noto Sans CJK），它是一个包含了中文（C）、日文（J）、韩文（K）的“CJK”字体，当然中文还可细分为简体中文（SC）、繁体（即台湾正体）中文（TC）、香港繁体中文（HK）。由于这些文字中会有一些异体字，所以它除了不带任何标志的字体外，还有带有 SC、TC、HK、J、K 后缀的字体，每款的默认字形会使用该地区常用的。&lt;/p&gt;
-&lt;h2&gt;使用字体应注意&lt;span class=&#34;absolute -mt-20&#34; id=&#34;使用字体应注意&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e4%bd%bf%e7%94%a8%e5%ad%97%e4%bd%93%e5%ba%94%e6%b3%a8%e6%84%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;通用字族&lt;span class=&#34;absolute -mt-20&#34; id=&#34;通用字族&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;使用字体应注意&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;使用字体应注意&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%bd%bf%e7%94%a8%e5%ad%97%e4%bd%93%e5%ba%94%e6%b3%a8%e6%84%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;通用字族&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;通用字族&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e9%80%9a%e7%94%a8%e5%ad%97%e6%97%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;字体选择中可以使用“通用字族”（generic font family）指定某一大类的字体，至于选择成哪个则是取决于用户和系统的设定。&lt;/p&gt;
 &lt;p&gt;通用字族有 Cursive（手写体，对应中文楷体）、Fantasy（另类体）、Monospace（等宽字体）、Sans-serif（无衬线体，对应中文黑体）、Serif（衬线体，对应中文宋体/明体）、Fangsong（仿宋体）等。&lt;/p&gt;
 &lt;p&gt;其中最常用的是 Monospace（等宽字体）、Sans-serif（无衬线体）、Serif（衬线体）。你也可以在上面查看字重的网站上进行更详细的对比。&lt;/p&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;字族设定&lt;/th&gt;
-&lt;th&gt;示例结果（取决于系统设定）&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Sans-serif&lt;br&gt;无衬线体&lt;br&gt;黑体（中文）&lt;/td&gt;
-&lt;td&gt;&lt;p style=&#34;font-family: sans-serif;&#34;&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 αβγ عربي язык  &lt;br&gt;我能吞下玻璃而不伤身体。 The quick brown fox jumps over the lazy dog.&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Serif&lt;br&gt;衬线体&lt;br&gt;宋体/明体（中文）&lt;/td&gt;
-&lt;td&gt;&lt;p style=&#34;font-family: serif;&#34;&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 αβγ عربي язык  &lt;br&gt;我能吞下玻璃而不伤身体。 The quick brown fox jumps over the lazy dog.&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Monospace&lt;br&gt;等宽字体&lt;/td&gt;
-&lt;td&gt;&lt;p style=&#34;font-family: monospace;&#34;&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 αβγ عربي язык  &lt;br&gt;我能吞下玻璃而不伤身体。 The quick brown fox jumps over the lazy dog.&lt;/p&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;字族设定&lt;/th&gt;
+          &lt;th&gt;示例结果（取决于系统设定）&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Sans-serif&lt;br&gt;无衬线体&lt;br&gt;黑体（中文）&lt;/td&gt;
+          &lt;td&gt;&lt;p style=&#34;font-family: sans-serif;&#34;&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 αβγ عربي язык  &lt;br&gt;我能吞下玻璃而不伤身体。 The quick brown fox jumps over the lazy dog.&lt;/p&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Serif&lt;br&gt;衬线体&lt;br&gt;宋体/明体（中文）&lt;/td&gt;
+          &lt;td&gt;&lt;p style=&#34;font-family: serif;&#34;&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 αβγ عربي язык  &lt;br&gt;我能吞下玻璃而不伤身体。 The quick brown fox jumps over the lazy dog.&lt;/p&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Monospace&lt;br&gt;等宽字体&lt;/td&gt;
+          &lt;td&gt;&lt;p style=&#34;font-family: monospace;&#34;&gt;ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 αβγ عربي язык  &lt;br&gt;我能吞下玻璃而不伤身体。 The quick brown fox jumps over the lazy dog.&lt;/p&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 
       </description>
@@ -155,8 +155,8 @@
 &lt;p&gt;*即用已登陆账户的设备给其他设备授权，具体授权方法不确定。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;下图就是 Github 的 2FA 设置界面。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/imgs/blog/2fa-mfa/gihub-2fa.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;h2&gt;OTP&lt;span class=&#34;absolute -mt-20&#34; id=&#34;otp&#34;&gt;&lt;/span&gt;
+&lt;p&gt;&lt;img src=&#34;gihub-2fa.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;OTP&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;otp&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#otp&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;OTP 常见算法有&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;HOTP：基于散列消息验证码的一次性密码&lt;/li&gt;
@@ -172,14 +172,14 @@
 Authenticator，身份验证器，“软件令牌”，很多 Authenticator 会与密码管理器组合到一起。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;硬件令牌&lt;/strong&gt;，银行等行业中经常使用&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;Passkey&lt;span class=&#34;absolute -mt-20&#34; id=&#34;passkey&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Passkey&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;passkey&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#passkey&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;具体参见：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://zh.wikipedia.org/zh-cn/%E9%80%9A%E8%A1%8C%E5%AF%86%E9%92%A5&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;通行密钥 - 维基百科&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.passkeys.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;passkey.io&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;严格来说，我觉得用 Passkey 验证不是 MFA，因为仅通过这一种方式你可以直接完成认证，不需要用其他方式。&lt;/p&gt;
-&lt;h2&gt;Mobile APP&lt;span class=&#34;absolute -mt-20&#34; id=&#34;mobile-app&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;Mobile APP&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;mobile-app&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#mobile-app&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;即用已登陆账户的设备给其他设备授权，具体授权方法不确定。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;有些会像前面提到的，向已登陆的设备发送验证码（OTP），Telegram、微博等会使用。&lt;/li&gt;
@@ -195,7 +195,7 @@ Authenticator，身份验证器，“软件令牌”，很多 Authenticator 会�
 &lt;blockquote&gt;
 &lt;p&gt;直接扫码登陆一般用于“高权重”的设备（手机）给“更低权重”的设备（PC、网页版等）“授权”，而不能用于同等级设备。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;img src=&#34;/imgs/blog/2fa-mfa/qq-2fa.jpg&#34; width=&#34;360px&#34; /&gt;
+&lt;img src=&#34;qq-2fa.jpg&#34; width=&#34;360px&#34; /&gt;
 
       </description>
     </item>
@@ -209,24 +209,24 @@ Authenticator，身份验证器，“软件令牌”，很多 Authenticator 会�
       <description>
         
         
-        &lt;h2&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%9C%8B%E5%AE%B6%E5%9C%B0%E5%8D%80%E4%BB%A3%E7%A2%BC&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;国家地区代码&lt;/a&gt;&lt;span class=&#34;absolute -mt-20&#34; id=&#34;国家地区代码httpszhwikipediaorgwikie59c8be5aeb6e59cb0e58d80e4bba3e7a2bc&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e5%9b%bd%e5%ae%b6%e5%9c%b0%e5%8c%ba%e4%bb%a3%e7%a0%81httpszhwikipediaorgwikie59c8be5aeb6e59cb0e58d80e4bba3e7a2bc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;ISO标准国家代码 - &lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_3166-1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 3166&lt;/a&gt;&lt;span class=&#34;absolute -mt-20&#34; id=&#34;iso标准国家代码---iso-3166httpszhwikipediaorgwikiiso_3166-1&#34;&gt;&lt;/span&gt;
+        &lt;h2&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%9C%8B%E5%AE%B6%E5%9C%B0%E5%8D%80%E4%BB%A3%E7%A2%BC&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;国家地区代码&lt;/a&gt;&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;国家地区代码httpszhwikipediaorgwikie59c8be5aeb6e59cb0e58d80e4bba3e7a2bc&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%9b%bd%e5%ae%b6%e5%9c%b0%e5%8c%ba%e4%bb%a3%e7%a0%81httpszhwikipediaorgwikie59c8be5aeb6e59cb0e58d80e4bba3e7a2bc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;ISO标准国家代码 - &lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_3166-1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 3166&lt;/a&gt;&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;iso标准国家代码---iso-3166httpszhwikipediaorgwikiiso_3166-1&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#iso%e6%a0%87%e5%87%86%e5%9b%bd%e5%ae%b6%e4%bb%a3%e7%a0%81---iso-3166httpszhwikipediaorgwikiiso_3166-1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;形如：CN&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;分为3种，即&lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_3166-1%E4%BA%8C%E4%BD%8D%E5%AD%97%E6%AF%8D%E4%BB%A3%E7%A0%81&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;二位字母代码&lt;/a&gt;（alpha-2）、&lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_3166-1%E4%B8%89%E4%BD%8D%E5%AD%97%E6%AF%8D%E4%BB%A3%E7%A0%81&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;三位字母代码&lt;/a&gt;（alpha-3）、&lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_3166-1%E6%95%B0%E5%AD%97%E4%BB%A3%E7%A0%81&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;数字代码&lt;/a&gt;（numeric）。其中，二位字母代码适用于通常情况，三位字母代码较接近国家名称，而数字代码则适用于非拉丁字母环境中。&lt;/p&gt;
-&lt;h3&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E4%BA%92%E8%81%94%E7%BD%91%E9%A1%B6%E7%BA%A7%E5%9F%9F%E5%88%97%E8%A1%A8#%E5%9B%BD%E5%AE%B6%E6%88%96%E5%9C%B0%E5%8D%80%E9%A0%82%E7%B4%9A%E5%9F%9F&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;国家顶级域&lt;/a&gt;&lt;span class=&#34;absolute -mt-20&#34; id=&#34;国家顶级域httpszhwikipediaorgwikie4ba92e88194e7bd91e9a1b6e7baa7e59f9fe58897e8a1a8e59bbde5aeb6e68896e59cb0e58d80e9a082e7b49ae59f9f&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E4%BA%92%E8%81%94%E7%BD%91%E9%A1%B6%E7%BA%A7%E5%9F%9F%E5%88%97%E8%A1%A8#%E5%9B%BD%E5%AE%B6%E6%88%96%E5%9C%B0%E5%8D%80%E9%A0%82%E7%B4%9A%E5%9F%9F&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;国家顶级域&lt;/a&gt;&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;国家顶级域httpszhwikipediaorgwikie4ba92e88194e7bd91e9a1b6e7baa7e59f9fe58897e8a1a8e59bbde5aeb6e68896e59cb0e58d80e9a082e7b49ae59f9f&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%9b%bd%e5%ae%b6%e9%a1%b6%e7%ba%a7%e5%9f%9fhttpszhwikipediaorgwikie4ba92e88194e7bd91e9a1b6e7baa7e59f9fe58897e8a1a8e59bbde5aeb6e68896e59cb0e58d80e9a082e7b49ae59f9f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;形如：.cn&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;2字母国家代码顶级域的DNS名称。它们遵循ISO 3166-1两字母代码，除了个别一些例外：“.ac”用于阿森松岛、“.eu”用于欧盟或英国选用“.uk”而非“.gb”。&lt;/p&gt;
-&lt;h2&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E8%AA%9E%E8%A8%80%E4%BB%A3%E7%A2%BC&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;语言代码&lt;/a&gt;&lt;span class=&#34;absolute -mt-20&#34; id=&#34;语言代码httpszhwikipediaorgwikie8aa9ee8a880e4bba3e7a2bc&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e8%af%ad%e8%a8%80%e4%bb%a3%e7%a0%81httpszhwikipediaorgwikie8aa9ee8a880e4bba3e7a2bc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;ISO标准语言代码 - &lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_639-1%E4%BB%A3%E7%A0%81%E8%A1%A8&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 639&lt;/a&gt;&lt;span class=&#34;absolute -mt-20&#34; id=&#34;iso标准语言代码---iso-639httpszhwikipediaorgwikiiso_639-1e4bba3e7a081e8a1a8&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E8%AA%9E%E8%A8%80%E4%BB%A3%E7%A2%BC&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;语言代码&lt;/a&gt;&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;语言代码httpszhwikipediaorgwikie8aa9ee8a880e4bba3e7a2bc&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%af%ad%e8%a8%80%e4%bb%a3%e7%a0%81httpszhwikipediaorgwikie8aa9ee8a880e4bba3e7a2bc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;ISO标准语言代码 - &lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_639-1%E4%BB%A3%E7%A0%81%E8%A1%A8&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 639&lt;/a&gt;&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;iso标准语言代码---iso-639httpszhwikipediaorgwikiiso_639-1e4bba3e7a081e8a1a8&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#iso%e6%a0%87%e5%87%86%e8%af%ad%e8%a8%80%e4%bb%a3%e7%a0%81---iso-639httpszhwikipediaorgwikiiso_639-1e4bba3e7a081e8a1a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;形如：zh、zho&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_639&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 639&lt;/a&gt; 是为语言分类的设计的一套标准代码。每种语言都被分配了两个字母（639-1）或三个字母（639-2 和 639-3）的小写代码。&lt;/p&gt;
-&lt;h3&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/IETF%E8%AA%9E%E8%A8%80%E6%A8%99%E7%B1%A4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IETF语言标签&lt;/a&gt;&lt;span class=&#34;absolute -mt-20&#34; id=&#34;ietf语言标签httpszhwikipediaorgwikiietfe8aa9ee8a880e6a899e7b1a4&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/IETF%E8%AA%9E%E8%A8%80%E6%A8%99%E7%B1%A4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IETF语言标签&lt;/a&gt;&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;ietf语言标签httpszhwikipediaorgwikiietfe8aa9ee8a880e6a899e7b1a4&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#ietf%e8%af%ad%e8%a8%80%e6%a0%87%e7%ad%behttpszhwikipediaorgwikiietfe8aa9ee8a880e6a899e7b1a4&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;形如：zh（中文）、zh-CN（大陆中文）、zh-Hans-CN（大陆简体中文）、yue / zh-yue（粤语）, cmn / zh-cmn（普通话）&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -235,12 +235,12 @@ IETF语言标签的最早版本是1995年3月发布的RFC 1766。使用ISO 639�
 2001年1月发布RFC 3066, 使用ISO 639-2的3字母语言代码。
 2006年9月发布RFC 4646 (规范的主体)与RFC 4647 (处理匹配行为)。RFC 4646增加了使用ISO 15924 的4字母书写文字代码与UN M.49的3数字地理分区码。
 2009年9月发布RFC 5646，引入了3字符码的ISO 639-3与639-5作为语言子标签。&lt;/p&gt;
-&lt;h2&gt;语言代码实例&lt;span class=&#34;absolute -mt-20&#34; id=&#34;语言代码实例&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e8%af%ad%e8%a8%80%e4%bb%a3%e7%a0%81%e5%ae%9e%e4%be%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Linux Locale&lt;span class=&#34;absolute -mt-20&#34; id=&#34;linux-locale&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;语言代码实例&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;语言代码实例&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%af%ad%e8%a8%80%e4%bb%a3%e7%a0%81%e5%ae%9e%e4%be%8b&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;Linux Locale&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;linux-locale&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#linux-locale&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;命名规则为：&lt;code&gt;language[_territory[.codeset]][@modifier]&lt;/code&gt;
 其中language是&lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_639-1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 639-1&lt;/a&gt;标准中定义的双字母的语言代码，territory是&lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_3166-1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 3166-1&lt;/a&gt;标准中定义的双字母的国家和地区代码，codeset是字符集的名称 (如 UTF-8等)，而 modifier 则是某些 locale 变体的修正符。&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;p&gt;目前的 Debian 桌面 GUI（图形用户界面）系统通常在 GUI 环境中设置语言环境为 &lt;code&gt;LANG=xx_YY.UTF-8&lt;/code&gt;。这里，&lt;code&gt;xx&lt;/code&gt; 是 &lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_639-1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 639 语言代码&lt;/a&gt; ，&lt;code&gt;YY&lt;/code&gt; 是 &lt;a href=&#34;https://zh.wikipedia.org/wiki/ISO_3166-1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ISO 3166 国家地区代码&lt;/a&gt; &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;h3&gt;Windows 开发&lt;span class=&#34;absolute -mt-20&#34; id=&#34;windows-开发&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;Windows 开发&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;windows-开发&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#windows-%e5%bc%80%e5%8f%91&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;语言字符串
 Windows 媒体格式 SDK 的多语言支持功能使用符合 RFC 1766 的语言字符串。&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
@@ -250,7 +250,7 @@ Windows 媒体格式 SDK 的多语言支持功能使用符合 RFC 1766 的语言
 类 &lt;a href=&#34;https://learn.microsoft.com/zh-cn/dotnet/api/system.globalization.cultureinfo?view=net-7.0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CultureInfo&lt;/a&gt; 根据 RFC 4646 为每个区域性指定唯一名称。 该名称是与语言关联的 ISO 639 双字母或三字母小写区域性代码和与国家或地区关联的 ISO 3166 双字母大写子区域性代码的组合。 此外，对于面向 .NET Framework 4 或更高版本且在 Windows 10 或更高版本下运行的应用，支持对应于有效 BCP-47 语言标记的区域性名称。
 基于 RFC 4646 的区域性名称的格式为 &lt;em&gt;&lt;code&gt;languagecode2&lt;/code&gt;&lt;/em&gt;-&lt;em&gt;&lt;code&gt;country/regioncode2&lt;/code&gt;&lt;/em&gt;，其中 &lt;em&gt;&lt;code&gt;languagecode2&lt;/code&gt;&lt;/em&gt; 是双字母语言代码， &lt;em&gt;&lt;code&gt;country/regioncode2&lt;/code&gt;&lt;/em&gt; 是双字母子区域性代码。&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;HTML lang 属性&lt;span class=&#34;absolute -mt-20&#34; id=&#34;html-lang-属性&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;HTML lang 属性&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;html-lang-属性&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#html-lang-%e5%b1%9e%e6%80%a7&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;由 &lt;a href=&#34;https://www.ietf.org/rfc/bcp/bcp47.txt&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;用于定义语言的标签 (BCP47)&lt;/a&gt; IETF 文档定义。&lt;sup id=&#34;fnref:5&#34;&gt;&lt;a href=&#34;#fn:5&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;5&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;p&gt;BCP 47标准代替了早期使用的RFC 3066 与RFC 1766标准，且信息量远远超过了ISO语言与国家地区标准。您还应该使用IANA语言子标签注册表（IANA Language Subtag Registry）来改善语言标记，而非ISO标准。&lt;sup id=&#34;fnref:6&#34;&gt;&lt;a href=&#34;#fn:6&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
@@ -314,7 +314,7 @@ Windows 媒体格式 SDK 的多语言支持功能使用符合 RFC 1766 的语言
 &lt;p&gt;微软翻译&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://pic4.zhimg.com/v2-7a4de573135b6b5f8366a794d7f23e5f_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;图源 奔跑中的奶酪&lt;/p&gt;
-&lt;h3&gt;TamperMonkey为什么被叫做“油猴”&lt;span class=&#34;absolute -mt-20&#34; id=&#34;tampermonkey为什么被叫做油猴&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;TamperMonkey为什么被叫做“油猴”&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;tampermonkey为什么被叫做油猴&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#tampermonkey%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a2%ab%e5%8f%ab%e5%81%9a%e6%b2%b9%e7%8c%b4&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;很多人把 Userscript 叫做“油猴脚本”，原因上面文章也提到了，因为最早的用户脚本管理器叫油猴（Greasemonkey ），所以很多人叫其“油猴脚本”，这&lt;strong&gt;也能理解&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;不过，Greasemonkey 只支持Firefox，于是就有人做Chrome等上面的移植版，就比如我们要说的 Tampermonkey，它也是其中最有名的。但是问题来了，Tampermonkey 官方一直没有正式中文名称（而油猴、暴力猴等都有“官方认证”的中文名），所有场合出现的都是它的英文名字，这我们这些说中文的日常交流多不方便啊。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://pic1.zhimg.com/v2-01cc99564e8b0abc4e0ca94a9ff5eae0_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
@@ -323,7 +323,7 @@ Windows 媒体格式 SDK 的多语言支持功能使用符合 RFC 1766 的语言
 &lt;p&gt;Edge，有暴力猴为对比&lt;/p&gt;
 &lt;p&gt;那么它中文叫什么呢，很多人这时候犯懒了，翻字典是不可能翻的，“当时xxx给我推荐这个，能装脚本来做xxx，他当时说叫什么来着，哦对，油猴脚本！油猴脚本、油猴脚本，那这个东西是用来做这个的，那他一定叫“油猴”吧。”&lt;/p&gt;
 &lt;p&gt;当然以上只是个人猜想的一些人（尤其近几年才接触的人）的思路，可能一些“老人”就像 &lt;a href=&#34;https://www.zhihu.com/question/334287319/answer/744468836&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;为什么Tampermonkey被翻译成&amp;quot;油猴&amp;quot;？&lt;/a&gt; 里说的，纯粹是习惯了罢，就像一些人老是说“百度一下”，实际他并不用百度一样。&lt;/p&gt;
-&lt;h3&gt;官网名称被改&lt;span class=&#34;absolute -mt-20&#34; id=&#34;官网名称被改&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;官网名称被改&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;官网名称被改&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%ae%98%e7%bd%91%e5%90%8d%e7%a7%b0%e8%a2%ab%e6%94%b9&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;今年2月份，当我重装手机上Firefox时，安装扩展时不小心选了TamperMonkey（为什么说不小心，因为它有个弹窗在手机上关不掉，我没法操作，所以一般都用的暴力猴）。大家都知道它装完之后会弹出官网的欢迎界面，而作者在前几个月更新了官网。在我将要关闭时，我发现了一点异常：Tampermonkey 有中文自称了，还是“油猴”？！&lt;/p&gt;
 &lt;p&gt;这……你让Greasemonkey怎么面对，你让Tampermonkey怎么想，“没想到这么多年了，我终究还是个替身( ꒦ິ⌓꒦ີ )”。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://pic2.zhimg.com/v2-96b0d0ca3958b6e3e6242a466ac3a3f9_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
@@ -337,7 +337,7 @@ Windows 媒体格式 SDK 的多语言支持功能使用符合 RFC 1766 的语言
 &lt;/blockquote&gt;
 &lt;p&gt;当时就想提个反馈，但我找遍网站也没有发现反馈位置，只有一个邮箱。Github上 也只有扩展本体及扩展的翻译，没地方提关于网站的issue。&lt;/p&gt;
 &lt;p&gt;发邮件，对我来说有点太过正式，我写了两句就懒癌犯了，算了吧。&lt;/p&gt;
-&lt;h3&gt;反馈起因及结果&lt;span class=&#34;absolute -mt-20&#34; id=&#34;反馈起因及结果&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;反馈起因及结果&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;反馈起因及结果&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%8f%8d%e9%a6%88%e8%b5%b7%e5%9b%a0%e5%8f%8a%e7%bb%93%e6%9e%9c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;最近某同学要刷智慧树的课，他给我说他一搜排名第一的是 &lt;a href=&#34;https://greasyfork.org/zh-CN/scripts/457151-ocs-%25E7%25BD%2591%25E8%25AF%25BE%25E5%258A%25A9%25E6%2589%258B&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OCS 网课助手&lt;/a&gt; ，装上后发现提示我推荐的暴力猴不支持，必须用“油猴”。当时我就忍不了了，什么，看不起我“暴力猴”是吧，另外你连名字都打不对，你在教我做事？（狗头&lt;/p&gt;
 &lt;p&gt;于是上Github给他拉了分支，改了翻译再提了个PR。&lt;a href=&#34;https://github.com/ocsjs/ocs-docs/pull/4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/ocsjs/ocs-docs/pull/4&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;然后，隔了几天（因为回复邮件被Outlook收到垃圾箱了）我发现他回复说官网就叫油猴。得，官网的更新让错误翻译更有理了。于是我又忍不了了，又打开了PR，同时又从草稿箱翻出草稿来给TamperMonkey发了个邮件。&lt;/p&gt;
@@ -358,7 +358,7 @@ Windows 媒体格式 SDK 的多语言支持功能使用符合 RFC 1766 的语言
       <description>
         
         
-        &lt;h2&gt;说明&lt;span class=&#34;absolute -mt-20&#34; id=&#34;说明&#34;&gt;&lt;/span&gt;
+        &lt;h2&gt;说明&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;说明&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e8%af%b4%e6%98%8e&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;边学边写，所以一边学着后面就顺便将前文格式改了改，把这当作学习笔记了。
 现在又变成博客样式测试文章了😁&lt;/p&gt;
 &lt;p&gt;因为Markdown没有明确规范，所以这里就只说一些基本用法。&lt;br&gt;
@@ -370,11 +370,11 @@ Windows 媒体格式 SDK 的多语言支持功能使用符合 RFC 1766 的语言
 &lt;p&gt;这里面是演示效果&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;h2&gt;标题与正文&lt;span class=&#34;absolute -mt-20&#34; id=&#34;标题与正文&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e6%a0%87%e9%a2%98%e4%b8%8e%e6%ad%a3%e6%96%87&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;换行与换段&lt;span class=&#34;absolute -mt-20&#34; id=&#34;换行与换段&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;标题与正文&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;标题与正文&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%a0%87%e9%a2%98%e4%b8%8e%e6%ad%a3%e6%96%87&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;换行与换段&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;换行与换段&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e6%8d%a2%e8%a1%8c%e4%b8%8e%e6%8d%a2%e6%ae%b5&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;正文可以直接写。&lt;br&gt;
 两个及以上空格再回车表示换行，空一行及以上表示换段。&lt;/p&gt;
-&lt;h3&gt;换行&lt;span class=&#34;absolute -mt-20&#34; id=&#34;换行&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;换行&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;换行&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e6%8d%a2%e8%a1%8c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;使用&lt;code&gt;#&lt;/code&gt;，一级标题为一个&lt;code&gt;#&lt;/code&gt;，二级标题为两个&lt;code&gt;#&lt;/code&gt;，以此类推，可表示 1-6 级标题。&lt;br&gt;
 或使用&lt;code&gt;=&lt;/code&gt;和&lt;code&gt;-&lt;/code&gt;并换行标记一级和二级标题（备用方案）。&lt;br&gt;
 为了显示效果引用了一下。&lt;/p&gt;
@@ -386,10 +386,10 @@ Windows 媒体格式 SDK 的多语言支持功能使用符合 RFC 1766 的语言
 这是正文  
 &lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
-&lt;h2&gt;一级标题&lt;span class=&#34;absolute -mt-20&#34; id=&#34;一级标题&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e4%b8%80%e7%ba%a7%e6%a0%87%e9%a2%98&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;二级标题&lt;span class=&#34;absolute -mt-20&#34; id=&#34;二级标题&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e4%ba%8c%e7%ba%a7%e6%a0%87%e9%a2%98&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;三级标题&lt;span class=&#34;absolute -mt-20&#34; id=&#34;三级标题&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e4%b8%89%e7%ba%a7%e6%a0%87%e9%a2%98&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;h5&gt;四级标题&lt;span class=&#34;absolute -mt-20&#34; id=&#34;四级标题&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;一级标题&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;一级标题&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%b8%80%e7%ba%a7%e6%a0%87%e9%a2%98&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;二级标题&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;二级标题&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%ba%8c%e7%ba%a7%e6%a0%87%e9%a2%98&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;h4&gt;三级标题&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;三级标题&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%b8%89%e7%ba%a7%e6%a0%87%e9%a2%98&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h4&gt;&lt;h5&gt;四级标题&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;四级标题&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%9b%9b%e7%ba%a7%e6%a0%87%e9%a2%98&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;&amp;hellip;&amp;hellip;&lt;br&gt;
 这是正文&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -401,9 +401,9 @@ Windows 媒体格式 SDK 的多语言支持功能使用符合 RFC 1766 的语言
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;效果如下：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;h1&gt;一级标题&lt;/h1&gt;&lt;h2&gt;二级标题&lt;span class=&#34;absolute -mt-20&#34; id=&#34;二级标题-1&#34;&gt;&lt;/span&gt;
+&lt;h1&gt;一级标题&lt;/h1&gt;&lt;h2&gt;二级标题&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;二级标题-1&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e4%ba%8c%e7%ba%a7%e6%a0%87%e9%a2%98-1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;/blockquote&gt;
-&lt;h3&gt;分隔符&lt;span class=&#34;absolute -mt-20&#34; id=&#34;分隔符&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;分隔符&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;分隔符&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%88%86%e9%9a%94%e7%ac%a6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;由三个及以上&lt;code&gt;-&lt;/code&gt;/&lt;code&gt;*&lt;/code&gt;/&lt;code&gt;_&lt;/code&gt;构成的单行，其中可有空格&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;---
 - - -
@@ -421,8 +421,8 @@ _ _ _
 &lt;hr&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
-&lt;h2&gt;字体效果&lt;span class=&#34;absolute -mt-20&#34; id=&#34;字体效果&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e5%ad%97%e4%bd%93%e6%95%88%e6%9e%9c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;斜、黑体&lt;span class=&#34;absolute -mt-20&#34; id=&#34;斜黑体&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;字体效果&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;字体效果&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ad%97%e4%bd%93%e6%95%88%e6%9e%9c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;斜、黑体&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;斜黑体&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e6%96%9c%e9%bb%91%e4%bd%93&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;斜体：在其前后各加一个&lt;code&gt;*&lt;/code&gt;或&lt;code&gt;_&lt;/code&gt;&lt;br&gt;
 黑体：在其前后各加两个&lt;code&gt;*&lt;/code&gt;或&lt;code&gt;_&lt;/code&gt;&lt;br&gt;
 斜黑体：在其前后各加三个&lt;code&gt;*&lt;/code&gt;或&lt;code&gt;_&lt;/code&gt;&lt;/p&gt;
@@ -439,20 +439,20 @@ _ _ _
 &lt;/blockquote&gt;
 &lt;p&gt;最好用&lt;code&gt;*&lt;/code&gt;不用&lt;code&gt;_&lt;/code&gt;&lt;br&gt;
 也可将斜黑体表示为&lt;code&gt;__*1*__&lt;/code&gt;或&lt;code&gt;**_2_**&lt;/code&gt;(VS code并不支持)：__&lt;em&gt;1&lt;/em&gt;__或**&lt;em&gt;2&lt;/em&gt;**&lt;/p&gt;
-&lt;h3&gt;删除线&lt;span class=&#34;absolute -mt-20&#34; id=&#34;删除线&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;删除线&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;删除线&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%88%a0%e9%99%a4%e7%ba%bf&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;在其前后各加&lt;code&gt;~~&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;~~这是删除线测试~~
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;效果如下：&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;这是删除线测试&lt;/del&gt;&lt;/p&gt;
-&lt;h3&gt;高亮（VS code里无效果）&lt;span class=&#34;absolute -mt-20&#34; id=&#34;高亮vs-code里无效果&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;高亮（VS code里无效果）&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;高亮vs-code里无效果&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e9%ab%98%e4%ba%aevs-code%e9%87%8c%e6%97%a0%e6%95%88%e6%9e%9c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;在其前后各加&lt;code&gt;==&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;==这是高亮==
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;==这是高亮==&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2&gt;列表&lt;span class=&#34;absolute -mt-20&#34; id=&#34;列表&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e5%88%97%e8%a1%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;有序列表&lt;span class=&#34;absolute -mt-20&#34; id=&#34;有序列表&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;列表&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;列表&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%88%97%e8%a1%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;有序列表&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;有序列表&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e6%9c%89%e5%ba%8f%e5%88%97%e8%a1%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;数字加&lt;code&gt;.&lt;/code&gt;加一个空格&lt;br&gt;
 可嵌套，若嵌套在前面加四个空格（一个Tab）&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;1. 一级
@@ -498,7 +498,7 @@ _ _ _
 &lt;/li&gt;
 &lt;li&gt;一级&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3&gt;无序列表&lt;span class=&#34;absolute -mt-20&#34; id=&#34;无序列表&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;无序列表&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;无序列表&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e6%97%a0%e5%ba%8f%e5%88%97%e8%a1%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;code&gt;*&lt;/code&gt;、&lt;code&gt;+&lt;/code&gt;或&lt;code&gt;-&lt;/code&gt;加一个空格&lt;br&gt;
 也可以嵌套&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;- 一级
@@ -538,7 +538,7 @@ _ _ _
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2&gt;区块引用&lt;span class=&#34;absolute -mt-20&#34; id=&#34;区块引用&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;区块引用&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;区块引用&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%8c%ba%e5%9d%97%e5%bc%95%e7%94%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;在段落开头使用&lt;code&gt;&amp;gt;&lt;/code&gt;,然后加一个空格(非必需，为了防止有些不支持)&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;gt; 区块引用
 &lt;/code&gt;&lt;/pre&gt;
@@ -561,9 +561,9 @@ _ _ _
 &lt;/blockquote&gt;
 &lt;p&gt;在正文中引用后，换段效果不继续引用，换行继续引用。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2&gt;代码&lt;span class=&#34;absolute -mt-20&#34; id=&#34;代码&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;代码&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;代码&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e4%bb%a3%e7%a0%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;可以保留原格式，效果为阴影背景&lt;/p&gt;
-&lt;h3&gt;1)行内代码&lt;span class=&#34;absolute -mt-20&#34; id=&#34;1行内代码&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;1)行内代码&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;1行内代码&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#1%e8%a1%8c%e5%86%85%e4%bb%a3%e7%a0%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;可以在前后各加一个及以上&lt;code&gt;`&lt;/code&gt;（反引号，Tab键上面的那个）来表示，但是要几个开始几个结束&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;这是`行内代码`演示
 &lt;/code&gt;&lt;/pre&gt;
@@ -577,7 +577,7 @@ _ _ _
 &lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;`&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3&gt;2)代码区块&lt;span class=&#34;absolute -mt-20&#34; id=&#34;2代码区块&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;2)代码区块&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;2代码区块&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#2%e4%bb%a3%e7%a0%81%e5%8c%ba%e5%9d%97&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;可以使用四个空格（一个Tab）&lt;br&gt;
 显示效果如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;这就是代码区块，记得要换段
@@ -588,19 +588,24 @@ printf(&amp;quot;Hello World!&amp;quot;);
 ```
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;效果如下：&lt;/p&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
 &lt;/div&gt;
 &lt;p&gt;行内代码只能显示一行，适合正文插入，区块适合多条语句。我觉得单独一行代码也可用来区块来表示强调。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2&gt;链接&lt;span class=&#34;absolute -mt-20&#34; id=&#34;链接&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;链接&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;链接&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e9%93%be%e6%8e%a5&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;1.形式为&lt;code&gt;[链接名称](链接地址)&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;[百度](https://www.baidu.com)
 &lt;/code&gt;&lt;/pre&gt;
@@ -628,24 +633,29 @@ printf(&amp;quot;Hello World!&amp;quot;);
 &lt;p&gt;这是一个&lt;a href=&#34;https://www.baidu.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;链接&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;省略写法：&lt;/p&gt;
-&lt;div class=&#34;code-block relative mt-6 first:mt-0 group/code&#34;&gt;&lt;pre&gt;&lt;code&gt;    这是一个[链接]
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;pre&gt;&lt;code&gt;    这是一个[链接]
  
-    [链接]:https://www.baidu.com&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0&#34;&gt;
-    &lt;button
-      class=&#34;code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50&#34;
-      title=&#34;Copy code&#34;
-    &gt;
-      &lt;div class=&#34;group-[.copied]/copybtn:hidden copy-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-      &lt;div class=&#34;hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4&#34;&gt;&lt;/div&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
+    [链接]:https://www.baidu.com&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
 &lt;/div&gt;
 &lt;blockquote&gt;
 &lt;p&gt;这是一个&lt;a href=&#34;https://www.baidu.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;链接&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;5.所以的链接都可以带上格式，如&lt;del&gt;&lt;a href=&#34;https://www.baidu.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.baidu.com&lt;/a&gt;&lt;/del&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2&gt;图片&lt;span class=&#34;absolute -mt-20&#34; id=&#34;图片&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;图片&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;图片&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%9b%be%e7%89%87&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;插入图片与链接类似，格式如下：&lt;code&gt;![代替文字](图片的本地地址或URL)&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;![Markdown](https://bkimg.cdn.bcebos.com/pic/d009b3de9c82d158ccbf98bc1b430ed8bc3eb135e42e)
 &lt;/code&gt;&lt;/pre&gt;
@@ -656,7 +666,7 @@ printf(&amp;quot;Hello World!&amp;quot;);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;a href=&#34;https://baike.baidu.com/item/markdown&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;https://bkimg.cdn.bcebos.com/pic/d009b3de9c82d158ccbf98bc1b430ed8bc3eb135e42e&#34; alt=&#34;Markdown&#34; loading=&#34;lazy&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2&gt;脚注（VS code里无效果）&lt;span class=&#34;absolute -mt-20&#34; id=&#34;脚注vs-code里无效果&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;脚注（VS code里无效果）&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;脚注vs-code里无效果&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e8%84%9a%e6%b3%a8vs-code%e9%87%8c%e6%97%a0%e6%95%88%e6%9e%9c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;格式：&lt;code&gt;[^要注明的内容]&lt;/code&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;这是要标注的[^内容]  
 [^内容]:一个标注
@@ -664,7 +674,7 @@ printf(&amp;quot;Hello World!&amp;quot;);
 &lt;p&gt;效果如下：&lt;/p&gt;
 &lt;p&gt;这是要标注的&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2&gt;表格&lt;span class=&#34;absolute -mt-20&#34; id=&#34;表格&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;表格&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;表格&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e8%a1%a8%e6%a0%bc&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;使用&lt;code&gt;|&lt;/code&gt;分隔每一行的单元格，用&lt;code&gt;-&lt;/code&gt;分隔表头与数据。&lt;/p&gt;
 &lt;p&gt;表格对齐方式：&lt;br&gt;
 设置内容和标题栏居右对齐&lt;code&gt;-:&lt;/code&gt;。&lt;br&gt;
@@ -676,28 +686,28 @@ printf(&amp;quot;Hello World!&amp;quot;);
 |1|2|3|
 &lt;/code&gt;&lt;/pre&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;表头1&lt;/th&gt;
-&lt;th style=&#34;text-align:right&#34;&gt;表头2&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;表头3&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
-&lt;td style=&#34;text-align:right&#34;&gt;2&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;表头1&lt;/th&gt;
+          &lt;th style=&#34;text-align: right&#34;&gt;表头2&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;表头3&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;2&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;1&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;2&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h2&gt;转义字符&lt;span class=&#34;absolute -mt-20&#34; id=&#34;转义字符&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;转义字符&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;转义字符&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e8%bd%ac%e4%b9%89%e5%ad%97%e7%ac%a6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;特殊符号可以用转义字符显示，及前面加&lt;code&gt;\&lt;/code&gt;。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;**加粗**  
 \*\*不加粗\*\*
@@ -722,7 +732,7 @@ _   下划线
 |   竖线符号
 &lt;/code&gt;&lt;/pre&gt;
 &lt;hr&gt;
-&lt;h2&gt;LaTex公式&lt;span class=&#34;absolute -mt-20&#34; id=&#34;latex公式&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;LaTex公式&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;latex公式&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#latex%e5%85%ac%e5%bc%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;用&lt;code&gt;$&lt;/code&gt; &lt;code&gt;$&lt;/code&gt;包围的为行内的公式，用&lt;code&gt;$$&lt;/code&gt; &lt;code&gt;$$&lt;/code&gt;包围的为居中的公式块&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$2^{10} = 1024$
 $$\sum_{n = 0}^{100} n = (100 + 0) + (99 + 1) + ... +  55 = 55 × 100 + 55 = 5555}$$
@@ -732,9 +742,9 @@ $2^{10} = 1024$
 $$\sum_{n = 0}^{100} n = (100 + 0) + (99 + 1) + &amp;hellip; +  55 = 55 × 100 + 55 = 5555$$&lt;/p&gt;
 &lt;p&gt;这个具体语法就不详细介绍了。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2&gt;HTML&lt;span class=&#34;absolute -mt-20&#34; id=&#34;html&#34;&gt;&lt;/span&gt;
+&lt;h2&gt;HTML&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;html&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#html&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;HTML中的标签可以直接在Markdown中使用，举个例子。&lt;/p&gt;
-&lt;h3&gt;下划线&lt;span class=&#34;absolute -mt-20&#34; id=&#34;下划线&#34;&gt;&lt;/span&gt;
+&lt;h3&gt;下划线&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;下划线&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e4%b8%8b%e5%88%92%e7%ba%bf&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;HTML中的&lt;code&gt;&amp;lt;u&amp;gt;&lt;/code&gt;和&lt;code&gt;&amp;lt;/u&amp;gt;&lt;/code&gt;标签&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;u&amp;gt;这是下划线测试&amp;lt;/u&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
@@ -748,6 +758,134 @@ $$\sum_{n = 0}^{100} n = (100 + 0) + (99 + 1) + &amp;hellip; +  55 = 55 × 100 +
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>CPU</title>
+      <link>/blog/cpu-arch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/cpu-arch/</guid>
+      <description>
+        
+        
+        &lt;p&gt;架构/指令集名称&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;架构/指令集&lt;/th&gt;
+          &lt;th&gt;字长&lt;/th&gt;
+          &lt;th&gt;Microsoft/Windows&lt;/th&gt;
+          &lt;th&gt;Debian&lt;/th&gt;
+          &lt;th&gt;Linux/Redhat&lt;/th&gt;
+          &lt;th&gt;Linux/Arch&lt;/th&gt;
+          &lt;th&gt;Apple/macOS&lt;/th&gt;
+          &lt;th&gt;Android&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;x86&lt;/td&gt;
+          &lt;td&gt;32位&lt;br&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/IA-32&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;IA-32&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;x86&lt;/td&gt;
+          &lt;td&gt;i386&lt;/td&gt;
+          &lt;td&gt;i386&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;x86&lt;/td&gt;
+          &lt;td&gt;x86&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;64位&lt;a href=&#34;https://zh.wikipedia.org/wiki/X86-64#%E4%B8%9A%E7%95%8C%E7%A7%B0%E8%B0%93%E6%83%AF%E4%BE%8B&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;x86-64&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;x64&lt;/td&gt;
+          &lt;td&gt;amd64&lt;/td&gt;
+          &lt;td&gt;x86_64&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;x86_64&lt;/td&gt;
+          &lt;td&gt;x86_64&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;ARM&lt;/td&gt;
+          &lt;td&gt;32位&lt;/td&gt;
+          &lt;td&gt;Arm32/AArch32&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;AArch32&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;\&lt;/td&gt;
+          &lt;td&gt;armeabi-v7a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;64位&lt;/td&gt;
+          &lt;td&gt;Arm64/AArch64&lt;/td&gt;
+          &lt;td&gt;arm64&lt;/td&gt;
+          &lt;td&gt;AArch64&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;aarch64&lt;/td&gt;
+          &lt;td&gt;arm64-v8a&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;MIPS&lt;/td&gt;
+          &lt;td&gt;32位&lt;/td&gt;
+          &lt;td&gt;\&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;MIPS32&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;\&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;64位&lt;/td&gt;
+          &lt;td&gt;\&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;MIPS64&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;\&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;LoongArch&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;loong64&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>开源许可证</title>
+      <link>/blog/license/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/license/</guid>
+      <description>
+        
+        
+        &lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;如何选择开源许可证？ - 阮一峰的网络日志&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://choosealicense.com/licenses/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;choosealicense&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://roriri.one/2019/01/27/weird-open-source-licences/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;那些有画风毒的开源许可证 | 螺莉莉数据中心&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://open-source-license-chooser.toolsnav.top/zh/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;开源许可证选择器&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
       </description>
     </item>
     

@@ -1,0 +1,168 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>炳的自留地 – Python</title>
+    <link>/tags/python/</link>
+    <description>Recent content in Python on 炳的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 19 Jun 2021 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="/tags/python/atom.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>「Code」Python</title>
+      <link>/vscode/python/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/vscode/python/</guid>
+      <description>
+        
+        
+        &lt;p&gt;也可点击&lt;a href=&#34;https://zhuanlan.zhihu.com/p/494357501&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;知乎文章&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;0. VS Code安装及使用&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;0-vs-code安装及使用&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#0-vs-code%e5%ae%89%e8%a3%85%e5%8f%8a%e4%bd%bf%e7%94%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;下文必看！&lt;/strong&gt; 下载安装VS Code、基本使用等等。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/vscode/vscode/&#34; &gt;「Code」安装与基本操作&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;无论用VS Code搭建什么语言的开发环境，只需记住一个流程：&lt;br&gt;
+安装官方的SDK（编译器/解释器等等）-&amp;gt; VS Code里安装相应的支持扩展 -&amp;gt; 开始写代码&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;1. Python（解释器）安装&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;1-python解释器安装&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-python%e8%a7%a3%e9%87%8a%e5%99%a8%e5%ae%89%e8%a3%85&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1.1 Windows 上安装&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;11-windows-上安装&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#11-windows-%e4%b8%8a%e5%ae%89%e8%a3%85&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;直接在 &lt;a href=&#34;https://www.python.org/downloads/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python 官网&lt;/a&gt; 下载 Python 并安装。&lt;/p&gt;
+&lt;p&gt;安装时记得选择图中最下面的 &lt;code&gt;Add xxx to Path&lt;/code&gt; &lt;strong&gt;加入到环境变量&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic2.zhimg.com/v2-c17eee78c1bfe45509e29bde4f933611_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;1.2 Linux/WSL 上安装&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;12-linuxwsl-上安装&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#12-linuxwsl-%e4%b8%8a%e5%ae%89%e8%a3%85&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Python 有 Python2.X 和 Python3.X 两个不兼容版本，两者不能混用。可能是 Linux 上经常显式指明解释器的原因，为了兼容性，Python3.X 改为用 &lt;code&gt;python3&lt;/code&gt; 命令，而默认的 &lt;code&gt;python&lt;/code&gt; 命令仍然给 Python2.X 使用。&lt;/p&gt;
+&lt;p&gt;很多 Linux 发行版都自带了 Python3，没有的话直接用包管理器安装即可。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;随着 Python2 的淘汰，Python2 用的也越来越少，各发行版新版本基本都不会安装Python2，大部分情况下 &lt;code&gt;python&lt;/code&gt; 是一个无效的命令。这时有些 Linux 发行版就将其指向了 &lt;code&gt;python3&lt;/code&gt;，因此使用 &lt;code&gt;python&lt;/code&gt; 时一定要分清安装的是哪个版本。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以 Debian 11 / Ubuntu 20.04 为例，自带了 Python3，而 &lt;code&gt;python&lt;/code&gt; 命令无效。这种情况可以安装 python-is-python3 这个软件来让 &lt;code&gt;python&lt;/code&gt; 命令作为 &lt;code&gt;python3&lt;/code&gt; 的别名。使用 apt 安装一下：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install python-is-python3&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;另外，我们需要安装一下虚拟环境的工具。大部分 Linux 发行版为防止系统包管理和 Python 包管理（pip）冲突，并不能直接在系统中直接使用 pip，必须自己创建虚拟环境进行管理。&lt;/p&gt;
+&lt;p&gt;还是以 Ubuntu 为例，使用 apt 安装一下：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install python3-venv&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h2&gt;2. pip换源（建议）&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;2-pip换源建议&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-pip%e6%8d%a2%e6%ba%90%e5%bb%ba%e8%ae%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;由于国内网络原因，很多 Python 库在线安装很慢甚至安装失败。&lt;/p&gt;
+&lt;p&gt;可以自己手动将某个镜像源&lt;strong&gt;设置为pip默认源&lt;/strong&gt;。这里以教育网的为例，终端里输入：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pip config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; global.index-url https://mirrors.cernet.edu.cn/pypi/web/simple&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;国内常用 pip（pypi）源：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;校园网联合镜像站：&lt;code&gt;https://mirrors.cernet.edu.cn/pypi/web/simple&lt;/code&gt;&lt;br&gt;
+集合了不少高校的源和使用帮助，&lt;a href=&#34;https://help.mirrors.cernet.edu.cn/pypi/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;帮助文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;阿里云镜像：&lt;code&gt;https://mirrors.aliyun.com/pypi/simple/&lt;/code&gt;&lt;br&gt;
+能用，但速度一般&lt;/li&gt;
+&lt;li&gt;腾讯云镜像：&lt;code&gt;https://mirrors.cloud.tencent.com/pypi/simple/&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;至于很多人说的豆瓣镜像其实已经指向腾讯云镜像了，如果看到近几年的文章还这么写，那基本是抄袭多少年前的老文章了，就别看了。&lt;/p&gt;
+&lt;h2&gt;3. 开始使用&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;3-开始使用&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-%e5%bc%80%e5%a7%8b%e4%bd%bf%e7%94%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;用VS Code打开&lt;code&gt;.py&lt;/code&gt;文件会自动提示安装 python扩展，或者自己直接搜索安装。&lt;/p&gt;
+&lt;p&gt;它应该会自动安装智能提示扩展 - Pylance。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic1.zhimg.com/v2-6e19244d8b1e7075df4c4eca157b832c_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;接下来可以自己写一个简单程序，右上角点击运行（Run Python File）即可。&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Hello World&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;请输入一个数字&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h2&gt;4. 创建虚拟环境&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;4-创建虚拟环境&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#4-%e5%88%9b%e5%bb%ba%e8%99%9a%e6%8b%9f%e7%8e%af%e5%a2%83&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;虚拟环境是一个隔离的Python环境，允许用户安装和运行不同的Python包，而不会影响系统范围内的Python安装。&lt;/p&gt;
+&lt;p&gt;如果要使用虚拟环境，我们可以切换到工作目录，打开终端并输入：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;pre&gt;&lt;code&gt;python -m venv .venv&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;这会在目录里创建一个名为 &lt;code&gt;.venv&lt;/code&gt; 虚拟环境。&lt;/p&gt;
+&lt;p&gt;创建好虚拟环境后我们还需要在当前 Shell 环境中执行相应的激活脚本才能“激活”/“进入”虚拟环境，即设置一系列的环境变量。激活脚本放在 &lt;code&gt;.venv&lt;/code&gt; 目录下，根据自己所用 Shell 选择即可。&lt;/p&gt;
+&lt;p&gt;使用 VS Code 时可以直接在状态栏右下角（旁边一点）选择解释器路径，如果你有不同的虚拟环境也可以在这里切换。之后执行 Python 程序或打开终端时都会自动“激活”。&lt;/p&gt;
+&lt;p&gt;2023.10 更新：Python 扩展也可以图形化的创建虚拟环境了，支持venv和conda。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic3.zhimg.com/v2-0e893ae9e4cd52a75b71f63b2541479e_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic1.zhimg.com/v2-3a3bfd4fe084db5462d9237a61ce0bfc_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;5. Jupyter for VS Code&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;5-jupyter-for-vs-code&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#5-jupyter-for-vs-code&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;VS Code 里也支持 Jupyter notebook，它可以分段运行程序，挺方便的。&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;现在安装 Python 扩展会自动安装 Jupyter 扩展。（又不安装了）&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;在扩展市场搜索“Jupyter”并安装。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic3.zhimg.com/v2-a08056f39e1acab7564bc9e42ddb5bde_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;新建一个文件命名为&lt;code&gt;xxx.ipynb&lt;/code&gt;，新建一个“代码”块，随便写几行代码。&lt;/p&gt;
+&lt;p&gt;然后点击旁边的运行，它会让你选择解释器。随后，它会提示你安装一个&lt;strong&gt;内核（ipykernel）&lt;/strong&gt;。点击安装，它会通过 pip 自动安装，安装完成即可正常使用。（不行的话手动输入&lt;code&gt;pip install ipykernel&lt;/code&gt;）&lt;/p&gt;
+&lt;p&gt;安装完成后即可使在VS Code 上愉快地使用 Jupyter notebook 了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic4.zhimg.com/v2-51dbb72d212294d09b07e38329099ca3_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

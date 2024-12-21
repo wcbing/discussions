@@ -1,0 +1,65 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>炳的自留地 – Ip</title>
+    <link>/tags/ip/</link>
+    <description>Recent content in Ip on 炳的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 11 Sep 2021 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="/tags/ip/atom.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>IP</title>
+      <link>/network/ip/</link>
+      <pubDate>Sat, 11 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/network/ip/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E4%BF%9D%E7%95%99IP%E5%9C%B0%E5%9D%80&#34; title=&#34;保留IP地址&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;保留IP地址&lt;/a&gt;&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;保留ip地址httpszhwikipediaorgwikie4bf9de79599ipe59cb0e59d80-保留ip地址&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%bf%9d%e7%95%99ip%e5%9c%b0%e5%9d%80httpszhwikipediaorgwikie4bf9de79599ipe59cb0e59d80-%e4%bf%9d%e7%95%99ip%e5%9c%b0%e5%9d%80&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;部分常见保留地址&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;IPv4&lt;/th&gt;
+          &lt;th&gt;IPv6&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/IPv4#%e7%8e%af%e5%9b%9e%e5%9c%b0%e5%9d%80%ef%bc%88Loopback_Address%ef%bc%89&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;环回地址&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;127.0.0.0/8&lt;/td&gt;
+          &lt;td&gt;::1/128&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E4%B8%93%E7%94%A8%E7%BD%91%E7%BB%9C&#34; title=&#34;专用网络&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;专用网络&lt;/a&gt;  &lt;br&gt;俗称“内网/局域网”&lt;/td&gt;
+          &lt;td&gt;10.0.0.0/8 （单个A类网络）&lt;br&gt;172.16.0.0/12 （16个连续B类网络）&lt;br&gt;192.168.0.0/16 （256个连续C类网络）&lt;/td&gt;
+          &lt;td&gt;fc00::/7&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E7%94%B5%E4%BF%A1%E7%BA%A7NAT&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;电信级NAT&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;100.64.0.0/10&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E9%93%BE%E8%B7%AF%E6%9C%AC%E5%9C%B0%E5%9C%B0%E5%9D%80&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;链路本地地址&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;169.254.0.0/16&lt;/td&gt;
+          &lt;td&gt;fe80::/10&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

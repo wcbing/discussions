@@ -1,0 +1,1093 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>炳的自留地 – VS Code</title>
+    <link>/categories/vs-code/</link>
+    <description>Recent content in VS Code on 炳的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 31 Oct 2023 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="/categories/vs-code/atom.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>「Code」R</title>
+      <link>/vscode/r/</link>
+      <pubDate>Tue, 31 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/vscode/r/</guid>
+      <description>
+        
+        
+        &lt;!-- more --&gt;
+&lt;h2&gt;0. VS Code安装及使用&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;0-vs-code安装及使用&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#0-vs-code%e5%ae%89%e8%a3%85%e5%8f%8a%e4%bd%bf%e7%94%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;下文必看！&lt;/strong&gt; 下载安装VS Code、基本使用等等。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/vscode/vscode/&#34; &gt;「Code」安装与基本操作&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;1. R 安装配置&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;1-r-安装配置&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-r-%e5%ae%89%e8%a3%85%e9%85%8d%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;R 下载安装&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;r-下载安装&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#r-%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;在 &lt;a href=&#34;https://cloud.r-project.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R 官网&lt;/a&gt; 下载安装。&lt;/p&gt;
+&lt;p&gt;国内下载慢可以在 &lt;a href=&#34;https://mirrors.cernet.edu.cn/app/R&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R - 校园网联合镜像站&lt;/a&gt; 中下载，或在 &lt;a href=&#34;https://mirrors.cernet.edu.cn/list/CRAN&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CRAN - 校园网联合镜像站&lt;/a&gt; 中任选一个。&lt;/p&gt;
+&lt;h3&gt;CRAN 换源&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;cran-换源&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#cran-%e6%8d%a2%e6%ba%90&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;要换源请阅读：&lt;a href=&#34;https://help.mirrors.cernet.edu.cn/CRAN/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CRAN 镜像使用帮助&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;上面只说了 &lt;code&gt;.Rprofile&lt;/code&gt; 在 Linux 上位于 &lt;code&gt;~&lt;/code&gt;，自己从 &lt;a href=&#34;https://stackoverflow.com/questions/46819684/how-to-access-and-edit-rprofile&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;r - How to access and edit Rprofile? - Stack Overflow&lt;/a&gt; 回答中找到“通用打开方法”，测试出 Windows 上应该在 &lt;code&gt;%USERPROFILE%\Documents&lt;/code&gt; 也就是 &lt;code&gt;C:\User\[username]\Documents&lt;/code&gt;。
+&lt;del&gt;等我有时间向 MirrorZ 和 sjtug 提 PR&lt;/del&gt;向 MirrorZ 和 sjtug 提 PR 已合并&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;2. 安装扩展和 LSP&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;2-安装扩展和-lsp&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-%e5%ae%89%e8%a3%85%e6%89%a9%e5%b1%95%e5%92%8c-lsp&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;在 VS Code 中搜索安装 &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=REditorSupport.r&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R&lt;/a&gt; 和 &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=RDebugger.r-debugger&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R Debugger&lt;/a&gt; 两个扩展。&lt;/p&gt;
+&lt;p&gt;安装后会提示安装一个名叫 &lt;code&gt;Languageserver&lt;/code&gt; 的 R 包：
+&lt;img src=&#34;r-languageserver.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;点击 &lt;code&gt;Yes&lt;/code&gt; 安装。如果提示因权限问题导致失败，请自行在 R Terminal 中执行：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;install.packages&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;languageserver&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;随后根据提示确认安装。&lt;/p&gt;
+&lt;h2&gt;3. 测试&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;3-测试&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-%e6%b5%8b%e8%af%95&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;新建一个 &lt;code&gt;.R&lt;/code&gt; 文件并写入以下内容。点击右上角的运行按钮测试能否正常运行。&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 数据准备&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;info&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 命名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;names&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Google&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Runoob&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Taobao&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Weibo&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 涂色（可选）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;cols&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;#ED1C24&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;#22B14C&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;#FFC90E&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;#3f48CC&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 绘图&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;pie&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;info&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;labels&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;names&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;col&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cols&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;样例来源：&lt;a href=&#34;https://www.runoob.com/r/r-pie-charts.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R 绘图 - 饼图&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;4. Jupyter 支持&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;4-jupyter-支持&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#4-jupyter-%e6%94%af%e6%8c%81&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;打开 R Terminal，执行如下命令：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nf&#34;&gt;install.packages&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;IRkernel&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;IRkernel&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;installspec&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;之后就可以使用 Jupyter Notebook 中编写 R 程序了。&lt;/p&gt;
+&lt;p&gt;第二行出错可以参考：&lt;a href=&#34;https://stackoverflow.com/questions/53101645/cannot-get-irkernelinstallspec-to-work-jupyter-client-not-visible&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;r - Cannot get IRkernel::installspec() to work, jupyter-client not visible - Stack Overflow&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;另可参考官方文档：&lt;a href=&#34;https://code.visualstudio.com/docs/languages/r&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R in Visual Studio Code&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>「Code」汇编</title>
+      <link>/vscode/asm/</link>
+      <pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/vscode/asm/</guid>
+      <description>
+        
+        
+        &lt;p&gt;汇编语言，准确来说是x86汇编&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2&gt;0. VS Code&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;0-vs-code&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#0-vs-code&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;下文必看！&lt;/strong&gt; 下载安装VS Code、基本使用等等。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/vscode/vscode/&#34; &gt;「Code」安装与基本操作&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;1. 环境及扩展&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;1-环境及扩展&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-%e7%8e%af%e5%a2%83%e5%8f%8a%e6%89%a9%e5%b1%95&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Win10及以上以无内置DOS支持，需要安装DOS模拟器。&lt;/p&gt;
+&lt;p&gt;不过你可以安装这个扩展，内置3个模拟器和一些开发工具&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=xsro.masm-tasm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MASM/TASM: run MASM/TASM assembly in DOSBox 汇编语言开发插件&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;1.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;选 TASM 可以使用 Turbo Debugger(TD) 调试，提供了TUI,看起来方便不少。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;安装完后打开asm文件右键可以运行、调试。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;2.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;2. 路径设置&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;2-路径设置&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-%e8%b7%af%e5%be%84%e8%ae%be%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;建议设置中打开如下选项，就不用手动挂载或在配置文件中指定目录了。&lt;/p&gt;
+&lt;p&gt;前提是你使用VSCode时先打开一个文件夹（工作区）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;3.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>「Code」代码片段</title>
+      <link>/vscode/code-snippets/inedx/</link>
+      <pubDate>Tue, 22 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/vscode/code-snippets/inedx/</guid>
+      <description>
+        
+        
+        &lt;p&gt;VS Code 代码片段&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2&gt;代码片段介绍&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;代码片段介绍&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%bb%a3%e7%a0%81%e7%89%87%e6%ae%b5%e4%bb%8b%e7%bb%8d&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;点击这里进行管理&lt;/p&gt;
+&lt;p&gt;
+    &lt;img src=&#34;../code-snippets.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;其语法为：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;名称&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;scope&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;适用的文件类型，省略则为全局或指定的类型&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;prefix&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;用来触发的前缀&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;c1&#34;&gt;// 你的代码，每行都要用双引号引起来，每行之间要加逗号。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;c1&#34;&gt;// 断点用“$+数字”表示，有默认值的用“{断点:默认值}”表示，最后要停的地方是$0。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;${1:fun}()&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;{&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;    $2&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;    return $0;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h2&gt;自用C/C++代码片段&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;自用cc代码片段&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%87%aa%e7%94%a8cc%e4%bb%a3%e7%a0%81%e7%89%87%e6%ae%b5&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;新建一个全局的 ，适用于c，cpp&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;新建一个全局的-适用于ccpp&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%96%b0%e5%bb%ba%e4%b8%80%e4%b8%aa%e5%85%a8%e5%b1%80%e7%9a%84-%e9%80%82%e7%94%a8%e4%ba%8eccpp&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;c main body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;scope&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;c,cpp&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;prefix&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;cmain&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;#include &amp;lt;stdio.h&amp;gt;\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;int main() {\n\t$0\n}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;long long int&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;scope&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;c,cpp&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;prefix&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;LL&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;typedef long long LL;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;define the max&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;scope&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;c,cpp&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;prefix&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;MAX&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;#define MAX $0&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;n groups of data&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;scope&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;c,cpp&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;prefix&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;ng&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;int ${1:n};&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;scanf(\&amp;#34;%d\&amp;#34;, &amp;amp;${1:n});&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;for (int ${2:i} = 0; ${2:i} &amp;lt; ${1:n}; ${2:i}++) {\n\t$0\n}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;n groups of data--&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;scope&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;c,cpp&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;prefix&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;n--&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;int ${1:n};&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;scanf(\&amp;#34;%d\&amp;#34;, &amp;amp;${1:n});&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;while (${1:n}--) {\n\t$0\n}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;for i++&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;scope&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;c,cpp&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;prefix&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;fori&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;for (int ${1:i} = ${2:0}; ${1:i} &amp;lt; ${3:size}; ${1:i}++) {\n\t$0\n}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;for i--&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;scope&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;c,cpp&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;prefix&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;for-&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;for (int ${1:i} = ${2:size - 1}; ${1:i} &amp;gt;= 0; ${1:i}--) {\n\t$0\n}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;the end of format-print&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;scope&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;c,cpp&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;prefix&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;end&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\&amp;#34; \\n\&amp;#34;[i == ${1:size} - 1];$0&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;gcd&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;scope&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;c,cpp&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;prefix&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;gcd&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;${1:LL} gcd(${1:LL} m, ${1:LL} n) {&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\twhile (n != 0) {&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\t\t${1:LL} t = m % n;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\t\tm = n;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\t\tn = t;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\t}&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\treturn m;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;isPrime&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;scope&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;c,cpp&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;prefix&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;isPrime&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;int isPrime(int n) {&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\tif (n == 1 || n == 0)&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\t\treturn 0;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\tfor (int i = 2; i &amp;lt;= n / i; i++)&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\t\tif (n % i == 0)&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\t\t\treturn 0;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\treturn 1;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h3&gt;这个是只适用于cpp的&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;这个是只适用于cpp的&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%bf%99%e4%b8%aa%e6%98%af%e5%8f%aa%e9%80%82%e7%94%a8%e4%ba%8ecpp%e7%9a%84&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;cpp main body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;prefix&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;cppmain&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;#include &amp;lt;iostream&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;using namespace std;\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;int main() {&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\tios::sync_with_stdio(false);\n\tcin.tie(0);&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\t$0\n\treturn 0;\n}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;vector&amp;lt;int&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;prefix&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;vi&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;vector&amp;lt;int&amp;gt; &amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;n groups of data (cpp)&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;prefix&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;ngc&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;int ${1:n};&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;cin &amp;gt;&amp;gt; ${1:n};&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;for (int ${2:i} = 0; ${2:i} &amp;lt; ${1:n}; ${2:i}++) {\n\t$0\n}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;n groups of data--&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;prefix&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;n--&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;int ${1:n};&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;cin &amp;gt;&amp;gt; ${1:n};&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;while (${1:n}--) {\n\t$0\n}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;LeetCode Lintcode&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;prefix&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;lcode&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;#include &amp;lt;bits/stdc++.h&amp;gt;\nusing namespace std;\n$0&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;int main() {\n\tSolution a;\n\n\treturn 0;\n}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nt&#34;&gt;&amp;#34;code forces&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;prefix&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;cf&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nt&#34;&gt;&amp;#34;body&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;#include &amp;lt;iostream&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;#include &amp;lt;vector&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;using namespace std;\n&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;void solution() { &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\t$0\n}&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;int main() {&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\tios::sync_with_stdio(false);\n\tcin.tie(0);&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\tint t;\n\tcin &amp;gt;&amp;gt; t;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\twhile (t--) {\n\t\tsolution();\n\t}&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;s2&#34;&gt;&amp;#34;\treturn 0;\n}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>「Code」视频版-B站</title>
+      <link>/vscode/bilibili/</link>
+      <pubDate>Tue, 18 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/vscode/bilibili/</guid>
+      <description>
+        
+        
+        &lt;p&gt;视频版，不过是在Linux上演示的&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;iframe src=&#34;//player.bilibili.com/player.html?aid=465640579&amp;bvid=BV1HL411c7Wp&amp;cid=490337886&amp;p=1&amp;autoplay=0&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34;  width=&#34;100%&#34; height=&#34;500&#34;&gt; &lt;/iframe&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>「Code」Java SE</title>
+      <link>/vscode/java_se/</link>
+      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/vscode/java_se/</guid>
+      <description>
+        
+        
+        &lt;p&gt;写写小文件vscode还是很舒服的&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2&gt;0. VS Code安装及使用&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;0-vs-code安装及使用&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#0-vs-code%e5%ae%89%e8%a3%85%e5%8f%8a%e4%bd%bf%e7%94%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;下文必看！&lt;/strong&gt; 下载安装VS Code、基本使用等等。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/vscode/vscode/&#34; &gt;「Code」安装与基本操作&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;1. JDK下载安装&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;1-jdk下载安装&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-jdk%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;写过了，懒得复制了，请看&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/dev/jdk&#34; &gt;JDK介绍和下载&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;2. 开始使用&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;2-开始使用&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-%e5%bc%80%e5%a7%8b%e4%bd%bf%e7%94%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;用VS Code打开&lt;code&gt;.java&lt;/code&gt;文件会自动提示安装Java扩展包，或者自己直接搜索安装。安装完即可正常编写Java了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;1.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;新建一个&lt;code&gt;Hello.java&lt;/code&gt;来写一个Java的Hello World试试&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Hello&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//公共类名(这里是Hello)必须和你的文件名一样&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;某个类的主方法可以点击上方的&lt;code&gt;Run&lt;/code&gt;运行。如果整个个文件有多个类可以点击右上角的运行。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;2.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;3. 新建项目&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;3-新建项目&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-%e6%96%b0%e5%bb%ba%e9%a1%b9%e7%9b%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;安装完Java扩展包后，没打开文件夹时资源管理器中“打开的文件夹”会有一个如图“创建Java项目”的按钮（或者有一栏“Java Projects”，里面有个加号）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;3.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;点击之后如果有相应的框架可以用相应的框架构建项目，如果没有选择第一个“No build tools”。&lt;/p&gt;
+&lt;p&gt;选择一个文件夹打开，按照提示输入项目名称会生成一个项目模板，里面自带一个App.java（就是个Hello World），可以自己运行试试。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;4.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;资源管理器左下方有一栏Java Projects，点开可以&lt;strong&gt;查看“项目视图”&lt;/strong&gt;。在这里添加第三方包方便一点，不用手改json。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;5.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>「Code」Remote - SSH</title>
+      <link>/vscode/remote-ssh/</link>
+      <pubDate>Sat, 11 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/vscode/remote-ssh/</guid>
+      <description>
+        
+        
+        &lt;p&gt;在 VS Code 中使用 SSH。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2&gt;SSH 基础&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;ssh-基础&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#ssh-%e5%9f%ba%e7%a1%80&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;请查看：&lt;a href=&#34;/network/ssh/&#34; &gt;SSH&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;安装扩展&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;安装扩展&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ae%89%e8%a3%85%e6%89%a9%e5%b1%95&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;安装该扩展：&lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SSH：Remote - SSH&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;也可以直接安装这个远程开发的扩展包：&lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Remote Development&lt;/a&gt;，包含WSL、SSH、Docker等。&lt;/p&gt;
+&lt;p&gt;安装后打开侧栏的“远程资源管理器”（SSH Targets）即可看到 SSH 列表。如果你 &lt;code&gt;~/.ssh/config&lt;/code&gt; 有内容会显示，没有的话列表是空的。&lt;/p&gt;
+&lt;p&gt;要自己添加的话点击“+”按钮
+&lt;img src=&#34;1.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;或点击VSCode左下角绿色按钮，选择下图所示选项
+&lt;img src=&#34;2.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;输入 SSH 登陆命令。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不会？有没有看开头的文章。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;确定后选择将刚刚的配置储存到哪里，选第一个就行。
+&lt;img src=&#34;3.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;开始连接&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;开始连接&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%bc%80%e5%a7%8b%e8%bf%9e%e6%8e%a5&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;点击如图“新窗口打开”或右下角的“Connect”，会打开一个新的窗口。
+&lt;img src=&#34;4.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;第一次连接可能需要你选择连接的是哪个平台。
+&lt;img src=&#34;5.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;随后输入密码，完成连接。
+&lt;img src=&#34;6.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;如何使用&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;如何使用&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;接下来可以打开&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文件（夹）&lt;/li&gt;
+&lt;li&gt;终端&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;进行使用。&lt;/p&gt;
+&lt;p&gt;打开过的文件夹会在资源管理器中显示，可以方便以后快速打开。
+&lt;img src=&#34;7.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>「Code」Remote - WSL</title>
+      <link>/vscode/remote-wsl/</link>
+      <pubDate>Sat, 11 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/vscode/remote-wsl/</guid>
+      <description>
+        
+        
+        &lt;p&gt;可以点击 &lt;a href=&#34;https://zhuanlan.zhihu.com/p/494388678&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;知乎文章&lt;/a&gt; 查看。&lt;/p&gt;
+&lt;h2&gt;1、WSL&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;1wsl&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1wsl&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;WSL（Windows Subsystem for Linux）是 Windows 上的“Linux 子系统”（官方翻译叫“适用于Linux的Windows子系统”，这个名字好拗口）。
+现在提 WSL 基本都默认是 WSL2，WSL2 的本质是一个跑在虚拟机（Hyper-V）上的系统，但能直接和 Windows 进行交互。&lt;/p&gt;
+&lt;p&gt;安装之后可在子系统进行开发环境的配置，更方便，而且对 Windows 系统本身影响较小。&lt;/p&gt;
+&lt;h3&gt;启用安装&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;启用安装&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%90%af%e7%94%a8%e5%ae%89%e8%a3%85&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;在设置里搜索“Windows功能”并打开。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对于大部分笔记本自带的 Windows（中文）家庭版，勾选“虚拟机平台”和“适用于 Linux 的 Windows 子系统”。
+&lt;img src=&#34;https://pic2.zhimg.com/v2-92c1c5e52cfe8f2ed97b5ed081e3f7cd_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;对于 Windows 专业版（Windows Pro），则勾选 “Hyper-V 平台”和“适用于 Linux 的 Windows 子系统”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;等待系统自动配置，重启。&lt;/p&gt;
+&lt;p&gt;在 Microsoft Store 中搜索 Ubuntu 或 Debian（或者其他Linux发行版，没有老旧、停止维护的 CentOS 7），选择所需版本下载安装。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic1.zhimg.com/v2-7bb5b2f4c86e9b8a17fa9607956d2b8c_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;等待下载安装完成，打开，第一次启动时需根据提示设置账户名和密码（密码输入时不会显示，不是bug）。&lt;/p&gt;
+&lt;p&gt;设置完成后，即可在终端内进行正常操作。现在你就可以在Windows下使用Linux的环境进行开发了。&lt;/p&gt;
+&lt;h3&gt;提示&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;提示&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%8f%90%e7%a4%ba&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;以后点击开始中的 Ubuntu / Debian 图标或终端中输入&lt;code&gt;wsl&lt;/code&gt;即可启动WSL。&lt;/li&gt;
+&lt;li&gt;现在（2023）WSL2 已经支持 Systemd，如果你用的发行版没有开启，请查看 &lt;a href=&#34;https://learn.microsoft.com/zh-cn/windows/wsl/systemd&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;使用 systemd 通过 WSL 管理 Linux 服务&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;WSL 可以操作“Windows上的分区”，其实际上是挂载在路径/mnt/下的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic4.zhimg.com/v2-0e0914bc037f4e0922bcfdda5bfcd0b7_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;WSL CLI工具&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;wsl-cli工具&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#wsl-cli%e5%b7%a5%e5%85%b7&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;关闭 WSL：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wsl --shutdown&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;删除（或重置）某个发行版：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wsl --unregister &amp;lt;发行版&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;设置（输入&lt;code&gt;wsl&lt;/code&gt;时）默认发行版：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wsl --setdefault &amp;lt;发行版&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;其他帮助：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wsl --help&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h3&gt;换源&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;换源&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%8d%a2%e6%ba%90&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Ubuntu 的apt默认软件源是 Ubuntu 的主服务器，我个人测试速度一般都在1-4MB/s左右，用着还可以。但是一般比不上国内镜像源的速度。建议根据自己情况决定是否更换。&lt;/p&gt;
+&lt;p&gt;通用的换源方式可以查看：&lt;a href=&#34;https://nav.wxbing.top/mirrors&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;开源镜像站合集&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;建议根据自己情况决定是否更换。&lt;/p&gt;
+&lt;h2&gt;2、远程开发&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;2远程开发&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2%e8%bf%9c%e7%a8%8b%e5%bc%80%e5%8f%91&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;安装扩展&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;安装扩展&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ae%89%e8%a3%85%e6%89%a9%e5%b1%95&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;WSL：Remote - WSL&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic1.zhimg.com/v2-0ea07df30dfa829a52235d90d42e8180_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;如果都用得到，也可以直接安装这个远程开发的扩展包，包含WSL、SSH、Docker。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic2.zhimg.com/v2-c6674426cd5b1cc409b2014bce9566ed_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;远程连接&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;远程连接&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e8%bf%9c%e7%a8%8b%e8%bf%9e%e6%8e%a5&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;在WSL的终端中输入&lt;code&gt;code&lt;/code&gt;，系统自动下载所需文件（code-server）后启动 Windows 中的 VS Code 并自动与其进行连接。成功连接后VS Code左下方会有提示。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果没显示，再输入一次&lt;code&gt;code&lt;/code&gt;试试。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以后就可以直接点击那个绿色图标或者左侧活动栏中的“远程资源管理器”进行连接。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic1.zhimg.com/v2-cd9e4f58dc3e2d00fd3cc785e4a5eb18_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;3、如何使用&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;3如何使用&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;接下来可以打开&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;文件（夹）&lt;/li&gt;
+&lt;li&gt;终端&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;进行使用。&lt;/p&gt;
+&lt;p&gt;打开过的文件夹会在资源管理器中显示，可以方便以后快速打开。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic3.zhimg.com/v2-619ec8d27453d43e48ebdcbe72e3f3ae_b.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>「Code」C/CPP</title>
+      <link>/vscode/c-cpp/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/vscode/c-cpp/</guid>
+      <description>
+        
+        
+        &lt;p&gt;也可点击查看&lt;a href=&#34;https://zhuanlan.zhihu.com/p/442865609&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;知乎文章&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;提前劝退提示：如果你只需要学习 C/C++，推荐国内老师改进的Dev-C++ - &lt;a href=&#34;http://royqh.net/redpandacpp/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;小熊猫C++&lt;/a&gt;&lt;br&gt;
+我可能会经常更新，改改错字或者变换一下句子的顺序，但是主体内容不会变。&lt;br&gt;
+最后一次大更新：2022.03.24&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;0. VS Code安装及使用&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;0-vs-code安装及使用&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#0-vs-code%e5%ae%89%e8%a3%85%e5%8f%8a%e4%bd%bf%e7%94%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;下文必看！&lt;/strong&gt; 下载安装VS Code、基本使用等等。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/vscode/vscode/&#34; &gt;「Code」安装与基本操作&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;无论用VS Code搭建什么语言的开发环境，只需记住一个流程：&lt;br&gt;
+安装官方的SDK（编译器/解释器等等）-&amp;gt; VS Code里安装相应的支持扩展 -&amp;gt; 开始写代码&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;网上有很多配置方法（特别是C/C++），但是因为C/C++扩展在不停更新，很多已经过时了。特别是那些让你复制json，现在很多已经内置。&lt;/p&gt;
+&lt;p&gt;现在简单使用&lt;strong&gt;不用手动配置 json 文件。&lt;strong&gt;多文件项目也不用建议用 json，建议直接用 make、cmake 等工具&lt;/strong&gt;。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;1. C/C++编译器配置&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;1-cc编译器配置&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-cc%e7%bc%96%e8%af%91%e5%99%a8%e9%85%8d%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;上面也说了，VS Code只算是个编辑器，编译还是要靠专门的编译器的。常见编译器（编译套件）情况如下：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;Microsoft Visual C++  &lt;br&gt; MSVC (C++)&lt;/th&gt;
+          &lt;th&gt;GNU 编译套件&lt;br&gt; GCC (C/C++/&amp;hellip;)&lt;/th&gt;
+          &lt;th&gt;Clang (C/C++/&amp;hellip;)&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Windows&lt;/td&gt;
+          &lt;td&gt;默认&lt;/td&gt;
+          &lt;td&gt;有移植版 MinGW 及其衍生项目 MinGW-w64 / TDM-GCC &amp;hellip;&lt;/td&gt;
+          &lt;td&gt;有，但需要借助MSVC或MinGW的库&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;Linux&lt;/td&gt;
+          &lt;td&gt;X&lt;/td&gt;
+          &lt;td&gt;默认/常用&lt;/td&gt;
+          &lt;td&gt;有&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;macOS&lt;/td&gt;
+          &lt;td&gt;X&lt;/td&gt;
+          &lt;td&gt;有，但 gcc 默认是 clang 的别名&lt;/td&gt;
+          &lt;td&gt;默认&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;GCC 中 C 语言编译器是 gcc，C++ 编译器是 g++，调试器是 gdb&lt;br&gt;
+Clang 中 C 语言编译器是 clang，C++ 编译器是 clang++，调试器是 lldb&lt;br&gt;
+MSVC 中 C++ 编译器是 cl&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Windows 和 Linux 我们选择常用的 GCC（Windows 上用 TDM-GCC）；macOS 上则是 Clang。&lt;/p&gt;
+&lt;h3&gt;1.1 Windows（安装版）- 推荐&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;11-windows安装版--推荐&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#11-windows%e5%ae%89%e8%a3%85%e7%89%88--%e6%8e%a8%e8%8d%90&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;下载：&lt;a href=&#34;https://lestore.lenovo.com/detail/L101412&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TDM-GCC - 联想软件商店&lt;/a&gt; 它不用你手动配置环境变量。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic2.zhimg.com/v2-0c08660c51c7d41f30f495b077f7b085_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;启动程序，取消勾选图中红框标记的地方，以取消检查更新（因为太慢了），点击“Create”安装。&lt;/p&gt;
+&lt;p&gt;安装完毕后需&lt;strong&gt;关闭所有&lt;/strong&gt;打开的终端程序（包括 VS Code 等）确保环境变量生效。&lt;/p&gt;
+&lt;p&gt;打开终端输入&lt;code&gt;gcc&lt;/code&gt;，如果提示你“gcc.exe: 致命错误：没有输入文件”，说明已经成功。&lt;/p&gt;
+&lt;p&gt;完成。&lt;/p&gt;
+&lt;h3&gt;~ 1.2 Windows（便携版）- 不看都行&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;-12-windows便携版--不看都行&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#-12-windows%e4%be%bf%e6%90%ba%e7%89%88--%e4%b8%8d%e7%9c%8b%e9%83%bd%e8%a1%8c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;有些人看&lt;strong&gt;其他教程里&lt;/strong&gt;会让你下载便携版本的编译器（就是一个压缩包），以MinGW-w64为例，那么使用时需要先将解压得到的“&amp;hellip;\mingw64\bin”目录&lt;strong&gt;加入环境变量&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这是官方给的下载链接&lt;a href=&#34;https://sourceforge.net/projects/mingw-w64/files/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MinGW-w64 - SourceForge&lt;/a&gt;。下载后将其解压到某个非中文目录（推荐C盘新建一个目录）。&lt;/p&gt;
+&lt;p&gt;Win10及以上版本在设置里搜素“环境变量”，点开会弹出一个“系统属性”，然后按照这个步骤选择解压后的“&amp;hellip;/mingw64/bin”目录。选好后依次点确定保存。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic1.zhimg.com/v2-70b7bf74debf6f9d592f4c0ee2d41d84_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;完毕后需&lt;strong&gt;关闭所有&lt;/strong&gt;打开的终端程序（包括 VS Code 等）确保环境变量生效。&lt;/p&gt;
+&lt;p&gt;打开终端输入&lt;code&gt;gcc&lt;/code&gt;，如果提示你“gcc.exe: 致命错误：没有输入文件”，说明已经成功。&lt;/p&gt;
+&lt;h3&gt;1.3 Linux（含 WSL）&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;13-linux含-wsl&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#13-linux%e5%90%ab-wsl&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;反正只要保证有gdb、gcc、g++就可以，在终端中分别输入&lt;code&gt;gcc&lt;/code&gt;、&lt;code&gt;g++&lt;/code&gt;和&lt;code&gt;gdb&lt;/code&gt;，查看是否安装，没有的话自己用包管理器安装一下。如果有需要可以自己在最后加上make。&lt;/p&gt;
+&lt;p&gt;这里以Ubuntu为例，我们使用apt安装编译器gcc和g++，另外系统可能自带 gdb，为了保险还是加上。&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install gcc g++ gdb&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h3&gt;1.4 macOS&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;14-macos&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#14-macos&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;确保安装了 Clang：&lt;/p&gt;
+&lt;p&gt;您的 Mac 上可能已经安装了 Clang。 要验证它是否存在，请打开 macOS 终端窗口并输入以下命令：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;clang --version&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果没有安装 Clang，输入以下命令安装命令行开发者工具：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;xcode-select --install&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;2. 安装C/C++扩展&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;2-安装cc扩展&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-%e5%ae%89%e8%a3%85cc%e6%89%a9%e5%b1%95&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;打开一个目录，新建一个文件保存为“xx.c”或“xx.cpp”。&lt;/p&gt;
+&lt;p&gt;打开后它会自动提示安装C/C++扩展。（最近发现它会安装一个合集，其实不写大项目的话只装“C/C++”就行）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic4.zhimg.com/v2-3c3393f1be875205f6885ef6ca7868a3_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;然后可以写个 C 或 C++ 的 HelloWorld 试试&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// xx.c
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World 哈哈&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// xx.cpp
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World 哈哈&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h2&gt;3. 通过“C/C++”运行、调试&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;3-通过cc运行调试&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-%e9%80%9a%e8%bf%87cc%e8%bf%90%e8%a1%8c%e8%b0%83%e8%af%95&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;注意！&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Windows 上使用时文件路径不要包含中文，否则 VS Code 不能正常启动调试器。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;macOS 用户运行要看3.3&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果打开其他人的源文件，发现乱码，或者显示正常但底部显示编码为 GBK/GB2312（应该看过我开头的文章打开了编码猜测）：请看开头那篇文章的 1.5 那节，确保&lt;strong&gt;最终&lt;/strong&gt;将编码保存为 UTF-8。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;3.1 运行、调试的快捷按钮&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;31-运行调试的快捷按钮&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#31-%e8%bf%90%e8%a1%8c%e8%b0%83%e8%af%95%e7%9a%84%e5%bf%ab%e6%8d%b7%e6%8c%89%e9%92%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;请确保你的C/C++扩展版本大于1.9。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic2.zhimg.com/v2-59876da43bfe83ece8f003daaaf55cff_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;第一个正式的版本是1.9.7&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这时打开相应的文件后右上角就会有运行和调试按钮。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接运行请点击“运行C/C++”按钮；&lt;/li&gt;
+&lt;li&gt;需要调试请打断点并点击“调试C/C++”按钮。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://picx.zhimg.com/v2-098ed98ff3c788739bf05892eac8e2ad_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;然后&lt;strong&gt;自行选择编译器&lt;/strong&gt;（图中只有一个我就直接回车了）。&lt;br&gt;
+&lt;strong&gt;选择 &lt;code&gt;gcc&lt;/code&gt; 的话只能调试 C，选 &lt;code&gt;g++&lt;/code&gt; 的话 C/C++ 都可以调试&lt;/strong&gt;。&lt;strong&gt;选错了将 &lt;code&gt;.vscode&lt;/code&gt; 目录删除即可重新选择。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic3.zhimg.com/v2-267a04915fb319cd3c94c8df76d8317a_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;运行时可能出现类似图中的蓝字，忽视即可。&lt;/p&gt;
+&lt;h3&gt;~ 3.2 （旧版本）调试及无断点“运行”&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;-32-旧版本调试及无断点运行&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#-32-%e6%97%a7%e7%89%88%e6%9c%ac%e8%b0%83%e8%af%95%e5%8f%8a%e6%97%a0%e6%96%ad%e7%82%b9%e8%bf%90%e8%a1%8c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;必须打开一个文件夹。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;自己提前按需要打断点，&lt;strong&gt;想直接运行就不打断点&lt;/strong&gt;，再按F5就可以开始调试/运行了。&lt;/p&gt;
+&lt;p&gt;第一次调试时依次选“C++ (GDB/LLDB)” - “gcc/g++”，会自动生成打开&lt;code&gt;launch.json&lt;/code&gt;和调试面板，不用管它，切换到终端即可。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pica.zhimg.com/v2-b7752ca3e025e39b7671d9baa510a92a_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;运行时可能出现类似图中的蓝字，忽视即可。&lt;/p&gt;
+&lt;h3&gt;3.3 外部终端运行&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;33-外部终端运行&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#33-%e5%a4%96%e9%83%a8%e7%bb%88%e7%ab%af%e8%bf%90%e8%a1%8c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;适用于 macOS用户 或 喜欢运行在弹出式的外部终端、内置终端显示不正常等情况。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Windows 上推荐前面两种，因为新建文件默认是 UTF-8 的，如果直接编译运行会乱码。但是扩展会自动 chcp 65001，将命令行切换到 UTF-8 代码页/编码下。但是这样在外部终端运行不会自动 chcp。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;现在没有特别便捷的修改方式，只能改 json 让它在外部运行。&lt;br&gt;
+按下面操作，一键生成相应的调试配置。然后把“launch.json”中框起来的“false”改成“true”就行。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic3.zhimg.com/v2-ab65b076eab7f7b61fd54ae99d577e04_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;注意需要在&lt;code&gt;return 0;&lt;/code&gt;前加上&lt;code&gt;system(&amp;quot;pause&amp;quot;);&lt;/code&gt;或&lt;code&gt;getchar();&lt;/code&gt;，否则程序运行完会直接关闭。&lt;/p&gt;
+&lt;hr&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;p&gt;下面的和终端中操作有关，是对新手来说稍微“高阶”的内容，可以留着等熟悉了当扩展看，现在不看也行。直接用GDB调试因为远不如上面通过VS code简单、直观，就不提了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Windows 上因为编码原因极不推荐直接这么做。&lt;/strong&gt;&lt;/p&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;hr&gt;
+&lt;h2&gt;~ 4. 直接运行单文件&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;-4-直接运行单文件&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#-4-%e7%9b%b4%e6%8e%a5%e8%bf%90%e8%a1%8c%e5%8d%95%e6%96%87%e4%bb%b6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;~ 4.1 直接编译运行&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;-41-直接编译运行&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#-41-%e7%9b%b4%e6%8e%a5%e7%bc%96%e8%af%91%e8%bf%90%e8%a1%8c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;其实我们学习时一般都是单文件程序，这时直接在终端中编译运行要比上面通过VS Code来调用 GDB 调试来运行方便多了。手动编译运行的方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;切换到当前目录&lt;/li&gt;
+&lt;li&gt;编译C： &lt;code&gt;gcc &amp;lt;源文件&amp;gt;.c -o &amp;lt;输出的程序名&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;编译C++： &lt;code&gt;g++ &amp;lt;源文件&amp;gt;.cpp -o &amp;lt;输出的程序名&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;想运行可以在终端里 &lt;code&gt;./&amp;lt;程序名&amp;gt;&lt;/code&gt; 运行，也可以直接双击运行（想双击运行请参照 3.3 最后一行防止运行完直接退出）。&lt;/p&gt;
+&lt;h3&gt;~ 4.2 Windows 上直接运行乱码问题&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;-42-windows-上直接运行乱码问题&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#-42-windows-%e4%b8%8a%e7%9b%b4%e6%8e%a5%e8%bf%90%e8%a1%8c%e4%b9%b1%e7%a0%81%e9%97%ae%e9%a2%98&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;开始那篇文章说了，Windows中文版命令行编码为 GBK，直接编译可能会有乱码问题，解决方式一是将文件编码改为 GBK，具体方法请参考最开始的文章。&lt;/p&gt;
+&lt;p&gt;但除了微软自家的VS，VS Code 等&lt;strong&gt;现代编辑器或IDE&lt;/strong&gt;默认都是 UTF-8，改成 GBK 用 VS Code 调试时也会有乱码。所以建议全部新建 UTF-8。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;自己手动编译时在最后添加 &lt;code&gt;-fexec-charset=gbk&lt;/code&gt;参数。这个参数的意思是让多字节字符串常量保存为指定编码（这里是gbk）。这样源文件编码是utf-8，也能直接运行。&lt;/li&gt;
+&lt;li&gt;或者先执行&lt;code&gt;chcp 65001&lt;/code&gt;，将命令行编码临时切换到 UTF-8，这样也能正常显示。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;有些麻烦是吧，都是Windows中文版的祸。&lt;/p&gt;
+&lt;h3&gt;~ 4.3 （存档，极不推荐）Code Runner&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;-43-存档极不推荐code-runner&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#-43-%e5%ad%98%e6%a1%a3%e6%9e%81%e4%b8%8d%e6%8e%a8%e8%8d%90code-runner&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;为什么不推荐，有很多原因。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;无法调试&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;默认&lt;/strong&gt;不是终端内打开，也不会运行时保存；&lt;/li&gt;
+&lt;li&gt;运行程序名没有后缀，如&lt;code&gt;xyz.a.c&lt;/code&gt;用它运行会出错 ；&lt;/li&gt;
+&lt;li&gt;不能&lt;strong&gt;方便地自定义&lt;/strong&gt;编译语句（GUI形式），自己改setting.json太麻烦；&lt;/li&gt;
+&lt;li&gt;现在各种语言的官方扩展也添加了类似按钮，更用不上了，这个还会误导选择。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果非要用&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;建议设置中打开**“Run in Terminal”**，否则默认只有输出，而且可能出现奇怪的问题。&lt;/li&gt;
+&lt;li&gt;另外建议将它的**“Save File Before Run”**也打开。又不然可能你调试时发现程序和你写的不一样，然后改了半天发现它没保存。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>「Code」Python</title>
+      <link>/vscode/python/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/vscode/python/</guid>
+      <description>
+        
+        
+        &lt;p&gt;也可点击&lt;a href=&#34;https://zhuanlan.zhihu.com/p/494357501&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;知乎文章&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;0. VS Code安装及使用&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;0-vs-code安装及使用&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#0-vs-code%e5%ae%89%e8%a3%85%e5%8f%8a%e4%bd%bf%e7%94%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;下文必看！&lt;/strong&gt; 下载安装VS Code、基本使用等等。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/vscode/vscode/&#34; &gt;「Code」安装与基本操作&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;无论用VS Code搭建什么语言的开发环境，只需记住一个流程：&lt;br&gt;
+安装官方的SDK（编译器/解释器等等）-&amp;gt; VS Code里安装相应的支持扩展 -&amp;gt; 开始写代码&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;1. Python（解释器）安装&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;1-python解释器安装&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#1-python%e8%a7%a3%e9%87%8a%e5%99%a8%e5%ae%89%e8%a3%85&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;1.1 Windows 上安装&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;11-windows-上安装&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#11-windows-%e4%b8%8a%e5%ae%89%e8%a3%85&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;直接在 &lt;a href=&#34;https://www.python.org/downloads/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python 官网&lt;/a&gt; 下载 Python 并安装。&lt;/p&gt;
+&lt;p&gt;安装时记得选择图中最下面的 &lt;code&gt;Add xxx to Path&lt;/code&gt; &lt;strong&gt;加入到环境变量&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic2.zhimg.com/v2-c17eee78c1bfe45509e29bde4f933611_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h3&gt;1.2 Linux/WSL 上安装&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;12-linuxwsl-上安装&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#12-linuxwsl-%e4%b8%8a%e5%ae%89%e8%a3%85&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Python 有 Python2.X 和 Python3.X 两个不兼容版本，两者不能混用。可能是 Linux 上经常显式指明解释器的原因，为了兼容性，Python3.X 改为用 &lt;code&gt;python3&lt;/code&gt; 命令，而默认的 &lt;code&gt;python&lt;/code&gt; 命令仍然给 Python2.X 使用。&lt;/p&gt;
+&lt;p&gt;很多 Linux 发行版都自带了 Python3，没有的话直接用包管理器安装即可。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;随着 Python2 的淘汰，Python2 用的也越来越少，各发行版新版本基本都不会安装Python2，大部分情况下 &lt;code&gt;python&lt;/code&gt; 是一个无效的命令。这时有些 Linux 发行版就将其指向了 &lt;code&gt;python3&lt;/code&gt;，因此使用 &lt;code&gt;python&lt;/code&gt; 时一定要分清安装的是哪个版本。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以 Debian 11 / Ubuntu 20.04 为例，自带了 Python3，而 &lt;code&gt;python&lt;/code&gt; 命令无效。这种情况可以安装 python-is-python3 这个软件来让 &lt;code&gt;python&lt;/code&gt; 命令作为 &lt;code&gt;python3&lt;/code&gt; 的别名。使用 apt 安装一下：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install python-is-python3&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;另外，我们需要安装一下虚拟环境的工具。大部分 Linux 发行版为防止系统包管理和 Python 包管理（pip）冲突，并不能直接在系统中直接使用 pip，必须自己创建虚拟环境进行管理。&lt;/p&gt;
+&lt;p&gt;还是以 Ubuntu 为例，使用 apt 安装一下：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install python3-venv&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h2&gt;2. pip换源（建议）&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;2-pip换源建议&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#2-pip%e6%8d%a2%e6%ba%90%e5%bb%ba%e8%ae%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;由于国内网络原因，很多 Python 库在线安装很慢甚至安装失败。&lt;/p&gt;
+&lt;p&gt;可以自己手动将某个镜像源&lt;strong&gt;设置为pip默认源&lt;/strong&gt;。这里以教育网的为例，终端里输入：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pip config &lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; global.index-url https://mirrors.cernet.edu.cn/pypi/web/simple&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;国内常用 pip（pypi）源：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;校园网联合镜像站：&lt;code&gt;https://mirrors.cernet.edu.cn/pypi/web/simple&lt;/code&gt;&lt;br&gt;
+集合了不少高校的源和使用帮助，&lt;a href=&#34;https://help.mirrors.cernet.edu.cn/pypi/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;帮助文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;阿里云镜像：&lt;code&gt;https://mirrors.aliyun.com/pypi/simple/&lt;/code&gt;&lt;br&gt;
+能用，但速度一般&lt;/li&gt;
+&lt;li&gt;腾讯云镜像：&lt;code&gt;https://mirrors.cloud.tencent.com/pypi/simple/&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;至于很多人说的豆瓣镜像其实已经指向腾讯云镜像了，如果看到近几年的文章还这么写，那基本是抄袭多少年前的老文章了，就别看了。&lt;/p&gt;
+&lt;h2&gt;3. 开始使用&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;3-开始使用&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#3-%e5%bc%80%e5%a7%8b%e4%bd%bf%e7%94%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;用VS Code打开&lt;code&gt;.py&lt;/code&gt;文件会自动提示安装 python扩展，或者自己直接搜索安装。&lt;/p&gt;
+&lt;p&gt;它应该会自动安装智能提示扩展 - Pylance。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic1.zhimg.com/v2-6e19244d8b1e7075df4c4eca157b832c_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;接下来可以自己写一个简单程序，右上角点击运行（Run Python File）即可。&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Hello World&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;input&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;请输入一个数字&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;h2&gt;4. 创建虚拟环境&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;4-创建虚拟环境&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#4-%e5%88%9b%e5%bb%ba%e8%99%9a%e6%8b%9f%e7%8e%af%e5%a2%83&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;虚拟环境是一个隔离的Python环境，允许用户安装和运行不同的Python包，而不会影响系统范围内的Python安装。&lt;/p&gt;
+&lt;p&gt;如果要使用虚拟环境，我们可以切换到工作目录，打开终端并输入：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;pre&gt;&lt;code&gt;python -m venv .venv&lt;/code&gt;&lt;/pre&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;这会在目录里创建一个名为 &lt;code&gt;.venv&lt;/code&gt; 虚拟环境。&lt;/p&gt;
+&lt;p&gt;创建好虚拟环境后我们还需要在当前 Shell 环境中执行相应的激活脚本才能“激活”/“进入”虚拟环境，即设置一系列的环境变量。激活脚本放在 &lt;code&gt;.venv&lt;/code&gt; 目录下，根据自己所用 Shell 选择即可。&lt;/p&gt;
+&lt;p&gt;使用 VS Code 时可以直接在状态栏右下角（旁边一点）选择解释器路径，如果你有不同的虚拟环境也可以在这里切换。之后执行 Python 程序或打开终端时都会自动“激活”。&lt;/p&gt;
+&lt;p&gt;2023.10 更新：Python 扩展也可以图形化的创建虚拟环境了，支持venv和conda。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic3.zhimg.com/v2-0e893ae9e4cd52a75b71f63b2541479e_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic1.zhimg.com/v2-3a3bfd4fe084db5462d9237a61ce0bfc_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;5. Jupyter for VS Code&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;5-jupyter-for-vs-code&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#5-jupyter-for-vs-code&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;VS Code 里也支持 Jupyter notebook，它可以分段运行程序，挺方便的。&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;现在安装 Python 扩展会自动安装 Jupyter 扩展。（又不安装了）&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;在扩展市场搜索“Jupyter”并安装。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic3.zhimg.com/v2-a08056f39e1acab7564bc9e42ddb5bde_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;新建一个文件命名为&lt;code&gt;xxx.ipynb&lt;/code&gt;，新建一个“代码”块，随便写几行代码。&lt;/p&gt;
+&lt;p&gt;然后点击旁边的运行，它会让你选择解释器。随后，它会提示你安装一个&lt;strong&gt;内核（ipykernel）&lt;/strong&gt;。点击安装，它会通过 pip 自动安装，安装完成即可正常使用。（不行的话手动输入&lt;code&gt;pip install ipykernel&lt;/code&gt;）&lt;/p&gt;
+&lt;p&gt;安装完成后即可使在VS Code 上愉快地使用 Jupyter notebook 了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic4.zhimg.com/v2-51dbb72d212294d09b07e38329099ca3_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>「Code」安装与基本操作</title>
+      <link>/vscode/vscode/</link>
+      <pubDate>Sat, 19 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/vscode/vscode/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;安装启动&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;安装启动&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%ae%89%e8%a3%85%e5%90%af%e5%8a%a8&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;官网下载： &lt;a href=&#34;https://code.visualstudio.com/download&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Visual Studio Code（所有下载）&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2023.12 &lt;a href=&#34;https://zhuanlan.zhihu.com/p/672408302&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;c炳：VS Code 官网下载服务换新的CDN啦&lt;/a&gt;，现在首页直接下载应该也很快。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Windows上安装时建议将下面的选项都勾选上。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic4.zhimg.com/v2-f52292df2a8812f1f12c1838a8669f57_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;安装完后启动的界面如下，可以改变主题和学习使用方法，建议&lt;strong&gt;先别管&lt;/strong&gt;，先看下面。&lt;/p&gt;
+&lt;p&gt;安装后第一次启动会&lt;strong&gt;在右下角提示你安装中文语言包&lt;/strong&gt;，点安装会重启。这时再打开，下面就成中文了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不小心关了也可以在扩展市场搜索Chinese进行安装。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic2.zhimg.com/v2-af03153d134e15a1954fe4635ba864ed_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;扩展商店&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;扩展商店&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%89%a9%e5%b1%95%e5%95%86%e5%ba%97&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;点击左侧最后一个按钮，然后即可在搜索框搜索插件安装。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;安装扩展前一定要看扩展的说明！！！&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic4.zhimg.com/v2-b20b47504efa3759d2f69722fcccd683_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;打开文件夹&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;打开文件夹&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%89%93%e5%bc%80%e6%96%87%e4%bb%b6%e5%a4%b9&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;VS Code里写像C语言、Java之类&lt;strong&gt;可以&lt;/strong&gt;不建项目，但是有时要选择文件夹将其作为“工作区”，一是方便管理文件，二是为了确定文件路径、打开终端时的目录等。如果有配置文件也将会在该目录下创建.vscode文件夹。&lt;/p&gt;
+&lt;p&gt;在“欢迎使用”或者“文件”菜单栏里选择“打开文件夹”打开任意一个文件夹，或者直接在资源管理器右击文件夹，“通过Code”打开。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;今年（2021）新加入了信任功能，第一次打开要添加信任。如果不想以后提醒，可以在“设置-安全性-Trust:Enabled”里关闭。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic4.zhimg.com/v2-c31369f3ce516541bd1aee6e2a9bd4c3_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;h2&gt;快捷键&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;快捷键&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%bf%ab%e6%8d%b7%e9%94%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;这里不多说，只说几个个我写代码时最常用的（非常实用），更多快捷键菜单的各个选项旁边都有标明。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;界面&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;缩放界面&lt;/strong&gt;：&lt;code&gt;Ctrl&lt;/code&gt; + &lt;code&gt;+&lt;/code&gt;或者&lt;code&gt;Ctrl&lt;/code&gt; + &lt;code&gt;-&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;打开设置&lt;/strong&gt;：&lt;code&gt;Ctrl&lt;/code&gt; + &lt;code&gt;,&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;打开终端&lt;/strong&gt;：&lt;code&gt;Ctrl&lt;/code&gt; + &lt;code&gt;`&lt;/code&gt;&lt;br&gt;
+（反引号，在Esc和Tab键之间）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;代码&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;代码格式化&lt;/strong&gt;：&lt;code&gt;Ctrl&lt;/code&gt; + &lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;f&lt;/code&gt; 或者 &lt;code&gt;Ctrl&lt;/code&gt; + &lt;code&gt;Shift&lt;/code&gt; + &lt;code&gt;l&lt;/code&gt;&lt;br&gt;
+（分别是 Windows 和 Linux 上的，可在右键菜单中查看）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;注释选中行&lt;/strong&gt;：&lt;code&gt;Ctrl&lt;/code&gt; + &lt;code&gt;/&lt;/code&gt;&lt;br&gt;
+（如果已经注释，再按一次会取消注释）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重构&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;替换变量名&lt;/strong&gt;：&lt;code&gt;F2&lt;/code&gt;&lt;br&gt;
+（&lt;strong&gt;光标位于&lt;/strong&gt;哪个变量，其所有出现过的地方都会同时改）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;替换选中内容&lt;/strong&gt;：&lt;code&gt;Ctrl&lt;/code&gt; + &lt;code&gt;F2&lt;/code&gt;&lt;br&gt;
+（&lt;strong&gt;选中的内容&lt;/strong&gt;出现过的地方都会改，相当于&lt;code&gt;Ctrl&lt;/code&gt; + &lt;code&gt;H&lt;/code&gt;）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;编码相关&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;编码相关&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%bc%96%e7%a0%81%e7%9b%b8%e5%85%b3&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;VS Code&lt;strong&gt;默认是使用UTF-8&lt;/strong&gt;打开和保存的，所以如果不是UTF-8的，打开可能乱码（因为Windows中文版的命令行输出编码为GBK，遇到我会说明）。如果使用VS Code新建或编辑文件，请确认它是你需要的编码格式。&lt;/p&gt;
+&lt;p&gt;VS Code更改编码十分方便，你可以点击右下角&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic4.zhimg.com/v2-2ba6f77ec4dba084aedca7a2a93a3a67_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果打开乱码，点击“&lt;strong&gt;通过编码重新打开&lt;/strong&gt;”，选择正确编码。&lt;/li&gt;
+&lt;li&gt;要更改文件编码（前提是你文章没有乱码），选择“&lt;strong&gt;通过编码保存&lt;/strong&gt;”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic4.zhimg.com/v2-c1d85935d77facc5c2f6f0aad7366deb_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;建议修改默认打开选项。设置里搜索“编码”，打开图中第一个选项，打开文件时会自动推断文件的编码。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic4.zhimg.com/v2-57b45e911908e1f898e7bc47fa7acbc7_b.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

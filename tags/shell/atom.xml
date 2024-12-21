@@ -1,0 +1,271 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>炳的自留地 – Shell</title>
+    <link>/tags/shell/</link>
+    <description>Recent content in Shell on 炳的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 05 Jan 2024 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="/tags/shell/atom.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Linux 日常设置</title>
+      <link>/linux/linux-setting/</link>
+      <pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/linux-setting/</guid>
+      <description>
+        
+        
+        &lt;p&gt;一些很重要但设置一次后基本后不会管的 Linux 系统设置。&lt;/p&gt;
+&lt;p&gt;这下面 &lt;code&gt;xxxctl&lt;/code&gt; 都是 Systemd 的组件，虽然有争议，但确实为平时使用带来了不少方便。&lt;br&gt;
+不过既然有的不用 Systemd 或不能用Systemd（像容器里），还是把具体配置文件也列出来了。&lt;/p&gt;
+&lt;h2&gt;地区语言设置&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;地区语言设置&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%9c%b0%e5%8c%ba%e8%af%ad%e8%a8%80%e8%ae%be%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;查看当前语言设置主要涉及&lt;code&gt;localectl&lt;/code&gt;、&lt;code&gt;locale&lt;/code&gt;、&lt;code&gt;locale-gen&lt;/code&gt;等。建议使用 &lt;code&gt;localectl&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;生成语言文件：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;locale-gen&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;localectl&lt;/code&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;生成语言文件&lt;/td&gt;
+          &lt;td&gt;1. &lt;code&gt;vim /etc/locale.gen&lt;/code&gt;，找到需要语言，如 &lt;code&gt;zh_CN.UTF-8&lt;/code&gt;，取消注释。&lt;br /&gt;2. 执行 &lt;code&gt;locale-gen&lt;/code&gt; 生成Locale&lt;/td&gt;
+          &lt;td&gt;设置默认语言时自动生成&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;假如要将默认语言改为简体中文，对比如下：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;配置文件&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;locale&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;localectl&lt;/code&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看当前语言&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;cat /etc/locale.conf&lt;/code&gt;&lt;br /&gt;某些会使用&lt;br /&gt;&lt;code&gt;/etc/default/locale&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;locale&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;localectl status&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看所有语言&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;locale -a&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;localectl list-locales&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;设置默认语言&lt;/td&gt;
+          &lt;td&gt;配置文件内容改为&lt;code&gt;LANG=zh_CN.UTF-8&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;localectl set-locale LANG=zh_CN.UTF-8&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关于“桌面”、“下载”等中文目录：&lt;br&gt;
+&lt;a href=&#34;https://wiki.archlinuxcn.org/wiki/XDG_%E7%94%A8%E6%88%B7%E7%9B%AE%E5%BD%95&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;XDG 用户目录 - Arch Linux 中文维基&lt;/a&gt;&lt;br&gt;
+使用 &lt;code&gt;LC_ALL=C.UTF-8 xdg-user-dirs-update --force&lt;/code&gt; 命令可以强制创建英语目录。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;时间设置&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;时间设置&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%97%b6%e9%97%b4%e8%ae%be%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;日期时间、时区等的设置，涉及 &lt;code&gt;timedatectl&lt;/code&gt;、&lt;code&gt;date&lt;/code&gt;、&lt;code&gt;tzselect&lt;/code&gt; 等。还是推荐 &lt;code&gt;timedatectl&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;例子如下：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;date&lt;/code&gt; 和 &lt;code&gt;tzselect&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;timedatectl&lt;/code&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看时间信息&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;date&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;timedatectl&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;设置时间&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;date -s &amp;quot;2002-02-02 01:01:01&amp;quot;&lt;/code&gt;&lt;br /&gt;或&lt;code&gt;date -s 01:01:01&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;timedatectl set-time &amp;quot;2002-02-02 01:01:01&amp;quot;&lt;/code&gt;&lt;br /&gt;或&lt;code&gt;timedatectl set-time 01:01:01&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;设置时区&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;tzselect&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;timedatectl set-timezone Asia/Shanghai&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;设置 NTP&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;timedatectl set-ntp true&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关于双系统时间不同步的问题：&lt;br&gt;
+&lt;a href=&#34;https://sspai.com/post/55983&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux Windows 双系统时间不一致 - 少数派&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://wiki.archlinuxcn.org/wiki/%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4#Windows_%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8_UTC&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;系统时间#Windows_系统使用_UTC - Arch Linux 中文维基&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;主机名设置&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;主机名设置&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%b8%bb%e6%9c%ba%e5%90%8d%e8%ae%be%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;主机名，即Hostname&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;配置文件&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;hostname&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;hostnamectl&lt;/code&gt;&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;查看主机名&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;cat /etc/hostname&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;hostname&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;hostnamectl&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;设置主机名&lt;/td&gt;
+          &lt;td&gt;将上述配置文件中内容改为所设主机名，重新登陆后生效&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;hostname [hostname]&lt;/code&gt;临时修改&lt;br /&gt;&lt;code&gt;hostname -F /etc/hostname&lt;/code&gt; 立即根据配置文件更新主机名&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;hostnamectl hostname [hostname]&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Linux（Shell）环境变量</title>
+      <link>/linux/linux-env/</link>
+      <pubDate>Thu, 15 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/linux-env/</guid>
+      <description>
+        
+        
+        &lt;p&gt;乱七八糟的。说是 Linux，但 Unix-like 基本都适用。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2&gt;环境变量&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;环境变量&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;环境变量一般习惯为全大写，使用时前面加 &lt;code&gt;$&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;可以使用 &lt;code&gt;echo&lt;/code&gt; 查看，例如 &lt;code&gt;echo $PATH&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Linux 上多个环境变量用 &lt;code&gt;:&lt;/code&gt; 分隔&lt;/li&gt;
+&lt;li&gt;查看所有环境变量可以使用 Shell 内置的 &lt;code&gt;export&lt;/code&gt;、&lt;code&gt;set&lt;/code&gt;，或者使用 &lt;code&gt;env&lt;/code&gt; 、&lt;code&gt;printenv&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;自己设置环境变量可以使用 &lt;code&gt;export&lt;/code&gt; 声明，其只在当前 Shell 进程（及子进程）中起作用。如：&lt;/p&gt;
+&lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
+  
+
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;AB&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/root&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+  &lt;button
+    class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
+    title=&#34;Copy code&#34;
+  &gt;
+    &lt;div class=&#34;copy-icon group-[.copied]/copybtn:hx-hidden hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;success-icon hx-hidden group-[.copied]/copybtn:hx-block hx-pointer-events-none hx-h-4 hx-w-4&#34;&gt;&lt;/div&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+  
+&lt;/div&gt;
+&lt;p&gt;使用 export 时等号前后都不可有空格，内容有空格的话用引号包围。&lt;/p&gt;
+&lt;h2&gt;环境变量持久化&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;环境变量持久化&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f%e6%8c%81%e4%b9%85%e5%8c%96&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;/etc/environment&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;etcenvironment&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#etcenvironment&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Linux有一个 &lt;code&gt;/etc/environment&lt;/code&gt; 文件可以存放&lt;strong&gt;系统环境变量&lt;/strong&gt;，里面只能写变量的声明语句，语法就是如 &lt;code&gt;AA=1234&lt;/code&gt; 的键值对。修改后重新登录用户（注销、重启）以生效。
+但是这个地方不支持变量展开（如：&lt;code&gt;PATH=$PATH:/usr/local/sbin&lt;/code&gt;），所以不是很推荐。&lt;/p&gt;
+&lt;h3&gt;写进 Shell 初始化文件&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;写进-shell-初始化文件&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%86%99%e8%bf%9b-shell-%e5%88%9d%e5%a7%8b%e5%8c%96%e6%96%87%e4%bb%b6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;可以&lt;strong&gt;将 &lt;code&gt;export&lt;/code&gt; 命令添加进Shell的初始化文件&lt;/strong&gt;，这样每次启动 Shell 时就会自动加载环境变量。初始化时依次读取系统和用户的初始化文件，以最后读到的为准。&lt;/p&gt;
+&lt;p&gt;要注意不同Shell的初始化文件也不同，区别在下面一节，先说结论，对于大多数人用的 Bash、Zsh 等：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果&lt;strong&gt;修改用户的环境变量，建议修改 &lt;code&gt;~/.xx-rc&lt;/code&gt;&lt;/strong&gt;（根据你使用的shell，如 &lt;code&gt;.bashrc&lt;/code&gt; ）。修改完使用 &lt;code&gt;source ~/.xx-rc&lt;/code&gt; 命令或启动新shell进程、切换用户等即可生效。&lt;/li&gt;
+&lt;li&gt;如果&lt;strong&gt;修改系统环境变量，建议在 &lt;code&gt;/etc/profile.d&lt;/code&gt; 目录下新建或修改 &lt;code&gt;.sh&lt;/code&gt; 结尾的脚本&lt;/strong&gt;。修改完使用 &lt;code&gt;source /etc/profile&lt;/code&gt; 命令或重新登录用户（注销、重启）以生效。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;另外，&lt;code&gt;source&lt;/code&gt; 命令也可以用&lt;code&gt;.&lt;/code&gt;代替。不过它们只在当前 shell 进程起作用，所以最好还是重新登录或重启。&lt;/p&gt;
+&lt;h2&gt;Shell 初始化文件&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;shell-初始化文件&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#shell-%e5%88%9d%e5%a7%8b%e5%8c%96%e6%96%87%e4%bb%b6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;部分 Shell 初始化文件&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;部分-shell-初始化文件&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e9%83%a8%e5%88%86-shell-%e5%88%9d%e5%a7%8b%e5%8c%96%e6%96%87%e4%bb%b6&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;系统/全局配置都在&lt;code&gt;/etc/&lt;/code&gt;目录下&lt;/th&gt;
+          &lt;th&gt;用户配置都在&lt;code&gt;~&lt;/code&gt;目录下&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;bash(login)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;/ect/profile&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;~/.profile&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;bash(non-login)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;/etc/bash.bashrc&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;~/.bashrc&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;zsh(login)&lt;/td&gt;
+          &lt;td&gt;同 bash，以及 &lt;code&gt;/etc/zsh/zshprofile&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;zsh(non-login)&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;/etc/zsh/zshrc&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;~/.zshrc&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;fish&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;/etc/fish/config.fish&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;~/.config/fish/config.fish&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;某些发行版可能不同，比如 &lt;code&gt;/etc/bash.bashrc&lt;/code&gt; 换为 &lt;code&gt;/etc/bashrc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;没有列出所有；各种&lt;code&gt;xx-login&lt;/code&gt;与&lt;code&gt;xx-profile&lt;/code&gt;作用类似&lt;/li&gt;
+&lt;li&gt;Fish 好像是没有专门给 login shell 用的文件，需要自己使用 if 判断。其实我觉得这样挺好，因为现在的配置文件太多太乱了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;login shell 与 non-login shell&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;login-shell-与-non-login-shell&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#login-shell-%e4%b8%8e-non-login-shell&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;看过上表会发现有些 Shell 有 &lt;code&gt;xx-profile&lt;/code&gt; 和 &lt;code&gt;xx-rc&lt;/code&gt; 两套 Shell 的初始化文件。其原因是登录 Shell 有两种方法：login shell 与 non-login shell。&lt;/p&gt;
+&lt;p&gt;下面来自鸟哥的 Linux 私房菜：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在开始介绍 bash 的配置文件前，我们一定要先知道的就是 login shell 与 non-login shell！ 重点在于有没有登入 (login) 啦！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;login shell：取得 bash 时需要完整的登入流程的，就称为 login shell。举例来说，你要由 tty1 ~ tty6 登入，需要输入用户的账号与密码，此时取得的 bash 就称为『 login shell 』啰；&lt;/li&gt;
+&lt;li&gt;non-login shell：取得 bash 接口的方法不需要重复登入的举动，举例来说，(1)你以 X window 登入 Linux 后，再以 X 的图形化接口启动终端机，此时那个终端接口并没有需要再次的输入账号与密码，那个 bash 的环境就称为 non-login shell 了。(2)你在原本的 bash 环境下再次下达 bash 这个指令，同样的也没有输入账号密码， 那第二个 bash (子程序) 也是 non-login shell 。
+为什么要介绍 login, non-login shell 呢？这是因为这两个取得 bash 的情况中，读取的配置文件数据并不一样所致。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对于这些Shell，启动 non-login shell 时只会加载 &lt;code&gt;xx-rc&lt;/code&gt;；启动 login shell 时只会加载 &lt;code&gt;xx-profile&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;通过 &lt;code&gt;su&lt;/code&gt; 切换用户时，若直接 &lt;code&gt;su 用户名&lt;/code&gt;，会以 non-login shell 登录到该用户，若加上选项 &lt;code&gt;-&lt;/code&gt;、&lt;code&gt;-l&lt;/code&gt;、&lt;code&gt;--login&lt;/code&gt;，则会以 login shell 登录到该用户。&lt;/p&gt;
+&lt;h3&gt;初始化文件读取顺序&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;初始化文件读取顺序&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%88%9d%e5%a7%8b%e5%8c%96%e6%96%87%e4%bb%b6%e8%af%bb%e5%8f%96%e9%a1%ba%e5%ba%8f&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;还是先以 Bash 为例，可查看 &lt;a href=&#34;https://wiki.archlinuxcn.org/wiki/Bash&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bash - ArchWiki&lt;/a&gt;。&lt;br&gt;
+因为 &lt;code&gt;profile&lt;/code&gt; 一般会加载同级的 &lt;code&gt;bashrc&lt;/code&gt;，我们简化来看后，其实际初始化文件读取顺序：
+&lt;img src=&#34;bash-init.drawio.png&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;如果考虑到是否是交互式、是否远程登陆等因素，之前看到一张图讲 sh、bash、zsh 初始化文件的读取顺序大概分别是这样的：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;shell-init.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;令人头大是吧。当然也有这图的原因，登陆条件与读取文件的图例没有明显区分，大家看个乐子就行。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
