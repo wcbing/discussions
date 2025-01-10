@@ -115,7 +115,7 @@ Podman 和 Docker，各大发行版都会在官方仓库收录，安装都很简
     </item>
     
     <item>
-      <title>Docker / Podman 上安装 Portainer</title>
+      <title>安装容器 Web 面板 —— Portainer</title>
       <link>/linux/containers/portainer/</link>
       <pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate>
       

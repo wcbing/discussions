@@ -1,0 +1,83 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>炳的自留地 – 域名</title>
+    <link>/tags/%E5%9F%9F%E5%90%8D/</link>
+    <description>Recent content in 域名 on 炳的自留地</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 04 Apr 2023 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="/tags/%E5%9F%9F%E5%90%8D/atom.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>DNS 与域名</title>
+      <link>/network/dns/</link>
+      <pubDate>Tue, 04 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/network/dns/</guid>
+      <description>
+        
+        
+        &lt;p&gt;DNS - Domain Name System，域名系统&lt;/p&gt;
+&lt;p&gt;域名，其实说白了就是给“IP 地址”起的“便于人类记忆的”别名，域名系统就是负责这个转换过程的。&lt;/p&gt;
+&lt;h2&gt;hosts&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;hosts&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#hosts&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;说到这里不得不提一下 &lt;code&gt;hosts&lt;/code&gt; 文件了。&lt;/p&gt;
+&lt;p&gt;学过计网的人应该知道，不管 OSI、TCP/IP 还是理论模型，统一的地址编排是靠 IP 层的 IP 地址。而 IP 地址这一串纯数字，记忆起来是比较麻烦的。&lt;/p&gt;
+&lt;p&gt;因此，不管你是 Windows、Linux 还是 Android、iOS，你看你的系统里都会有一个 &lt;code&gt;hosts&lt;/code&gt; 文件，这个文件里是一系列形如 &lt;code&gt;IP 别名&lt;/code&gt; 的对应列表（最有名的的应该就是 &lt;code&gt;localhost&lt;/code&gt; 了）来辅助人们用一串有意义的字符串别名去指代一个 IP。而一般一个 IP 对应一台主机，所以那个名称一般就叫“主机名”。当你访问“主机名”时，可以借助 hosts 文件自动将其转换为 IP 地址。&lt;/p&gt;
+&lt;p&gt;所以呢，域名也算是一种“主机名”，这个 DNS 就可以看作是大型的、分布式、特殊规范化的“&lt;code&gt;hosts&lt;/code&gt; 文件”。（我自己说的，方便理解）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;因为通过 hosts 能绕过 DNS 服务器的解析，所以前几年（大概我小学、初中时）这是访问 Google 等网站一个常用的绕过 “DNS 污染” 的方法。可惜现在技术早就升级了😁&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;现在 hosts 依然广泛存在着。你访问域名（主机名）时，先去hosts中查询，如果hosts中没有，再去DNS中查询。&lt;/p&gt;
+&lt;h2&gt;域名解析&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;域名解析&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%9f%9f%e5%90%8d%e8%a7%a3%e6%9e%90&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;DNS 查询有两种方式：递归和迭代。&lt;/p&gt;
+&lt;p&gt;DNS 客户端设置使用的 DNS 服务器一般都是递归服务器，它负责全权处理客户端的 DNS 查询请求，直到返回最终结果。而 DNS 服务器之间一般采用迭代查询方式。&lt;/p&gt;
+&lt;h2&gt;域名层次空间&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;域名层次空间&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%9f%9f%e5%90%8d%e5%b1%82%e6%ac%a1%e7%a9%ba%e9%97%b4&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;域名系统中的任何名称都是域名。在域名系统的层次结构中，各种域名都隶属于域名系统根域的下级。&lt;/p&gt;
+&lt;p&gt;域名的第一级是顶级域，它包括通用顶级域，例如.com、.net和.org；以及国家和地区顶级域，例如.us、.cn和.tk等。顶级域名下一层是二级域名，一级一级地往下。&lt;/p&gt;
+&lt;h3&gt;顶级域（TLD）&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;顶级域tld&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e9%a1%b6%e7%ba%a7%e5%9f%9ftld&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;单独列一下顶级域。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基础结构域&lt;br&gt;
+只有一个&lt;code&gt;arpa&lt;/code&gt;，用于反向域名解析。有时被认为是通用顶级域&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E9%80%9A%E7%94%A8%E9%A0%82%E7%B4%9A%E5%9F%9F&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;通用顶级域（gTLD）&lt;/a&gt;（共二十多个）
+&lt;ul&gt;
+&lt;li&gt;1985创立，共六个&lt;br&gt;
+&lt;code&gt;.com&lt;/code&gt;、&lt;code&gt;.edu&lt;/code&gt;、&lt;code&gt;.gov&lt;/code&gt;、&lt;code&gt;.mil&lt;/code&gt;、&lt;code&gt;.net&lt;/code&gt;、&lt;code&gt;.org&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;2000年，新增&lt;br&gt;
+&lt;code&gt;.aero&lt;/code&gt;、&lt;code&gt;.biz&lt;/code&gt;、&lt;code&gt;.coop&lt;/code&gt;、&lt;code&gt;.info&lt;/code&gt;、&lt;code&gt;.museum&lt;/code&gt;、&lt;code&gt;.name&lt;/code&gt;、&lt;code&gt;.pro&lt;/code&gt;（所以 &lt;code&gt;.name&lt;/code&gt; 和 &lt;code&gt;.pro&lt;/code&gt; 也算是老牌域名了）&lt;/li&gt;
+&lt;li&gt;2005年，又公布一批&lt;br&gt;
+(包括&lt;code&gt;.xxx&lt;/code&gt;，但当时未启用)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;国家顶级域（ccTLD）&lt;br&gt;
+可看&lt;a href=&#34;/blog/region_lang_code/&#34; &gt;国家地区代码&lt;/a&gt;，基本遵守 &lt;code&gt;ISO 3166-1&lt;/code&gt; 两字母代码&lt;/li&gt;
+&lt;li&gt;新通用顶级域名（New gTLD）&lt;br&gt;
+2011 年 ICANN 理事会正式批准新通用顶级域名申请计划。
+&lt;ul&gt;
+&lt;li&gt;国际化顶级域（IDN TLD）&lt;br&gt;
+国际化域名（IDN）使用特殊的文字或非拉丁字母组成，如&lt;code&gt;蓝天救援.中国&lt;/code&gt;。国际化域名使用Punycode转写储存，都以 &lt;code&gt;.xn--&lt;/code&gt; 开头，比如前面的蓝天救援实际就是&lt;code&gt;xn--rss04w53a688e.xn--fiqs8s&lt;/code&gt;。&lt;br&gt;
+在 IDN 发展过程中也出现了国际化顶级域（IDN TLD），其中包括国际化国家或地区顶级域（IDN ccTLD）如 &lt;code&gt;.中国&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;各顶级域域名数据数量统计：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://domainnamestat.com/statistics/overview/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Domain Name Stat&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://domainsproject.org/STATS.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Domains Project（非即时）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;WHOIS（域名数据库查询）&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;whois域名数据库查询&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#whois%e5%9f%9f%e5%90%8d%e6%95%b0%e6%8d%ae%e5%ba%93%e6%9f%a5%e8%af%a2&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;查询域名所有者。
+可看 &lt;a href=&#34;/network/tools&#34; &gt;网络相关常用工具&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -11,8 +11,8 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 <link fetchpriority="low" href="/site.webmanifest" rel="manifest" />
 
-  <title>像使用 apt、dnf 那样使用 pacman —— 给 pacman 增加子命令样式的参数 – 炳的自留地</title>
-  <meta name="description" content="用过 Arch 的都知道其包管理器 pacman 以及很多“AUR helper”如 yay、paru 等，使用的 -S 形式的“选项”（OPTIONS）作为参数。这和主流的 apt、dnf/yum 等的子命令式参数有着明显差异，很多新接触的都是一脸懵逼，比如最经典的 -S、-Sy、-Syy、-Syu、-Syyu、-Syuu 这一连串看着类似的选项。" />
+  <title>给 pacman 增加子命令 —— 在 Arch Linux 上像使用 apt、dnf 那样使用 pacman 或 AUR helper – 炳的自留地</title>
+  <meta name="description" content="用过 Arch 的都知道其包管理器 pacman 以及很多“AUR helper”如 yay、paru 等，使用的 -S 形式的“选项”（OPTIONS）作为参数。这和主流的 apt、dnf/yum 等的“子命令”式参数有着明显差异，很多新接触的都是一脸懵逼，比如最经典的 -S、-Sy、-Syy、-Syu、-Syyu、-Syuu 这一连串看着类似的选项。" />
 
   
     <link rel="canonical" href="/linux/package-manager/subcmd-for-pacman/" itemprop="url" />
@@ -20,21 +20,21 @@
 
   
 
-<meta property="og:title" content="像使用 apt、dnf 那样使用 pacman —— 给 pacman 增加子命令样式的参数" />
-<meta property="og:description" content="用过 Arch 的都知道其包管理器 pacman 以及很多“AUR helper”如 yay、paru 等，使用的 -S 形式的“选项”（OPTIONS）作为参数。这和主流的 apt、dnf/yum 等的子命令式参数有着明显差异，很多新接触的都是一脸懵逼，比如最经典的 -S、-Sy、-Syy、-Syu、-Syyu、-Syuu 这一连串看着类似的选项。" />
+<meta property="og:title" content="给 pacman 增加子命令 —— 在 Arch Linux 上像使用 apt、dnf 那样使用 pacman 或 AUR helper" />
+<meta property="og:description" content="用过 Arch 的都知道其包管理器 pacman 以及很多“AUR helper”如 yay、paru 等，使用的 -S 形式的“选项”（OPTIONS）作为参数。这和主流的 apt、dnf/yum 等的“子命令”式参数有着明显差异，很多新接触的都是一脸懵逼，比如最经典的 -S、-Sy、-Syy、-Syu、-Syyu、-Syuu 这一连串看着类似的选项。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/linux/package-manager/subcmd-for-pacman/" /><meta property="article:section" content="linux" />
 
 
 
   
-  <meta itemprop="name" content="像使用 apt、dnf 那样使用 pacman —— 给 pacman 增加子命令样式的参数">
-  <meta itemprop="description" content="用过 Arch 的都知道其包管理器 pacman 以及很多“AUR helper”如 yay、paru 等，使用的 -S 形式的“选项”（OPTIONS）作为参数。这和主流的 apt、dnf/yum 等的子命令式参数有着明显差异，很多新接触的都是一脸懵逼，比如最经典的 -S、-Sy、-Syy、-Syu、-Syyu、-Syuu 这一连串看着类似的选项。">
-  <meta itemprop="wordCount" content="681">
+  <meta itemprop="name" content="给 pacman 增加子命令 —— 在 Arch Linux 上像使用 apt、dnf 那样使用 pacman 或 AUR helper">
+  <meta itemprop="description" content="用过 Arch 的都知道其包管理器 pacman 以及很多“AUR helper”如 yay、paru 等，使用的 -S 形式的“选项”（OPTIONS）作为参数。这和主流的 apt、dnf/yum 等的“子命令”式参数有着明显差异，很多新接触的都是一脸懵逼，比如最经典的 -S、-Sy、-Syy、-Syu、-Syyu、-Syuu 这一连串看着类似的选项。">
+  <meta itemprop="wordCount" content="961">
   <meta itemprop="keywords" content="Linux">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="像使用 apt、dnf 那样使用 pacman —— 给 pacman 增加子命令样式的参数">
-  <meta name="twitter:description" content="用过 Arch 的都知道其包管理器 pacman 以及很多“AUR helper”如 yay、paru 等，使用的 -S 形式的“选项”（OPTIONS）作为参数。这和主流的 apt、dnf/yum 等的子命令式参数有着明显差异，很多新接触的都是一脸懵逼，比如最经典的 -S、-Sy、-Syy、-Syu、-Syyu、-Syuu 这一连串看着类似的选项。">
+  <meta name="twitter:title" content="给 pacman 增加子命令 —— 在 Arch Linux 上像使用 apt、dnf 那样使用 pacman 或 AUR helper">
+  <meta name="twitter:description" content="用过 Arch 的都知道其包管理器 pacman 以及很多“AUR helper”如 yay、paru 等，使用的 -S 形式的“选项”（OPTIONS）作为参数。这和主流的 apt、dnf/yum 等的“子命令”式参数有着明显差异，很多新接触的都是一脸懵逼，比如最经典的 -S、-Sy、-Syy、-Syu、-Syyu、-Syuu 这一连串看着类似的选项。">
 
     <link rel="preload" href="/css/compiled/main.min.c1fe2c80102c9dc9ddc66184191e646769052d36a21b38ac5ab5077713cf7a81.css" as="style" integrity="sha256-wf4sgBAsncndxmGEGR5kZ2kFLTaiGzisWrUHdxPPeoE=" />
     <link href="/css/compiled/main.min.c1fe2c80102c9dc9ddc66184191e646769052d36a21b38ac5ab5077713cf7a81.css" rel="stylesheet" integrity="sha256-wf4sgBAsncndxmGEGR5kZ2kFLTaiGzisWrUHdxPPeoE=" />
@@ -220,7 +220,7 @@
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/linux/containers/portainer/"
     
-  >Docker / Podman 上安装 Portainer
+  >安装容器 Web 面板 —— Portainer
     </a>
               
             </li><li class="hx-flex hx-flex-col "><a
@@ -249,50 +249,33 @@
               
             </li></ul>
       </div>
-            </li><li class="hx-flex hx-flex-col open"><a
+            </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/linux/package-manager/"
+    href="/linux/setting/"
     
-  >包管理器
+  >设置
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
     </a>
               <div class="ltr:hx-pr-0 hx-overflow-hidden">
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/linux/package-manager/wcbing-apt-repo/"
-    
-  >自建 APT 软件源
-    </a>
-              
-            </li><li class="hx-flex hx-flex-col "><a
-    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/linux/package-manager/apt-remove-purge/"
-    
-  >apt remove purge autoremove autopurge 异同
-    </a>
-              
-            </li><li class="hx-flex hx-flex-col open"><a
-    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
-    href="/linux/package-manager/subcmd-for-pacman/"
-    
-  >像使用 apt、dnf 那样使用 pacman —— 给 pacman 增加子命令样式的参数
-    </a>
-  
-              
-            </li></ul>
-      </div>
-            </li><li class="hx-flex hx-flex-col "><a
-    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/linux/linux-setting/"
+    href="/linux/setting/base/"
     
   >Linux 日常设置
     </a>
               
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/linux/setting/user/"
+    
+  >Linux 用户与权限
+    </a>
+              
+            </li></ul>
+      </div>
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
@@ -325,6 +308,34 @@
   >Linux 发行版
     </a>
               
+            </li><li class="hx-flex hx-flex-col open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/linux/package-manager/"
+    
+  >包管理器
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a>
+              <div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/linux/package-manager/apt-remove-purge/"
+    
+  >apt remove purge autoremove autopurge 异同
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+    href="/linux/package-manager/subcmd-for-pacman/"
+    
+  >给 pacman 增加子命令 —— 在 Arch Linux 上像使用 apt、dnf 那样使用 pacman 或 AUR helper
+    </a>
+  
+              
+            </li></ul>
+      </div>
             </li></ul>
       </div></li>
           <li class=""><a
@@ -336,6 +347,14 @@
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
     </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/blog/wcbing-apt-repo/"
+    
+  >自建 APT 软件源
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/blog/font/"
@@ -566,17 +585,25 @@
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/network/tools/"
+    href="/network/dns/"
     
-  >计网常用工具
+  >DNS 与域名
     </a>
               
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/network/layer-application/"
+    href="/network/http/"
     
-  >计网应用层笔记
+  >HTTP - 超文本传输协议
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/network/tools/"
+    
+  >计网常用工具
     </a>
               
             </li><li class="hx-flex hx-flex-col "><a
@@ -717,7 +744,7 @@
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
     href="/linux/containers/portainer/"
     
-  >Docker / Podman 上安装 Portainer
+  >安装容器 Web 面板 —— Portainer
     </a>
               
             </li><li class="hx-flex hx-flex-col "><a
@@ -746,47 +773,32 @@
               
             </li></ul>
       </div></li>
-          <li class="open"><a
+          <li class=""><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/linux/package-manager/"
+    href="/linux/setting/"
     
-  >包管理器
+  >设置
         <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
     </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
         <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/linux/package-manager/wcbing-apt-repo/"
+    href="/linux/setting/base/"
     
-  >自建 APT 软件源
+  >Linux 日常设置
     </a>
               
             </li><li class="hx-flex hx-flex-col "><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/linux/package-manager/apt-remove-purge/"
+    href="/linux/setting/user/"
     
-  >apt remove purge autoremove autopurge 异同
-    </a>
-              
-            </li><li class="hx-flex hx-flex-col open"><a
-    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
-    href="/linux/package-manager/subcmd-for-pacman/"
-    
-  >像使用 apt、dnf 那样使用 pacman —— 给 pacman 增加子命令样式的参数
+  >Linux 用户与权限
     </a>
               
             </li></ul>
       </div></li>
-          <li class=""><a
-    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
-      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
-    href="/linux/linux-setting/"
-    
-  >Linux 日常设置
-    </a></li>
           <li class=""><a
     class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
       hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
@@ -815,6 +827,32 @@
     
   >Linux 发行版
     </a></li>
+          <li class="open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/linux/package-manager/"
+    
+  >包管理器
+        <span class="hextra-sidebar-collapsible-button"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hx-h-[18px] hx-min-w-[18px] hx-rounded-sm hx-p-0.5 hover:hx-bg-gray-800/5 dark:hover:hx-bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="hx-origin-center hx-transition-transform rtl:-hx-rotate-180"></path></svg></span>
+    </a><div class="ltr:hx-pr-0 hx-overflow-hidden">
+        <ul class='hx-relative hx-flex hx-flex-col hx-gap-1 before:hx-absolute before:hx-inset-y-1 before:hx-w-px before:hx-bg-gray-200 before:hx-content-[""] ltr:hx-ml-3 ltr:hx-pl-3 ltr:before:hx-left-0 rtl:hx-mr-3 rtl:hx-pr-3 rtl:before:hx-right-0 dark:before:hx-bg-neutral-800'><li class="hx-flex hx-flex-col "><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      hx-text-gray-500 hover:hx-bg-gray-100 hover:hx-text-gray-900 contrast-more:hx-border contrast-more:hx-border-transparent contrast-more:hx-text-gray-900 contrast-more:hover:hx-border-gray-900 dark:hx-text-neutral-400 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 contrast-more:dark:hx-text-gray-50 contrast-more:dark:hover:hx-border-gray-50"
+    href="/linux/package-manager/apt-remove-purge/"
+    
+  >apt remove purge autoremove autopurge 异同
+    </a>
+              
+            </li><li class="hx-flex hx-flex-col open"><a
+    class="hx-flex hx-items-center hx-justify-between hx-gap-2 hx-cursor-pointer hx-rounded hx-px-2 hx-py-1.5 hx-text-sm hx-transition-colors [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] [word-break:break-word]
+      sidebar-active-item hx-bg-primary-100 hx-font-semibold hx-text-primary-800 contrast-more:hx-border contrast-more:hx-border-primary-500 dark:hx-bg-primary-400/10 dark:hx-text-primary-600 contrast-more:dark:hx-border-primary-500"
+    href="/linux/package-manager/subcmd-for-pacman/"
+    
+  >给 pacman 增加子命令 —— 在 Arch Linux 上像使用 apt、dnf 那样使用 pacman 或 AUR helper
+    </a>
+              
+            </li></ul>
+      </div></li>
         
       </ul>
     </div>
@@ -854,78 +892,108 @@
         </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
         <div class="hx-whitespace-nowrap hx-transition-colors hx-min-w-[24px] hx-overflow-hidden hx-text-ellipsis hover:hx-text-gray-900 dark:hover:hx-text-gray-100">
           <a href="/linux/package-manager/">包管理器</a>
-        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">像使用 apt、dnf 那样使用 pacman —— 给 pacman 增加子命令样式的参数</div>
+        </div><svg class="hx-w-3.5 hx-shrink-0 rtl:-hx-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg><div class="hx-whitespace-nowrap hx-transition-colors hx-font-medium hx-text-gray-700 contrast-more:hx-font-bold contrast-more:hx-text-current dark:hx-text-gray-100 contrast-more:dark:hx-text-current">给 pacman 增加子命令 —— 在 Arch Linux 上像使用 apt、dnf 那样使用 pacman 或 AUR helper</div>
   </div>
 
         <div class="content">
-          <h1>像使用 apt、dnf 那样使用 pacman —— 给 pacman 增加子命令样式的参数</h1>
-          <p>用过 Arch 的都知道其包管理器 pacman 以及很多“AUR helper”如 yay、paru 等，使用的 <code>-S</code> 形式的“选项”（OPTIONS）作为参数。这和主流的 apt、dnf/yum 等的子命令式参数有着明显差异，很多新接触的都是一脸懵逼，比如最经典的 <code>-S</code>、<code>-Sy</code>、<code>-Syy</code>、<code>-Syu</code>、<code>-Syyu</code>、<code>-Syuu</code> 这一连串看着类似的选项。</p>
+          <h1>给 pacman 增加子命令 —— 在 Arch Linux 上像使用 apt、dnf 那样使用 pacman 或 AUR helper</h1>
+          <p>用过 Arch 的都知道其包管理器 pacman 以及很多“AUR helper”如 yay、paru 等，使用的 <code>-S</code> 形式的“选项”（OPTIONS）作为参数。这和主流的 apt、dnf/yum 等的“子命令”式参数有着明显差异，很多新接触的都是一脸懵逼，比如最经典的 <code>-S</code>、<code>-Sy</code>、<code>-Syy</code>、<code>-Syu</code>、<code>-Syyu</code>、<code>-Syuu</code> 这一连串看着类似的选项。</p>
 <blockquote>
 <p>很多人就算用 Arch 挺长时间也根本不知道什么意思，就是入门时看的什么“小白教材”这么写就这么一直用了。</p>
 </blockquote>
-<p>其实 apt 和 dnf/yum 的“底层” —— dpkg、rpm 也是选项式的，而他们作为直接与用户交互的封装都使用了子命令式，说明子命令应该对大部分人来说是更易使用的，因为它更“human-readable”。所以简单写了个脚本，让用户也可以以 apt 那样的子命令使用 pacman 或 yay。</p>
+<p>其实 apt 和 dnf/yum 的“底层” —— dpkg、rpm 也是选项式的，而他们作为直接与用户交互的封装都使用了子命令式，说明子命令应该对大部分人来说是更易使用的，因为它更“human-readable”。所以简单写了个脚本，让用户也可以像 apt 那样在 pacman 或 yay 等 AUR helper 中使用子命令。</p>
+<p>可以保存并命名为 <code>pkg</code> 之类的进行使用。记得给运行权限并放进环境变量。普通用户使用时也不用加 <code>sudo</code>，这样一是为了方便，二是为了兼容那些 AUR helper 。</p>
+<blockquote>
+<p>真要想标题里那样就是给 <code>pacman</code> 加子命令那也可以命名为 <code>pacman</code>，已经过简单测试，不过并不推荐这么做。</p>
+</blockquote>
 <div class="hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code">
   
 
-<div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/sh
+<div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">command</span> -v yay &gt;/dev/null<span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">pkg</span><span class="o">=</span><span class="s2">&#34;yay&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="nb">command</span> -v paru &gt;/dev/null<span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">pkg</span><span class="o">=</span><span class="s2">&#34;paru&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="k">else</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">pkg</span><span class="o">=</span><span class="s2">&#34;pacman&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="k">fi</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$USER</span><span class="s2">&#34;</span> !<span class="o">=</span> <span class="s2">&#34;root&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$PKG</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;pacman&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">sudo_prefix</span><span class="o">=</span><span class="s2">&#34;sudo &#34;</span> <span class="o">||</span> <span class="nv">sudo_prefix</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;The user is </span><span class="nv">$USER</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">get_arch_pkg<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">local</span> <span class="nv">pkgs</span><span class="o">=</span><span class="s2">&#34;yay paru /bin/pacman&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> p in <span class="nv">$pkgs</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">command</span> -v <span class="s2">&#34;</span><span class="nv">$p</span><span class="s2">&#34;</span> &gt;/dev/null<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">pkg</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$p</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl">        <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">    <span class="k">done</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;not find package manager&#34;</span> <span class="o">&amp;&amp;</span> <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">no_subcmd<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Please use \&#34;</span><span class="k">$(</span>basename <span class="nv">$0</span><span class="k">)</span><span class="s2"> help\&#34; to see detailed usage.&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;The package manager is </span><span class="nv">$pkg</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Now will executing </span><span class="nv">$pkg</span><span class="s2">.&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">echo</span>
 </span></span><span class="line"><span class="cl">    <span class="nv">$pkg</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">0</span>
-</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Subcommands for pacman/yay/paru</span>
+</span></span><span class="line"><span class="cl">pacman_like<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">sub_cmd</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">shift</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="nv">$sub_cmd</span> in
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;search&#34;</span><span class="o">)</span> <span class="nv">$pkg</span> -Ss <span class="nv">$@</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;show&#34;</span><span class="o">)</span> <span class="nv">$pkg</span> -Si <span class="nv">$@</span> <span class="p">;;</span> <span class="c1"># from repo</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;info&#34;</span><span class="o">)</span> <span class="nv">$pkg</span> -Qi <span class="nv">$@</span> <span class="p">;;</span> <span class="c1"># from local</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;clean&#34;</span><span class="o">)</span> <span class="nv">$sudo_prefix$pkg</span> -Sc <span class="nv">$@</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;update&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s1">&#39;Avoid doing partial upgrades. Always use upgrade(-Syu) instead of update(-Sy).&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s1">&#39;Refer to https://wiki.archlinux.org/title/System_maintenance 3.2 3.3&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s1">&#39;请避免部分更新，不要运行 update(-Sy)，而是运行 upgrade(-Syu)。&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s1">&#39;请参阅 https://wiki.archlinuxcn.org/wiki/系统维护 3.2 3.3&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">$sudo_prefix$pkg</span> -Sy <span class="nv">$@</span>
+</span></span><span class="line"><span class="cl">            <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;install&#34;</span> <span class="p">|</span> <span class="s2">&#34;add&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">case</span> <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span> in
+</span></span><span class="line"><span class="cl">                ./*<span class="o">)</span> <span class="nv">$sudo_prefix$pkg</span> -U <span class="nv">$@</span> <span class="p">;;</span> <span class="c1"># install local package</span>
+</span></span><span class="line"><span class="cl">                *<span class="o">)</span> <span class="nv">$sudo_prefix$pkg</span> -S <span class="nv">$@</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">esac</span>
+</span></span><span class="line"><span class="cl">            <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;upgrade&#34;</span><span class="o">)</span> <span class="nv">$sudo_prefix$pkg</span> -Syu <span class="nv">$@</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;force-upgrade&#34;</span><span class="o">)</span> <span class="nv">$sudo_prefix$pkg</span> -Syyu <span class="nv">$@</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;remove&#34;</span> <span class="p">|</span> <span class="s2">&#34;del&#34;</span>* <span class="p">|</span> <span class="s2">&#34;uninstall&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> Suggest using <span class="s2">&#34;purge&#34;</span> or <span class="s2">&#34;autopurge&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nv">$sudo_prefix$pkg</span> -R <span class="nv">$@</span>
+</span></span><span class="line"><span class="cl">            <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;purge&#34;</span><span class="o">)</span> <span class="nv">$sudo_prefix$pkg</span> -Rn <span class="nv">$@</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;autoremove&#34;</span> <span class="p">|</span> <span class="s2">&#34;autopurge&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># from https://wiki.archlinuxcn.org/wiki/Pacman/提示和技巧 1.6</span>
+</span></span><span class="line"><span class="cl">                <span class="nv">$pkg</span> -Qtdq <span class="p">|</span> <span class="nv">$sudo_prefix$pkg</span> -Rns -
+</span></span><span class="line"><span class="cl">            <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$sub_cmd</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;autoremove&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">$sudo_prefix$pkg</span> -Rcs <span class="nv">$@</span>
+</span></span><span class="line"><span class="cl">                <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$sub_cmd</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;autopurge&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">$sudo_prefix$pkg</span> -Rncs <span class="nv">$@</span>
+</span></span><span class="line"><span class="cl">            <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">            <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;help&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s2">&#34;可用子命令(Available subcommands):&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s2">&#34;    search         : Search for packages&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s2">&#34;    show           : Show package information from repo&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s2">&#34;    info           : Show package information from local&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s2">&#34;    clean          : Clean package cache&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s2">&#34;    install        : Install packages&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s2">&#34;     |- add&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s2">&#34;    upgrade        : Upgrade packages&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s2">&#34;    force-upgrade  : Force upgrade packages&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s2">&#34;    remove         : Remove packages&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s2">&#34;     |- del&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s2">&#34;     |- uninstall&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s2">&#34;    purge          : Purge packages&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s2">&#34;    autoremove     : Automatically remove unneeded packages&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">echo</span> <span class="s2">&#34;    autopurge      : Automatically purge unneeded packages&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">        *<span class="o">)</span> <span class="nv">$pkg</span> <span class="nv">$sub_cmd</span> <span class="nv">$@</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">esac</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">sub_cmd</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">shift</span>
-</span></span><span class="line"><span class="cl"><span class="nv">other_args</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">get_arch_pkg
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">case</span> <span class="nv">$sub_cmd</span> in
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;search&#34;</span><span class="o">)</span> <span class="nv">$pkg</span> -Ss <span class="nv">$other_args</span> <span class="p">;;</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;show&#34;</span><span class="o">)</span> <span class="nv">$pkg</span> -Si <span class="nv">$other_args</span> <span class="p">;;</span> <span class="c1"># from repo</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;info&#34;</span><span class="o">)</span> <span class="nv">$pkg</span> -Qi <span class="nv">$other_args</span> <span class="p">;;</span> <span class="c1"># from local</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;update&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> <span class="s1">&#39;Avoid doing partial upgrades. Always use upgrade(-Syu) instead of update(-Sy).&#39;</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> <span class="s1">&#39;Refer to https://wiki.archlinux.org/title/System_maintenance 3.2 3.3&#39;</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> <span class="s1">&#39;请避免部分更新，不要运行 update(-Sy)，而是运行 upgrade(-Syu)。&#39;</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> <span class="s1">&#39;请参阅 https://wiki.archlinuxcn.org/wiki/系统维护 3.2 3.3&#39;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">;;</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;install&#34;</span> <span class="p">|</span> <span class="s2">&#34;add&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">case</span> <span class="s2">&#34;</span><span class="nv">$other_args</span><span class="s2">&#34;</span> in
-</span></span><span class="line"><span class="cl">            ./*<span class="o">)</span> <span class="nv">$sudo_prefix$pkg</span> -U <span class="nv">$other_args</span> <span class="p">;;</span> <span class="c1"># install local package</span>
-</span></span><span class="line"><span class="cl">            *<span class="o">)</span> <span class="nv">$sudo_prefix$pkg</span> -S <span class="nv">$other_args</span> <span class="p">;;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">esac</span>
-</span></span><span class="line"><span class="cl">        <span class="p">;;</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;upgrade&#34;</span><span class="o">)</span> <span class="nv">$sudo_prefix$pkg</span> -Syu <span class="nv">$other_args</span> <span class="p">;;</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;force-upgrade&#34;</span><span class="o">)</span> <span class="nv">$sudo_prefix$pkg</span> -Syyu <span class="nv">$other_args</span> <span class="p">;;</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;remove&#34;</span> <span class="p">|</span> <span class="s2">&#34;del&#34;</span>* <span class="p">|</span> <span class="s2">&#34;uninstall&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> Suggest using <span class="s2">&#34;purge&#34;</span> or <span class="s2">&#34;autopurge&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="nv">$sudo_prefix$pkg</span> -R <span class="nv">$other_args</span>
-</span></span><span class="line"><span class="cl">        <span class="p">;;</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;purge&#34;</span><span class="o">)</span> <span class="nv">$sudo_prefix$pkg</span> -Rn <span class="nv">$other_args</span> <span class="p">;;</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;autoremove&#34;</span> <span class="p">|</span> <span class="s2">&#34;autopurge&#34;</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">            <span class="c1"># from https://wiki.archlinuxcn.org/wiki/Pacman/提示和技巧 1.6</span>
-</span></span><span class="line"><span class="cl">            <span class="nv">$pkg</span> -Qtdq <span class="p">|</span> <span class="nv">$sudo_prefix$pkg</span> -Rns -
-</span></span><span class="line"><span class="cl">        <span class="k">else</span>
-</span></span><span class="line"><span class="cl">            <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$sub_cmd</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;autoremove&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">$sudo_prefix$pkg</span> -Rcs <span class="nv">$other_args</span>
-</span></span><span class="line"><span class="cl">            <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$sub_cmd</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;autopurge&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">$sudo_prefix$pkg</span> -Rncs <span class="nv">$other_args</span>
-</span></span><span class="line"><span class="cl">        <span class="k">fi</span>
-</span></span><span class="line"><span class="cl">        <span class="p">;;</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;clean&#34;</span><span class="o">)</span> <span class="nv">$sudo_prefix$pkg</span> -Sc <span class="nv">$other_args</span> <span class="p">;;</span>
-</span></span><span class="line"><span class="cl">    *<span class="o">)</span> <span class="nv">$pkg</span> <span class="nv">$sub_cmd</span> <span class="nv">$other_args</span> <span class="p">;;</span>
-</span></span><span class="line"><span class="cl"><span class="k">esac</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
+</span></span><span class="line"><span class="cl"><span class="c1"># need sudo or not</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span> <span class="k">$(</span>id -u<span class="k">)</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$pkg</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;/bin/pacman&#34;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">sudo_prefix</span><span class="o">=</span><span class="s2">&#34;sudo &#34;</span> <span class="o">||</span> <span class="nv">sudo_prefix</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span> <span class="nv">$#</span> -eq <span class="m">0</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> no_subcmd <span class="o">||</span> pacman_like <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span></span></span></code></pre></div></div><div class="hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0">
   <button
     class="hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50"
     title="Copy code"

@@ -5,7 +5,7 @@
     <description>Recent content in Linux on 炳的自留地</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 06 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 Oct 2024 00:00:00 +0000</lastBuildDate>
     
 	  <atom:link href="/tags/linux/atom.xml" rel="self" type="application/rss+xml" />
     
@@ -17,18 +17,15 @@
     
     <item>
       <title>自建 APT 软件源</title>
-      <link>/linux/package-manager/wcbing-apt-repo/</link>
-      <pubDate>Sat, 06 Jan 2024 00:00:00 +0000</pubDate>
+      <link>/blog/wcbing-apt-repo/</link>
+      <pubDate>Sun, 06 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>/linux/package-manager/wcbing-apt-repo/</guid>
+      <guid>/blog/wcbing-apt-repo/</guid>
       <description>
         
         
         &lt;p&gt;向 Debian、Ubuntu 等 Linux 发行版用户分享我自建的软件仓库。里面收集了一些国内常用的软件，使安装和更新更方便。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/wcbing/wcbing-apt-repo&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/wcbing/wcbing-apt-repo&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;注：目前仅针对 x86 用户&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;h2&gt;仓库特点&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;仓库特点&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e4%bb%93%e5%ba%93%e7%89%b9%e7%82%b9&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;里面收集了一些国内常用的软件，像腾讯系的QQ、QQ音乐、腾讯会议，还有钉钉、百度网盘、Xmind 等。还有一些官方提供源的，包括 Firefox、Tailscale 以及 Chrome、VS Code、Steam 等（后面这些安装后会自行添加软件源），减少需要手动添加源的次数。&lt;/p&gt;
 &lt;ul&gt;
@@ -45,7 +42,7 @@
 &lt;ul&gt;
 &lt;li&gt;我知道 DebianCN、铜豌豆软件源等，这个有什么优势？&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;确实，这个源和 DebianCN、铜豌豆软件源 等类似。相比两者&lt;strong&gt;优势是&lt;/strong&gt;更新快，都是自动化的流程，不用人工整理。拿 DebianCN 为例，其现收录软件大概30多个，除 Chrome 在更新外，其他最新的更新都距今半年以上，很多都是5、6年前的软件。铜豌豆相比之下要好很多，但也不太及时，并且自打包应用较多，兼容性也较差。&lt;/p&gt;
+&lt;p&gt;确实，这个源和 DebianCN、铜豌豆软件源 等类似。相比两者&lt;strong&gt;优势是&lt;/strong&gt;更新快，都是自动化的流程，不用人工整理。拿 DebianCN 为例，其现收录软件大概30多个（实际可用10个左右），除 Chrome 在更新外，其他最新的更新都距今半年以上，很多都是5、6年前的软件。铜豌豆相比之下要好很多，但也不太及时，并且自打包应用较多，兼容性也较差。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;有什么劣势？&lt;/li&gt;
 &lt;/ul&gt;
@@ -59,16 +56,19 @@
     
     <item>
       <title>Linux 日常设置</title>
-      <link>/linux/linux-setting/</link>
+      <link>/linux/setting/base/</link>
       <pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate>
       
-      <guid>/linux/linux-setting/</guid>
+      <guid>/linux/setting/base/</guid>
       <description>
         
         
         &lt;p&gt;一些很重要但设置一次后基本后不会管的 Linux 系统设置。&lt;/p&gt;
 &lt;p&gt;这下面 &lt;code&gt;xxxctl&lt;/code&gt; 都是 Systemd 的组件，虽然有争议，但确实为平时使用带来了不少方便。&lt;br&gt;
-不过既然有的不用 Systemd 或不能用Systemd（像容器里），还是把具体配置文件也列出来了。&lt;/p&gt;
+不过既然有的不用 Systemd 或不能用Systemd（像容器里），还是把通用命令和具体配置文件也列出来了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;非必要不要直接修改配置文件。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2&gt;地区语言设置&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;地区语言设置&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%9c%b0%e5%8c%ba%e8%af%ad%e8%a8%80%e8%ae%be%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;查看当前语言设置主要涉及&lt;code&gt;localectl&lt;/code&gt;、&lt;code&gt;locale&lt;/code&gt;、&lt;code&gt;locale-gen&lt;/code&gt;等。建议使用 &lt;code&gt;localectl&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;生成语言文件：&lt;/p&gt;
@@ -76,15 +76,15 @@
   &lt;thead&gt;
       &lt;tr&gt;
           &lt;th&gt;&lt;/th&gt;
-          &lt;th&gt;&lt;code&gt;locale-gen&lt;/code&gt;&lt;/th&gt;
           &lt;th&gt;&lt;code&gt;localectl&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;locale-gen&lt;/code&gt;&lt;/th&gt;
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
           &lt;td&gt;生成语言文件&lt;/td&gt;
-          &lt;td&gt;1. &lt;code&gt;vim /etc/locale.gen&lt;/code&gt;，找到需要语言，如 &lt;code&gt;zh_CN.UTF-8&lt;/code&gt;，取消注释。&lt;br /&gt;2. 执行 &lt;code&gt;locale-gen&lt;/code&gt; 生成Locale&lt;/td&gt;
           &lt;td&gt;设置默认语言时自动生成&lt;/td&gt;
+          &lt;td&gt;1. &lt;code&gt;vim /etc/locale.gen&lt;/code&gt;，找到需要语言，如 &lt;code&gt;zh_CN.UTF-8&lt;/code&gt;，取消注释。&lt;br /&gt;2. 执行 &lt;code&gt;locale-gen&lt;/code&gt; 生成Locale&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -93,29 +93,29 @@
   &lt;thead&gt;
       &lt;tr&gt;
           &lt;th&gt;&lt;/th&gt;
-          &lt;th&gt;配置文件&lt;/th&gt;
-          &lt;th&gt;&lt;code&gt;locale&lt;/code&gt;&lt;/th&gt;
           &lt;th&gt;&lt;code&gt;localectl&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;locale&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;配置文件&lt;/th&gt;
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
           &lt;td&gt;查看当前语言&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;cat /etc/locale.conf&lt;/code&gt;&lt;br /&gt;某些会使用&lt;br /&gt;&lt;code&gt;/etc/default/locale&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;locale&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;localectl status&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;locale&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;cat /etc/locale.conf&lt;/code&gt;&lt;br /&gt;某些会使用&lt;br /&gt;&lt;code&gt;/etc/default/locale&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td&gt;查看所有语言&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;locale -a&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;查看已安装语言&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;localectl list-locales&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;locale -a&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;设置默认语言&lt;/td&gt;
-          &lt;td&gt;配置文件内容改为&lt;code&gt;LANG=zh_CN.UTF-8&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;localectl set-locale LANG=zh_CN.UTF-8&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;配置文件内容改为&lt;code&gt;LANG=zh_CN.UTF-8&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -131,30 +131,30 @@
   &lt;thead&gt;
       &lt;tr&gt;
           &lt;th&gt;&lt;/th&gt;
-          &lt;th&gt;&lt;code&gt;date&lt;/code&gt; 和 &lt;code&gt;tzselect&lt;/code&gt;&lt;/th&gt;
           &lt;th&gt;&lt;code&gt;timedatectl&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;date&lt;/code&gt; 和 &lt;code&gt;tzselect&lt;/code&gt;&lt;/th&gt;
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
           &lt;td&gt;查看时间信息&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;date&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;timedatectl&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;date&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;设置时间&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;date -s &amp;quot;2002-02-02 01:01:01&amp;quot;&lt;/code&gt;&lt;br /&gt;或&lt;code&gt;date -s 01:01:01&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;timedatectl set-time &amp;quot;2002-02-02 01:01:01&amp;quot;&lt;/code&gt;&lt;br /&gt;或&lt;code&gt;timedatectl set-time 01:01:01&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;date -s &amp;quot;2002-02-02 01:01:01&amp;quot;&lt;/code&gt;&lt;br /&gt;或&lt;code&gt;date -s 01:01:01&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;设置时区&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;tzselect&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;timedatectl set-timezone Asia/Shanghai&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;tzselect&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;设置 NTP&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;timedatectl set-ntp true&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -164,31 +164,99 @@
 &lt;a href=&#34;https://wiki.archlinuxcn.org/wiki/%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4#Windows_%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8_UTC&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;系统时间#Windows_系统使用_UTC - Arch Linux 中文维基&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2&gt;主机名设置&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;主机名设置&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e4%b8%bb%e6%9c%ba%e5%90%8d%e8%ae%be%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;主机名，即Hostname&lt;/p&gt;
+    &lt;a href=&#34;#%e4%b8%bb%e6%9c%ba%e5%90%8d%e8%ae%be%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;主机名，即 Hostname&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
           &lt;th&gt;&lt;/th&gt;
-          &lt;th&gt;配置文件&lt;/th&gt;
-          &lt;th&gt;&lt;code&gt;hostname&lt;/code&gt;&lt;/th&gt;
           &lt;th&gt;&lt;code&gt;hostnamectl&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;hostname&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;配置文件&lt;/th&gt;
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
           &lt;td&gt;查看主机名&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;cat /etc/hostname&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;hostname&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;hostnamectl&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;hostname&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;cat /etc/hostname&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;设置主机名&lt;/td&gt;
-          &lt;td&gt;将上述配置文件中内容改为所设主机名，重新登陆后生效&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;hostname [hostname]&lt;/code&gt;临时修改&lt;br /&gt;&lt;code&gt;hostname -F /etc/hostname&lt;/code&gt; 立即根据配置文件更新主机名&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;hostnamectl hostname [hostname]&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;hostname [hostname]&lt;/code&gt;临时修改&lt;br /&gt;&lt;code&gt;hostname -F /etc/hostname&lt;/code&gt; 立即根据配置文件更新主机名&lt;/td&gt;
+          &lt;td&gt;将上述配置文件中内容改为所设主机名，重新登陆后生效&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Linux 用户与权限</title>
+      <link>/linux/setting/user/</link>
+      <pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/setting/user/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;用户与组&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;用户与组&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%94%a8%e6%88%b7%e4%b8%8e%e7%bb%84&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;查看（我）&lt;/th&gt;
+          &lt;th&gt;查看（已登陆）&lt;/th&gt;
+          &lt;th&gt;创建&lt;/th&gt;
+          &lt;th&gt;删除&lt;/th&gt;
+          &lt;th&gt;修改&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;用户&lt;/td&gt;
+          &lt;td&gt;whoami&lt;br&gt;id&lt;/td&gt;
+          &lt;td&gt;w（登陆用户）&lt;br&gt;who（详细用户会话）&lt;br&gt;users（用户会话）&lt;br&gt;&lt;/td&gt;
+          &lt;td&gt;useradd&lt;/td&gt;
+          &lt;td&gt;userdel&lt;/td&gt;
+          &lt;td&gt;usermod&lt;br&gt;passwd（改密码）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;组&lt;/td&gt;
+          &lt;td&gt;groups&lt;br&gt;id&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;groupadd&lt;/td&gt;
+          &lt;td&gt;groupdel&lt;/td&gt;
+          &lt;td&gt;groupmod&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;创建用户时一般会用 &lt;code&gt;useradd -m&lt;/code&gt;，同时创建用户的主目录。也可以加上 &lt;code&gt;-s /bin/bash&lt;/code&gt; 等指定用户登陆后使用的 Shell。&lt;/p&gt;
+&lt;p&gt;各种详细用户建议查看各自的帮助，不再一一列出。&lt;/p&gt;
+&lt;h2&gt;权限&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;权限&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%9d%83%e9%99%90&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;查看&lt;/th&gt;
+          &lt;th&gt;修改文件权限&lt;/th&gt;
+          &lt;th&gt;修改文件属主&lt;/th&gt;
+          &lt;th&gt;修改文件属组&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;文件权限&lt;/td&gt;
+          &lt;td&gt;ls -l&lt;/td&gt;
+          &lt;td&gt;chmod&lt;/td&gt;
+          &lt;td&gt;chown&lt;/td&gt;
+          &lt;td&gt;chgrp&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;未完待续&lt;/p&gt;
 
       </description>
     </item>
@@ -224,10 +292,23 @@ neovim、tmux、zsh、clang、gcc…&lt;/p&gt;
 &lt;h2&gt;安装及换源&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;安装及换源&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%ae%89%e8%a3%85%e5%8f%8a%e6%8d%a2%e6%ba%90&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;我们打开&lt;a href=&#34;https://termux.dev/cn/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Termux 官网（中文）&lt;/a&gt;，可以看到我们能在 F-droid 或 Github 上下载最新版本。下载安装后打开界面如下图。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;1.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;接下来就是换源了，&lt;a href=&#34;https://help.mirrors.cernet.edu.cn/termux/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;教育网镜像站&lt;/a&gt;已经写的很清楚了，按照里面的操作。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;apt upgrade&lt;/code&gt; 升级完成后&lt;strong&gt;需要第二次换源&lt;/strong&gt;，因为下载一些工具时镜像源会刷新掉。第二次多了一个“Mirror group（镜像组）”，请根据实际网络情况选择。&lt;/p&gt;
-&lt;p&gt;（第一次）换完源之后，每次新打开后提示多了一行，如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;5.jpg&#34; alt=&#34;image&#34; loading=&#34;lazy&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;接下来为了下载方便就先要换源了，换源过程 &lt;a href=&#34;https://help.mirrors.cernet.edu.cn/termux/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;教育网镜像站&lt;/a&gt;已经写的很清楚了，按照里面的操作。&lt;/p&gt;
+&lt;p&gt;随后先 &lt;code&gt;apt upgrade&lt;/code&gt; 升级一下软件，中间询问一路 &lt;code&gt;y&lt;/code&gt; 就可以了。&lt;/p&gt;
+&lt;p&gt;升级完成后&lt;strong&gt;需要第二次换源&lt;/strong&gt;，因为下载一些工具时镜像源设置会刷新掉。如果你认真看的话升级过程中有询问，可以选 &lt;code&gt;n&lt;/code&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;del&gt;用 TUI 工具再次换源时会多一个“Mirror group（镜像组）”，请根据实际网络情况是选择单个镜像还是镜像组。&lt;/del&gt;&lt;br&gt;
+&lt;del&gt;第二次才出现是因为 termux 的应用本体已经很久没更新了，虽然是滚动发行版最终应用版本都一样样，但我觉得还是要定期发布更新的，你看 Arch 也会定时发布 iso。&lt;/del&gt;&lt;br&gt;
+2024.06 终于更新了，现在只要换一次就好了。&lt;br&gt;
+不过在 Github 发布之前，Google Play 就发布了更新，其和 Github 上的明显有不同。Play 版是没有换源的那个 TUI 工具的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;使用注意事项&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;使用注意事项&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%bd%bf%e7%94%a8%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h3&gt;文件路径&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;文件路径&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%96%87%e4%bb%b6%e8%b7%af%e5%be%84&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;如果你 &lt;code&gt;pwd&lt;/code&gt;、&lt;code&gt;cd&lt;/code&gt; 之类的在里面探索一圈，你会发现文件结构和平时 Linux 有差别。&lt;/p&gt;
+&lt;p&gt;除去安卓限制导致文件位于 &lt;code&gt;/data/data/com.termux/files&lt;/code&gt; 外，你会发现就算把 &lt;code&gt;files/&lt;/code&gt; 当为 &lt;code&gt;/&lt;/code&gt; 也不对，&lt;code&gt;etc&lt;/code&gt; 竟然也在 &lt;code&gt;usr&lt;/code&gt; 中。这给我们平时编辑配置文件带来的不便。&lt;/p&gt;
+&lt;p&gt;不过也有解决办法，官方提供了一个 &lt;code&gt;$PREFIX&lt;/code&gt; 环境变量，指向了 &lt;code&gt;usr&lt;/code&gt; 的绝对路径，只需在我们平时的习惯前加上这个环境变量就好了。比如 &lt;code&gt;/etc/apt/sources.list&lt;/code&gt; 就可以用 &lt;code&gt;$PREFIX/etc/apt/sources.list&lt;/code&gt; 代替。&lt;/p&gt;
+&lt;h3&gt;网络&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;网络&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%bd%91%e7%bb%9c&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;如果手机没有 root 权限，那是用不了那些数字较小（小于 1024）的端口的，这点要注意。&lt;/p&gt;
+&lt;p&gt;在高于 Android 10 的系统上，一些网络工具如 &lt;code&gt;netstat&lt;/code&gt; 也无法使用了。&lt;/p&gt;
 &lt;h2&gt;SSH 服务&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;ssh-服务&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#ssh-%e6%9c%8d%e5%8a%a1&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;如果感觉屏幕小、没有外置键盘，想在其他设备上访问，可以通过SSH服务。官方 Wiki 在&lt;a href=&#34;https://wiki.termux.com/wiki/Remote_Access#Using_the_SSH_server&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;输入 &lt;code&gt;apt install openssh&lt;/code&gt; 安装SSH，输入 &lt;code&gt;sshd&lt;/code&gt; 启动SSH服务，然后就可以通过 SSH 客户端连接了。&lt;/p&gt;
@@ -254,14 +335,14 @@ neovim、tmux、zsh、clang、gcc…&lt;/p&gt;
 &lt;li&gt;Run &lt;code&gt;pkg install code-server&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;You can now start code server by simply running &lt;code&gt;code-server&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;安装并启动后浏览器打开&lt;code&gt;127.0.0.1:8080&lt;/code&gt;，这里推荐Firefox、Chrome、Edge等支持PWA的浏览器，可以将其加到桌面。&lt;/p&gt;
+&lt;p&gt;安装并启动后浏览器打开&lt;code&gt;127.0.0.1:8080&lt;/code&gt;，这里推荐 Firefox、Chrome、Edge 等支持 PWA 的浏览器，可以将其加到桌面。&lt;/p&gt;
 &lt;p&gt;打开后你会发现它提示要密码，密码的&lt;a href=&#34;https://coder.com/docs/code-server/latest/FAQ#how-does-the-config-file-work&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;配置文件在哪&lt;/a&gt;？官方文档告诉你在&lt;code&gt;~/.config/code-server/config.yaml&lt;/code&gt;。这里可以使用 nano 或 vim 编辑（不会？请看文章开头）&lt;/p&gt;
 &lt;h2&gt;图形界面（Termux X11）&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;图形界面termux-x11&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%9b%be%e5%bd%a2%e7%95%8c%e9%9d%a2termux-x11&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Termux 本身是没有GUI支持的，我们可以通过 &lt;a href=&#34;https://github.com/termux/termux-x11&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Termux X11&lt;/a&gt; 来获得GUI支持。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;之前常用的 VNC 也可以，但是现在有 x11 肯定还是用 x11 更好。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;如果不想看大段英文，可以参考这篇文章，正好是这两天写的。里面Termux的X11与proot内Linux发行版的X11都有写。&lt;/p&gt;
+&lt;p&gt;如果不想看大段英文，可以参考这篇文章，正好是这两天更新了。里面Termux的X11与proot内Linux发行版的X11都有写。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://ivonblog.com/posts/termux-x11/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Termux X11：手機上的XWayland伺服器使用教學&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;容器（proot）内装 Linux 发行版&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;容器proot内装-linux-发行版&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%ae%b9%e5%99%a8proot%e5%86%85%e8%a3%85-linux-%e5%8f%91%e8%a1%8c%e7%89%88&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;termux 可以通过 proot 容器运行 Linux 发行版，推荐使用 &lt;code&gt;proot-distro&lt;/code&gt; 对其管理，可以查看&lt;a href=&#34;https://github.com/termux/proot-distro&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;官方仓库&lt;/a&gt;的介绍。&lt;/p&gt;
@@ -604,20 +685,18 @@ neovim、tmux、zsh、clang、gcc…&lt;/p&gt;
 &lt;li&gt;什么是 &lt;a href=&#34;https://zh.wikipedia.org/wiki/Linux%e5%8f%91%e8%a1%8c%e7%89%88&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux发行版&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;主要 Linux 发行版发展时间线 - &lt;a href=&#34;https://github.com/FabioLolix/LinuxTimeline&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux Distribution Timeline&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;好用的桌面（Deaktop）发行版：&lt;/p&gt;
-&lt;ul&gt;
+&lt;h3&gt;常见的桌面（Deaktop）发行版&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;常见的桌面deaktop发行版&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e5%b8%b8%e8%a7%81%e7%9a%84%e6%a1%8c%e9%9d%a2deaktop%e5%8f%91%e8%a1%8c%e7%89%88&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Debian&lt;br&gt;
-各种都有
+各种桌面都有
 &lt;ul&gt;
 &lt;li&gt;deepin&lt;br&gt;
-默认 DDE&lt;/li&gt;
+DDE，应用商店对中国用户比较友好。&lt;/li&gt;
 &lt;li&gt;Ubuntu&lt;br&gt;
-默认修改版 GNOME
+默认修改版 GNOME，用户多，资料多
 &lt;ul&gt;
-&lt;li&gt;Kubuntu&lt;br&gt;
-默认 KDE&lt;/li&gt;
 &lt;li&gt;Linux Mint&lt;br&gt;
-默认 Cinnamon&lt;/li&gt;
+默认 Cinnamon，口碑较好&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;LMDE&lt;br&gt;
@@ -635,15 +714,26 @@ Linux Mint 的另一个版本，默认 Cinnamon&lt;/li&gt;
 &lt;li&gt;&lt;del&gt;Redhat&lt;/del&gt;
 &lt;ul&gt;
 &lt;li&gt;fedora&lt;br&gt;
-默认 GNOME&lt;/li&gt;
+默认 GNOME，不太推荐&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;del&gt;SUSE&lt;/del&gt;
 &lt;ul&gt;
 &lt;li&gt;openSUSE&lt;br&gt;
-默认 KDE&lt;/li&gt;
+默认 KDE，不太推荐&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;为什么不太推荐选择使用 rpm 包的桌面发行版？&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;为什么不太推荐选择使用-rpm-包的桌面发行版&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%b8%ba%e4%bb%80%e4%b9%88%e4%b8%8d%e5%a4%aa%e6%8e%a8%e8%8d%90%e9%80%89%e6%8b%a9%e4%bd%bf%e7%94%a8-rpm-%e5%8c%85%e7%9a%84%e6%a1%8c%e9%9d%a2%e5%8f%91%e8%a1%8c%e7%89%88&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;其实就一个原因，桌面生态太差。fedora 是红帽系唯一称得上“桌面发行版”的，其他用 rpm 的也就 SUSE 系的 openSUSE。&lt;/p&gt;
+&lt;p&gt;很多应用如果只提供一种专用包格式（与跨发行版的通用二进制包、AppImage 等对应），那基本就是 deb，deb 包的生态比 rpm 好的多。国内尤其如此，因为很多企业适配 Linux 都是所谓的“信创”要求，而国产桌面发行版都是使用 deb 包的。&lt;/p&gt;
+&lt;p&gt;主动为 Arch 打包的更少，但是因为社区活跃打包人多，有了 AUR 加持，其生态也算是比较好的。&lt;/p&gt;
+&lt;h3&gt;为什么不推荐选择 Manjaro？&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;为什么不推荐选择-manjaro&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e4%b8%ba%e4%bb%80%e4%b9%88%e4%b8%8d%e6%8e%a8%e8%8d%90%e9%80%89%e6%8b%a9-manjaro&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;因为 Manjaro 自建仓库消解了 Arch 的几大优点。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先是滚动发行版，其自建仓库主动延迟更新，用户无法即时体验到最新的软件版本，这不太符合滚动发行版尽力提供最新的稳定版包的理念。&lt;/li&gt;
+&lt;li&gt;其次是AUR丰富的用户生态，因为AUR都是为Arch打造的，Manjaro的更新延迟可能会导致依赖出现一些问题，甚至因此“滚挂”。&lt;/li&gt;
+&lt;li&gt;还有就是活跃的用户社区，自建仓库导致它的问题很多其他 Arch 用户无法复现，所以Arch社区都明确要求你使用的不是原版 Arch（尤其是 Manjaro）在提出问题之前必须说明，如果是Manjaro特有的问题会让其到自己社区去解决。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;软件&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://wiki.archlinuxcn.org/wiki/Plymouth&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Plymouth - 开机启动界面&lt;/a&gt;
@@ -653,7 +743,7 @@ Plymouth 是一个来自于 Fedora 社区的提供漂亮的启动界面的项目
     </item>
     
     <item>
-      <title>像使用 apt、dnf 那样使用 pacman —— 给 pacman 增加子命令样式的参数</title>
+      <title>给 pacman 增加子命令 —— 在 Arch Linux 上像使用 apt、dnf 那样使用 pacman 或 AUR helper</title>
       <link>/linux/package-manager/subcmd-for-pacman/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -661,73 +751,103 @@ Plymouth 是一个来自于 Fedora 社区的提供漂亮的启动界面的项目
       <description>
         
         
-        &lt;p&gt;用过 Arch 的都知道其包管理器 pacman 以及很多“AUR helper”如 yay、paru 等，使用的 &lt;code&gt;-S&lt;/code&gt; 形式的“选项”（OPTIONS）作为参数。这和主流的 apt、dnf/yum 等的子命令式参数有着明显差异，很多新接触的都是一脸懵逼，比如最经典的 &lt;code&gt;-S&lt;/code&gt;、&lt;code&gt;-Sy&lt;/code&gt;、&lt;code&gt;-Syy&lt;/code&gt;、&lt;code&gt;-Syu&lt;/code&gt;、&lt;code&gt;-Syyu&lt;/code&gt;、&lt;code&gt;-Syuu&lt;/code&gt; 这一连串看着类似的选项。&lt;/p&gt;
+        &lt;p&gt;用过 Arch 的都知道其包管理器 pacman 以及很多“AUR helper”如 yay、paru 等，使用的 &lt;code&gt;-S&lt;/code&gt; 形式的“选项”（OPTIONS）作为参数。这和主流的 apt、dnf/yum 等的“子命令”式参数有着明显差异，很多新接触的都是一脸懵逼，比如最经典的 &lt;code&gt;-S&lt;/code&gt;、&lt;code&gt;-Sy&lt;/code&gt;、&lt;code&gt;-Syy&lt;/code&gt;、&lt;code&gt;-Syu&lt;/code&gt;、&lt;code&gt;-Syyu&lt;/code&gt;、&lt;code&gt;-Syuu&lt;/code&gt; 这一连串看着类似的选项。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;很多人就算用 Arch 挺长时间也根本不知道什么意思，就是入门时看的什么“小白教材”这么写就这么一直用了。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;其实 apt 和 dnf/yum 的“底层” —— dpkg、rpm 也是选项式的，而他们作为直接与用户交互的封装都使用了子命令式，说明子命令应该对大部分人来说是更易使用的，因为它更“human-readable”。所以简单写了个脚本，让用户也可以以 apt 那样的子命令使用 pacman 或 yay。&lt;/p&gt;
+&lt;p&gt;其实 apt 和 dnf/yum 的“底层” —— dpkg、rpm 也是选项式的，而他们作为直接与用户交互的封装都使用了子命令式，说明子命令应该对大部分人来说是更易使用的，因为它更“human-readable”。所以简单写了个脚本，让用户也可以像 apt 那样在 pacman 或 yay 等 AUR helper 中使用子命令。&lt;/p&gt;
+&lt;p&gt;可以保存并命名为 &lt;code&gt;pkg&lt;/code&gt; 之类的进行使用。记得给运行权限并放进环境变量。普通用户使用时也不用加 &lt;code&gt;sudo&lt;/code&gt;，这样一是为了方便，二是为了兼容那些 AUR helper 。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;真要想标题里那样就是给 &lt;code&gt;pacman&lt;/code&gt; 加子命令那也可以命名为 &lt;code&gt;pacman&lt;/code&gt;，已经过简单测试，不过并不推荐这么做。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class=&#34;hextra-code-block hx-relative hx-mt-6 first:hx-mt-0 hx-group/code&#34;&gt;
   
 
-&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/usr/bin/sh
+&lt;div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/bin/sh
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;command&lt;/span&gt; -v yay &amp;gt;/dev/null&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;pkg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;yay&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;elif&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;command&lt;/span&gt; -v paru &amp;gt;/dev/null&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;pkg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;paru&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;pkg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;pacman&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; !&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;root&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PKG&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;pacman&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;sudo_prefix&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;sudo &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;sudo_prefix&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$#&lt;/span&gt; -eq &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;The user is &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;get_arch_pkg&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;local&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;pkgs&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;yay paru /bin/pacman&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; p in &lt;span class=&#34;nv&#34;&gt;$pkgs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;command&lt;/span&gt; -v &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$p&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &amp;gt;/dev/null&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nv&#34;&gt;pkg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$p&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;not find package manager&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;no_subcmd&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Please use \&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;basename &lt;span class=&#34;nv&#34;&gt;$0&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; help\&amp;#34; to see detailed usage.&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;The package manager is &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Now will executing &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;.&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Subcommands for pacman/yay/paru&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pacman_like&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;sub_cmd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;shift&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sub_cmd&lt;/span&gt; in
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s2&#34;&gt;&amp;#34;search&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt; -Ss &lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s2&#34;&gt;&amp;#34;show&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt; -Si &lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# from repo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s2&#34;&gt;&amp;#34;info&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt; -Qi &lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# from local&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s2&#34;&gt;&amp;#34;clean&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Sc &lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s2&#34;&gt;&amp;#34;update&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Avoid doing partial upgrades. Always use upgrade(-Syu) instead of update(-Sy).&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Refer to https://wiki.archlinux.org/title/System_maintenance 3.2 3.3&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;请避免部分更新，不要运行 update(-Sy)，而是运行 upgrade(-Syu)。&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;请参阅 https://wiki.archlinuxcn.org/wiki/系统维护 3.2 3.3&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Sy &lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s2&#34;&gt;&amp;#34;install&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;add&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; in
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                ./*&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -U &lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# install local package&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                *&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -S &lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s2&#34;&gt;&amp;#34;upgrade&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Syu &lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s2&#34;&gt;&amp;#34;force-upgrade&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Syyu &lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s2&#34;&gt;&amp;#34;remove&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;del&amp;#34;&lt;/span&gt;* &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;uninstall&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; Suggest using &lt;span class=&#34;s2&#34;&gt;&amp;#34;purge&amp;#34;&lt;/span&gt; or &lt;span class=&#34;s2&#34;&gt;&amp;#34;autopurge&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -R &lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s2&#34;&gt;&amp;#34;purge&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Rn &lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s2&#34;&gt;&amp;#34;autoremove&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;autopurge&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$#&lt;/span&gt; -eq &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;c1&#34;&gt;# from https://wiki.archlinuxcn.org/wiki/Pacman/提示和技巧 1.6&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt; -Qtdq &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Rns -
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$sub_cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;autoremove&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Rcs &lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$sub_cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;autopurge&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Rncs &lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;s2&#34;&gt;&amp;#34;help&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;可用子命令(Available subcommands):&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;    search         : Search for packages&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;    show           : Show package information from repo&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;    info           : Show package information from local&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;    clean          : Clean package cache&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;    install        : Install packages&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;     |- add&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;    upgrade        : Upgrade packages&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;    force-upgrade  : Force upgrade packages&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;    remove         : Remove packages&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;     |- del&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;     |- uninstall&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;    purge          : Purge packages&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;    autoremove     : Automatically remove unneeded packages&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;    autopurge      : Automatically purge unneeded packages&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        *&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sub_cmd&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;sub_cmd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;shift&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;other_args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;get_arch_pkg
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sub_cmd&lt;/span&gt; in
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;search&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt; -Ss &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;show&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt; -Si &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# from repo&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;info&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt; -Qi &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# from local&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;update&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Avoid doing partial upgrades. Always use upgrade(-Syu) instead of update(-Sy).&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Refer to https://wiki.archlinux.org/title/System_maintenance 3.2 3.3&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;请避免部分更新，不要运行 update(-Sy)，而是运行 upgrade(-Syu)。&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;请参阅 https://wiki.archlinuxcn.org/wiki/系统维护 3.2 3.3&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;install&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;add&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; in
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            ./*&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -U &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# install local package&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            *&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -S &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;upgrade&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Syu &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;force-upgrade&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Syyu &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;remove&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;del&amp;#34;&lt;/span&gt;* &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;uninstall&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; Suggest using &lt;span class=&#34;s2&#34;&gt;&amp;#34;purge&amp;#34;&lt;/span&gt; or &lt;span class=&#34;s2&#34;&gt;&amp;#34;autopurge&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -R &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;purge&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Rn &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;autoremove&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;autopurge&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$#&lt;/span&gt; -eq &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;c1&#34;&gt;# from https://wiki.archlinuxcn.org/wiki/Pacman/提示和技巧 1.6&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt; -Qtdq &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Rns -
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$sub_cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;autoremove&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Rcs &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$sub_cmd&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;autopurge&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Rncs &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;s2&#34;&gt;&amp;#34;clean&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sudo_prefix$pkg&lt;/span&gt; -Sc &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    *&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$sub_cmd&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$other_args&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;esac&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# need sudo or not&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;id -u&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt; !&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$pkg&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;/bin/pacman&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;sudo_prefix&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;sudo &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;sudo_prefix&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$#&lt;/span&gt; -eq &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; no_subcmd &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; pacman_like &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;hextra-code-copy-btn-container hx-opacity-0 hx-transition group-hover/code:hx-opacity-100 hx-flex hx-gap-1 hx-absolute hx-m-[11px] hx-right-0 hx-top-0&#34;&gt;
   &lt;button
     class=&#34;hextra-code-copy-btn hx-group/copybtn hx-transition-all active:hx-opacity-50 hx-bg-primary-700/5 hx-border hx-border-black/5 hx-text-gray-600 hover:hx-text-gray-900 hx-rounded-md hx-p-1.5 dark:hx-bg-primary-300/10 dark:hx-border-white/10 dark:hx-text-gray-400 dark:hover:hx-text-gray-50&#34;
     title=&#34;Copy code&#34;

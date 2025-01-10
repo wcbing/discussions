@@ -17,16 +17,19 @@
     
     <item>
       <title>Linux 日常设置</title>
-      <link>/linux/linux-setting/</link>
+      <link>/linux/setting/base/</link>
       <pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate>
       
-      <guid>/linux/linux-setting/</guid>
+      <guid>/linux/setting/base/</guid>
       <description>
         
         
         &lt;p&gt;一些很重要但设置一次后基本后不会管的 Linux 系统设置。&lt;/p&gt;
 &lt;p&gt;这下面 &lt;code&gt;xxxctl&lt;/code&gt; 都是 Systemd 的组件，虽然有争议，但确实为平时使用带来了不少方便。&lt;br&gt;
-不过既然有的不用 Systemd 或不能用Systemd（像容器里），还是把具体配置文件也列出来了。&lt;/p&gt;
+不过既然有的不用 Systemd 或不能用Systemd（像容器里），还是把通用命令和具体配置文件也列出来了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;非必要不要直接修改配置文件。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2&gt;地区语言设置&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;地区语言设置&#34;&gt;&lt;/span&gt;
     &lt;a href=&#34;#%e5%9c%b0%e5%8c%ba%e8%af%ad%e8%a8%80%e8%ae%be%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;查看当前语言设置主要涉及&lt;code&gt;localectl&lt;/code&gt;、&lt;code&gt;locale&lt;/code&gt;、&lt;code&gt;locale-gen&lt;/code&gt;等。建议使用 &lt;code&gt;localectl&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;生成语言文件：&lt;/p&gt;
@@ -34,15 +37,15 @@
   &lt;thead&gt;
       &lt;tr&gt;
           &lt;th&gt;&lt;/th&gt;
-          &lt;th&gt;&lt;code&gt;locale-gen&lt;/code&gt;&lt;/th&gt;
           &lt;th&gt;&lt;code&gt;localectl&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;locale-gen&lt;/code&gt;&lt;/th&gt;
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
           &lt;td&gt;生成语言文件&lt;/td&gt;
-          &lt;td&gt;1. &lt;code&gt;vim /etc/locale.gen&lt;/code&gt;，找到需要语言，如 &lt;code&gt;zh_CN.UTF-8&lt;/code&gt;，取消注释。&lt;br /&gt;2. 执行 &lt;code&gt;locale-gen&lt;/code&gt; 生成Locale&lt;/td&gt;
           &lt;td&gt;设置默认语言时自动生成&lt;/td&gt;
+          &lt;td&gt;1. &lt;code&gt;vim /etc/locale.gen&lt;/code&gt;，找到需要语言，如 &lt;code&gt;zh_CN.UTF-8&lt;/code&gt;，取消注释。&lt;br /&gt;2. 执行 &lt;code&gt;locale-gen&lt;/code&gt; 生成Locale&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -51,29 +54,29 @@
   &lt;thead&gt;
       &lt;tr&gt;
           &lt;th&gt;&lt;/th&gt;
-          &lt;th&gt;配置文件&lt;/th&gt;
-          &lt;th&gt;&lt;code&gt;locale&lt;/code&gt;&lt;/th&gt;
           &lt;th&gt;&lt;code&gt;localectl&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;locale&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;配置文件&lt;/th&gt;
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
           &lt;td&gt;查看当前语言&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;cat /etc/locale.conf&lt;/code&gt;&lt;br /&gt;某些会使用&lt;br /&gt;&lt;code&gt;/etc/default/locale&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;locale&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;localectl status&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;locale&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;cat /etc/locale.conf&lt;/code&gt;&lt;br /&gt;某些会使用&lt;br /&gt;&lt;code&gt;/etc/default/locale&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td&gt;查看所有语言&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;locale -a&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;查看已安装语言&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;localectl list-locales&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;locale -a&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;设置默认语言&lt;/td&gt;
-          &lt;td&gt;配置文件内容改为&lt;code&gt;LANG=zh_CN.UTF-8&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;localectl set-locale LANG=zh_CN.UTF-8&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;配置文件内容改为&lt;code&gt;LANG=zh_CN.UTF-8&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -89,30 +92,30 @@
   &lt;thead&gt;
       &lt;tr&gt;
           &lt;th&gt;&lt;/th&gt;
-          &lt;th&gt;&lt;code&gt;date&lt;/code&gt; 和 &lt;code&gt;tzselect&lt;/code&gt;&lt;/th&gt;
           &lt;th&gt;&lt;code&gt;timedatectl&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;date&lt;/code&gt; 和 &lt;code&gt;tzselect&lt;/code&gt;&lt;/th&gt;
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
           &lt;td&gt;查看时间信息&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;date&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;timedatectl&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;date&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;设置时间&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;date -s &amp;quot;2002-02-02 01:01:01&amp;quot;&lt;/code&gt;&lt;br /&gt;或&lt;code&gt;date -s 01:01:01&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;timedatectl set-time &amp;quot;2002-02-02 01:01:01&amp;quot;&lt;/code&gt;&lt;br /&gt;或&lt;code&gt;timedatectl set-time 01:01:01&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;date -s &amp;quot;2002-02-02 01:01:01&amp;quot;&lt;/code&gt;&lt;br /&gt;或&lt;code&gt;date -s 01:01:01&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;设置时区&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;tzselect&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;timedatectl set-timezone Asia/Shanghai&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;tzselect&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;设置 NTP&lt;/td&gt;
-          &lt;td&gt;&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;timedatectl set-ntp true&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -122,31 +125,99 @@
 &lt;a href=&#34;https://wiki.archlinuxcn.org/wiki/%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4#Windows_%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8_UTC&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;系统时间#Windows_系统使用_UTC - Arch Linux 中文维基&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2&gt;主机名设置&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;主机名设置&#34;&gt;&lt;/span&gt;
-    &lt;a href=&#34;#%e4%b8%bb%e6%9c%ba%e5%90%8d%e8%ae%be%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;主机名，即Hostname&lt;/p&gt;
+    &lt;a href=&#34;#%e4%b8%bb%e6%9c%ba%e5%90%8d%e8%ae%be%e7%bd%ae&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;主机名，即 Hostname&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
           &lt;th&gt;&lt;/th&gt;
-          &lt;th&gt;配置文件&lt;/th&gt;
-          &lt;th&gt;&lt;code&gt;hostname&lt;/code&gt;&lt;/th&gt;
           &lt;th&gt;&lt;code&gt;hostnamectl&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;code&gt;hostname&lt;/code&gt;&lt;/th&gt;
+          &lt;th&gt;配置文件&lt;/th&gt;
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
           &lt;td&gt;查看主机名&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;cat /etc/hostname&lt;/code&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;hostname&lt;/code&gt;&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;hostnamectl&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;hostname&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;cat /etc/hostname&lt;/code&gt;&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;设置主机名&lt;/td&gt;
-          &lt;td&gt;将上述配置文件中内容改为所设主机名，重新登陆后生效&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;hostname [hostname]&lt;/code&gt;临时修改&lt;br /&gt;&lt;code&gt;hostname -F /etc/hostname&lt;/code&gt; 立即根据配置文件更新主机名&lt;/td&gt;
           &lt;td&gt;&lt;code&gt;hostnamectl hostname [hostname]&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;hostname [hostname]&lt;/code&gt;临时修改&lt;br /&gt;&lt;code&gt;hostname -F /etc/hostname&lt;/code&gt; 立即根据配置文件更新主机名&lt;/td&gt;
+          &lt;td&gt;将上述配置文件中内容改为所设主机名，重新登陆后生效&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Linux 用户与权限</title>
+      <link>/linux/setting/user/</link>
+      <pubDate>Fri, 05 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/setting/user/</guid>
+      <description>
+        
+        
+        &lt;h2&gt;用户与组&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;用户与组&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e7%94%a8%e6%88%b7%e4%b8%8e%e7%bb%84&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;查看（我）&lt;/th&gt;
+          &lt;th&gt;查看（已登陆）&lt;/th&gt;
+          &lt;th&gt;创建&lt;/th&gt;
+          &lt;th&gt;删除&lt;/th&gt;
+          &lt;th&gt;修改&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;用户&lt;/td&gt;
+          &lt;td&gt;whoami&lt;br&gt;id&lt;/td&gt;
+          &lt;td&gt;w（登陆用户）&lt;br&gt;who（详细用户会话）&lt;br&gt;users（用户会话）&lt;br&gt;&lt;/td&gt;
+          &lt;td&gt;useradd&lt;/td&gt;
+          &lt;td&gt;userdel&lt;/td&gt;
+          &lt;td&gt;usermod&lt;br&gt;passwd（改密码）&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;组&lt;/td&gt;
+          &lt;td&gt;groups&lt;br&gt;id&lt;/td&gt;
+          &lt;td&gt;&lt;/td&gt;
+          &lt;td&gt;groupadd&lt;/td&gt;
+          &lt;td&gt;groupdel&lt;/td&gt;
+          &lt;td&gt;groupmod&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;创建用户时一般会用 &lt;code&gt;useradd -m&lt;/code&gt;，同时创建用户的主目录。也可以加上 &lt;code&gt;-s /bin/bash&lt;/code&gt; 等指定用户登陆后使用的 Shell。&lt;/p&gt;
+&lt;p&gt;各种详细用户建议查看各自的帮助，不再一一列出。&lt;/p&gt;
+&lt;h2&gt;权限&lt;span class=&#34;hx-absolute -hx-mt-20&#34; id=&#34;权限&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#%e6%9d%83%e9%99%90&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;查看&lt;/th&gt;
+          &lt;th&gt;修改文件权限&lt;/th&gt;
+          &lt;th&gt;修改文件属主&lt;/th&gt;
+          &lt;th&gt;修改文件属组&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;文件权限&lt;/td&gt;
+          &lt;td&gt;ls -l&lt;/td&gt;
+          &lt;td&gt;chmod&lt;/td&gt;
+          &lt;td&gt;chown&lt;/td&gt;
+          &lt;td&gt;chgrp&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;未完待续&lt;/p&gt;
 
       </description>
     </item>

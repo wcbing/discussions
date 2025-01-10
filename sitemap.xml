@@ -33,24 +33,27 @@
     <lastmod>2024-11-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/</loc>
-    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/linux/</loc>
-    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/linux/package-manager/</loc>
-    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
+    <loc>/blog/wcbing-apt-repo/</loc>
+    <lastmod>2024-10-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/font/</loc>
     <lastmod>2024-01-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/linux/package-manager/wcbing-apt-repo/</loc>
-    <lastmod>2024-01-06T00:00:00+00:00</lastmod>
+    <loc>/linux/setting/base/</loc>
+    <lastmod>2024-01-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/linux/linux-setting/</loc>
+    <loc>/linux/setting/user/</loc>
     <lastmod>2024-01-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/shell/</loc>
+    <lastmod>2024-01-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/linux/setting/</loc>
     <lastmod>2024-01-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/database/</loc>
@@ -119,13 +122,25 @@
     <loc>/categories/cs%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2023-04-04T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>/tags/dns/</loc>
+    <lastmod>2023-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/network/dns/</loc>
+    <lastmod>2023-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/http/</loc>
+    <lastmod>2023-04-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/network/http/</loc>
+    <lastmod>2023-04-04T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/network/tools/</loc>
     <lastmod>2023-04-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/network/layer-application/</loc>
+    <loc>/tags/%E9%9D%A2%E7%BB%8F/</loc>
     <lastmod>2023-04-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/%E9%9D%A2%E7%BB%8F/</loc>
+    <loc>/tags/%E5%9F%9F%E5%90%8D/</loc>
     <lastmod>2023-04-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/linux/termux/</loc>
@@ -266,8 +281,10 @@
   </url><url>
     <loc>/linux/disto/</loc>
   </url><url>
-    <loc>/blog/license/</loc>
+    <loc>/linux/package-manager/</loc>
   </url><url>
     <loc>/linux/package-manager/subcmd-for-pacman/</loc>
+  </url><url>
+    <loc>/blog/license/</loc>
   </url>
 </urlset>
